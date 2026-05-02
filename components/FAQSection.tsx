@@ -1,0 +1,273 @@
+"use client";
+
+import { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { ChevronDown, ChevronRight } from "lucide-react";
+import Link from "next/link";
+
+const faqs = [
+  {
+    category: "About the School",
+    q: "Is CSST just for kids who want to be programmers or go into tech?",
+    a: `No — and this is probably the most important thing to understand about CSST.\n\nCSSTis a full, accredited high school that covers every subject you'd find in any D11 high school: English, math, science, history, and electives. Students graduate with a standard D11 diploma. The difference isn't what subjects are covered — it's how they're taught and what they're connected to.\n\nAt CSST, every subject is taught through the lens of real-world application and future relevance. A student who loves writing might find themselves drafting technical documentation for a cybersecurity project. A student drawn to history might explore the geopolitics of space exploration. A student interested in art might work on UX design.\n\nTechnology touches every career field. CSST prepares students for that reality — regardless of whether they ever write a single line of code.`,
+    featured: true,
+  },
+  {
+    category: "About the School",
+    q: "What kind of student thrives at CSST?",
+    a: `Curious ones. That's the honest answer.\n\nCSSTis designed for students who learn best by doing, not just by listening. Students who want to understand why something matters, not just memorize it for a test. Students who are ready to take some ownership of their learning and aren't looking for someone to hand them everything.\n\nThat said, "thriving" at CSST doesn't mean arriving with confidence or knowing what you want. Many students come in uncertain, a little lost, or just feeling like traditional school has never quite fit. The structure, the mentors, and the environment are designed to help those students find their footing.\n\nYou don't need to be a high achiever. You need to be willing to try.`,
+    featured: false,
+  },
+  {
+    category: "Admissions & Cost",
+    q: "Is CSST free? What does it actually cost?",
+    a: `CSST is a publicly funded school within Colorado Springs School District 11. Tuition is completely free — always.\n\nAs a D11 school, CSST is funded through the same public mechanisms as any other D11 high school. There is no tuition, no enrollment fee, and no pay-to-play model. Some elective activities or materials may have small associated costs (as is standard at any public school), but the school, its programs, and its industry connections are entirely free to attend.\n\nThis is intentional. Access to the careers of the future shouldn't be determined by a family's income. If CSST only served students whose families could afford private alternatives, it would be failing its own mission.`,
+    featured: false,
+  },
+  {
+    category: "Admissions & Cost",
+    q: "Who can apply? What does 'application-based' mean?",
+    a: `Any student entering 9th or 10th grade in the D11 area can apply. CSST is planning for approximately 100 students per cohort year, growing to a full 9–12 school of 400–500 students over time.\n\n"Application-based" does not mean academically selective. It is not like applying to a competitive magnet school where only top students get in. The application exists to ensure that students who enroll have genuinely chosen to be there — that they (and their families) understand what CSST is and are intentionally choosing this environment.\n\nFactors like GPA, test scores, or prior tech experience are not filters for admission. The school wants students who are motivated, curious, and ready for a different kind of high school — not students who have already proven they can excel in a traditional one.\n\nInformation Nights are a great first step before applying — they help families ask real questions and get a feel for whether CSST is the right fit.`,
+    featured: false,
+  },
+  {
+    category: "Academics",
+    q: "Will students still graduate with a regular high school diploma?",
+    a: `Yes, completely standard. CSST follows D11 graduation requirements in full. Every student who completes the program earns a Colorado Springs School District 11 high school diploma — the same credential as any other D11 graduate.\n\nOn top of that, students have significant opportunities to earn college credit through dual enrollment partnerships with UCCS and Pikes Peak State College. These aren't simulated or watered-down college courses — they're the real thing, listed on a real college transcript, potentially saving students (and families) significant tuition costs down the road.`,
+    featured: false,
+  },
+  {
+    category: "Academics",
+    q: "How does dual enrollment work? What can students actually take?",
+    a: `CSST students have access to two full college catalogs — no prerequisites beyond CSST's concurrent enrollment agreements with each institution.\n\n**University of Colorado Colorado Springs (UCCS)** is a full four-year research university with 9 colleges, 60+ undergraduate degree programs, and 1,000+ courses across every discipline — business, engineering, computer science, the sciences, humanities, education, and more. CSST students can take real UCCS courses on campus or online, alongside traditional college students, earning credit that appears on an official UCCS transcript.\n\n**Pikes Peak State College (PPSC)** offers 200+ certificate and degree programs across career/technical, workforce, and transfer pathways. PPSC courses can be taken on a PPSC campus, online, or through Campus Pathways delivered directly at CSST. Credits earned are fully transferable to Colorado public universities.\n\nStudents work with their CSST counselor to identify courses that align with their interests and count toward both high school requirements and future college plans. For many students, this means entering their freshman year of college with a semester or more of credit already completed — tuition-free.`,
+    featured: false,
+  },
+  {
+    category: "Academics",
+    q: "Do students have to specialize? What if they're interested in multiple areas?",
+    a: `Exploration is the default mode at CSST, not specialization.\n\nStudents aren't assigned a "track" on day one and locked in. The school is designed to expose students to a broad range of technology, industry, and career pathways — and let their interests emerge through that exposure. Some students will arrive knowing exactly what they want and go deep. Most will arrive uncertain, explore widely, and narrow their focus over time.\n\nEven students who do identify a strong interest are still completing a full, balanced high school curriculum alongside their area of focus. Depth of interest in one area doesn't mean ignoring everything else.`,
+    featured: false,
+  },
+  {
+    category: "The Environment",
+    q: "What is a normal day at CSST actually like?",
+    a: `The honest answer is: different from what you're used to.\n\nCSSTdoesn't run a rigid bell-schedule of 45-minute periods where you sit at a desk while a teacher talks. The environment is closer to a professional workspace: team areas for project work, meeting rooms for presentations and collaboration, subject-specific labs for hands-on technical work, and common areas for independent focus.\n\nStudents manage more of their own time and schedule than in a traditional high school. Teachers act as mentors and coaches — guiding students through material and projects rather than delivering lectures to passive audiences. There are still structured learning blocks, direct instruction, and clear academic expectations. But the culture is one of ownership: students are treated as capable young adults, and expected to show up like it.\n\nFor students who've always felt like the traditional model wasn't built for them — that's by design.`,
+    featured: false,
+  },
+  {
+    category: "The Environment",
+    q: "What's the relationship between CSST and its industry partners? Is it just branding?",
+    a: `It's not branding — the partners are physically present and structurally involved.\n\nCSSTis co-located at the UCCS Cybersecurity Center, which means the National Cybersecurity Center is next door. Students walk past working professionals every day. Industry mentors come in to review student projects, present on their fields, and engage directly with coursework.\n\nThe Board of Directors is made up of the CEOs and leaders of CSST's ecosystem partners — the Space ISAC Executive Director, the NCC CEO, the Pikes Peak State College President, the USAFA's Department of Computer and Cyber Sciences head, and others. These aren't advisory board placeholders; they are actively governing the school.\n\nThrough Exponential Impact, students have access to a real startup accelerator's mentor network — not a simulation of one. The connections students make at CSST are with people who work in these industries, not just people who teach about them.`,
+    featured: false,
+  },
+  {
+    category: "Applying",
+    q: "How do I learn more or attend an Information Night?",
+    a: `Information Nights are the best first step. They're held at the school at 3650 N. Nevada Avenue — enter on the west side of the building at the CSST entrance. All nights start at 6:00 PM. You'll meet the staff, tour the facility, and get real answers to real questions.\n\nFuture information night dates are posted on the website as they're scheduled. You can also reach the school directly:\n\n• Email: info@csrockets.org\n• Contact: nathan.gorsch@d11.org\n• Website: csrockets.org\n\nApplications are submitted through the school website. The process is straightforward — the goal is to start a conversation, not to screen students out.`,
+    featured: false,
+  },
+];
+
+const categories = [...new Set(faqs.map((f) => f.category))];
+
+function FAQItem({
+  q, a, featured, index,
+}: {
+  q: string; a: string; featured: boolean; index: number;
+}) {
+  const [open, setOpen] = useState(featured);
+
+  const renderAnswer = (text: string) => {
+    const lines = text.split("\n\n");
+    return lines.map((line, i) => {
+      if (line.startsWith("**") || line.includes("**")) {
+        const parts = line.split(/\*\*(.*?)\*\*/g);
+        return (
+          <p key={i} className="text-sm text-[#C0C0D0]/65 leading-relaxed mb-3 last:mb-0">
+            {parts.map((part, j) =>
+              j % 2 === 1 ? (
+                <span key={j} className="text-white font-semibold">
+                  {part}
+                </span>
+              ) : (
+                part
+              )
+            )}
+          </p>
+        );
+      }
+      if (line.startsWith("•")) {
+        return (
+          <p key={i} className="text-sm text-[#C0C0D0]/65 leading-relaxed mb-1.5 pl-3">
+            {line}
+          </p>
+        );
+      }
+      return (
+        <p key={i} className="text-sm text-[#C0C0D0]/65 leading-relaxed mb-3 last:mb-0">
+          {line}
+        </p>
+      );
+    });
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-20px" }}
+      transition={{ duration: 0.45, delay: index * 0.05 }}
+      className={`rounded-xl border overflow-hidden transition-all duration-300 ${
+        open
+          ? "border-[#00D4FF]/22 bg-[#0D0D18]"
+          : "border-[#00D4FF]/8 bg-[#0A0A0F] hover:border-[#00D4FF]/15"
+      }`}
+    >
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-start justify-between gap-4 p-5 text-left group"
+      >
+        <div className="flex items-start gap-3 flex-1 min-w-0">
+          {featured && (
+            <span className="flex-shrink-0 mt-0.5 text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded bg-[#00D4FF]/15 text-[#00D4FF] whitespace-nowrap">
+              Key Q
+            </span>
+          )}
+          <span
+            className={`text-sm font-semibold leading-snug transition-colors ${
+              open ? "text-white" : "text-[#C0C0D0]/80 group-hover:text-white"
+            }`}
+          >
+            {q}
+          </span>
+        </div>
+        <motion.div
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.2 }}
+          className={`flex-shrink-0 mt-0.5 transition-colors ${open ? "text-[#00D4FF]" : "text-[#C0C0D0]/25 group-hover:text-[#C0C0D0]/50"}`}
+        >
+          <ChevronDown className="w-4 h-4" />
+        </motion.div>
+      </button>
+
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="px-5 pb-6 border-t border-[#00D4FF]/8 pt-4">
+              {renderAnswer(a)}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
+export default function FAQSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  return (
+    <section id="faq" ref={ref} className="relative py-28 bg-[#0A0A0F] overflow-hidden">
+      <div className="absolute inset-0 grid-bg opacity-20" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-[#00D4FF]/4 blur-[100px] pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto px-6">
+        {/* Header */}
+        <div className="mb-14">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 mb-6 text-[#00D4FF] text-xs font-medium tracking-[0.25em] uppercase"
+          >
+            <span className="w-8 h-px bg-[#00D4FF]" />
+            Common Questions
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-display text-4xl md:text-5xl font-black text-white leading-tight tracking-tight mb-4"
+          >
+            Straight Answers.
+            <br />
+            <span className="text-[#00D4FF]">No Brochure Speak.</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-base text-[#C0C0D0]/60 leading-relaxed"
+          >
+            Start with the most important one: CSST is for{" "}
+            <span className="text-white font-medium">every kind of student</span> — not just
+            &ldquo;tech kids.&rdquo;
+          </motion.p>
+        </div>
+
+        {/* FAQs grouped by category */}
+        {categories.map((cat) => (
+          <div key={cat} className="mb-10">
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-[10px] font-bold tracking-[0.25em] text-[#00D4FF]/45 uppercase mb-4 pl-1"
+            >
+              {cat}
+            </motion.p>
+            <div className="space-y-3">
+              {faqs
+                .filter((f) => f.category === cat)
+                .map((faq, i) => (
+                  <FAQItem key={faq.q} {...faq} index={i} />
+                ))}
+            </div>
+          </div>
+        ))}
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="mt-8 p-6 rounded-xl border border-[#00D4FF]/12 bg-[#0D0D18] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+        >
+          <div>
+            <p className="text-sm font-semibold text-white mb-1">Still have questions?</p>
+            <p className="text-xs text-[#C0C0D0]/50">
+              Come to an Information Night at 3650 N. Nevada — or reach out directly.
+            </p>
+          </div>
+          <div className="flex gap-3 flex-shrink-0 flex-wrap">
+            <a
+              href="mailto:info@csrockets.org"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-[#00D4FF]/25 text-[#00D4FF] text-sm font-semibold hover:bg-[#00D4FF]/10 transition-all"
+            >
+              Email Us
+            </a>
+            <Link
+              href="https://www.csrockets.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#00D4FF] text-[#0A0A0F] text-sm font-bold hover:bg-white transition-all group"
+            >
+              Apply at csrockets.org
+              <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
