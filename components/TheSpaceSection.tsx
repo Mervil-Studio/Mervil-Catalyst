@@ -46,12 +46,12 @@ const principles = [
   {
     number: "01",
     headline: "Students Are Treated as Young Adults",
-    body: "There are no hall passes at CSST. Students manage their own time, take responsibility for their learning, and are expected to show up like professionals — because that's how professionals develop.",
+    body: "There are no hall passes at Mervil Catalyst. Students manage their own time, take responsibility for their learning, and are expected to show up like professionals — because that's how professionals develop.",
   },
   {
     number: "02",
     headline: "Teachers Are Mentors, Not Lecturers",
-    body: "CSST faculty guide curiosity rather than dictate content. The model is coaching: understand what a student is interested in, connect it to real skills, and help them go deeper. The student drives.",
+    body: "Mervil Catalyst faculty guide curiosity rather than dictate content. The model is coaching: understand what a student is interested in, connect it to real skills, and help them go deeper. The student drives.",
   },
   {
     number: "03",
@@ -104,7 +104,7 @@ export default function TheSpaceSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-lg text-[#C0C0D0]/70 leading-relaxed"
           >
-            CSST was designed to look and feel like a startup office — because the habits
+            Mervil Catalyst was designed to look and feel like a startup office — because the habits
             students build in their environment follow them into their careers. Walk in, and you
             won&apos;t find rows of desks and a whiteboard. You&apos;ll find team spaces, project
             rooms, and people working on real things.
@@ -181,7 +181,7 @@ export default function TheSpaceSection() {
             </h3>
             <p className="text-sm text-[#C0C0D0]/50 leading-relaxed max-w-lg">
               Co-located at the UCCS Cybersecurity Center. Enter on the west side of the
-              building at the CSST entrance. Upcoming Information Nights start at 6:00 PM.
+              building at the Mervil Catalyst entrance. Upcoming Information Nights start at 6:00 PM.
             </p>
           </div>
           <a

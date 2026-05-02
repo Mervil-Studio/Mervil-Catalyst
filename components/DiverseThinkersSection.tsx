@@ -28,7 +28,7 @@ const dimensions = [
     sublabel: "Tuition free · No barriers to entry",
     color: "#A78BFA",
     description:
-      "CSST is free and open to every D11 student. Zip code should never determine a student's access to the careers of the future. That's not just a policy — it's the foundation of who we are.",
+      "Mervil Catalyst is free and open to every D11 student. Zip code should never determine a student's access to the careers of the future. That's not just a policy — it's the foundation of who we are.",
   },
   {
     icon: Lightbulb,
@@ -36,7 +36,7 @@ const dimensions = [
     sublabel: "Not just 'tech kids'",
     color: "#F59E0B",
     description:
-      "You don't need to know how to code to apply. You don't need straight A's. You need curiosity and the drive to grow. CSST meets every student where they are and builds from there.",
+      "You don't need to know how to code to apply. You don't need straight A's. You need curiosity and the drive to grow. Mervil Catalyst meets every student where they are and builds from there.",
   },
   {
     icon: Zap,
@@ -52,7 +52,7 @@ const dimensions = [
     sublabel: "If school never felt like a fit",
     color: "#C0C0D0",
     description:
-      "Many students arrive at CSST after years of feeling like the traditional school system wasn't built for them. It wasn't. CSST was built differently — on purpose.",
+      "Many students arrive at Mervil Catalyst after years of feeling like the traditional school system wasn't built for them. It wasn't. Mervil Catalyst was built differently — on purpose.",
   },
 ];
 
@@ -106,7 +106,7 @@ export default function DiverseThinkersSection() {
             transition={{ duration: 0.7, delay: 0.28 }}
             className="text-base text-[#C0C0D0]/55 leading-relaxed"
           >
-            At CSST, diversity isn&apos;t a box we check. It&apos;s the architecture of how we
+            At Mervil Catalyst, diversity isn&apos;t a box we check. It&apos;s the architecture of how we
             learn, collaborate, and solve real problems — together.
           </motion.p>
         </div>
@@ -121,6 +121,8 @@ export default function DiverseThinkersSection() {
               transition={{ duration: 0.6, delay: 0.1 + i * 0.09 }}
               className="group relative p-6 rounded-xl border border-[#00D4FF]/8 bg-[#0D0D18] hover:border-opacity-40 transition-all duration-300 overflow-hidden"
               style={{ borderColor: `${color}15` }}
+              onMouseEnter={(e) => (e.currentTarget.style.borderColor = `${color}38`)}
+              onMouseLeave={(e) => (e.currentTarget.style.borderColor = `${color}15`)}
             >
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
@@ -141,7 +143,7 @@ export default function DiverseThinkersSection() {
           ))}
         </div>
 
-        {/* Manifesto pull-quote */}
+        {/* Pull-quote */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -158,7 +160,7 @@ export default function DiverseThinkersSection() {
               amplify <span className="text-[#00D4FF]">uncommon ones</span>.&rdquo;
             </p>
             <p className="text-sm text-[#C0C0D0]/50 leading-relaxed mb-8 max-w-2xl">
-              That means CSST works best when students bring different backgrounds, different
+              That means Mervil Catalyst works best when students bring different backgrounds, different
               learning styles, and different life experiences into the same room. Working across
               those differences — learning to collaborate, communicate, and build with people who
               aren&apos;t like you — is itself one of the most valuable things we teach.
@@ -168,7 +170,7 @@ export default function DiverseThinkersSection() {
               href="#admissions"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-[#A78BFA]/30 text-[#A78BFA] text-sm font-semibold hover:bg-[#A78BFA]/10 hover:border-[#A78BFA]/60 transition-all duration-200 group"
             >
-              See If CSST Is Right for You
+              See If Mervil Catalyst Is Right for You
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>

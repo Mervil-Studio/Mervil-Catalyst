@@ -14,7 +14,7 @@ const footerLinks: Record<string, { label: string; href: string; external?: bool
   Ecosystem: [
     { label: "National Cybersecurity Center", href: "https://www.nationalcybersecuritycenter.org", external: true },
     { label: "Exponential Impact", href: "https://www.exponentialimpact.com", external: true },
-    { label: "Space ISAC", href: "https://s-isac.org", external: true },
+    { label: "Space ISAC", href: "https://spaceisac.org", external: true },
     { label: "UCCS Partnership", href: "#", external: false },
   ],
   "Mission Control": [
@@ -73,7 +73,7 @@ export default function Footer() {
                 <Zap className="w-5 h-5 text-[#00D4FF]" />
               </div>
               <div>
-                <div className="font-display text-sm font-black tracking-[0.15em] text-white">CSST</div>
+                <div className="font-display text-sm font-black tracking-[0.15em] text-white">Mervil Catalyst</div>
                 <div className="text-[9px] tracking-[0.2em] text-[#00D4FF]/60 uppercase">
                   Colorado Springs School of Technology
                 </div>
