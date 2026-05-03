@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import Link from "next/link";
@@ -70,104 +70,58 @@ const faqs = [
 
 const categories = [...new Set(faqs.map((f) => f.category))];
 
-function FAQItem({
-  q, a, featured, index,
-}: {
-  q: string; a: string; featured: boolean; index: number;
-}) {
-  const [open, setOpen] = useState(featured);
-
-  const renderAnswer = (text: string) => {
-    const lines = text.split("\n\n");
-    return lines.map((line, i) => {
-      if (line.startsWith("**") || line.includes("**")) {
-        const parts = line.split(/\*\*(.*?)\*\*/g);
-        return (
-          <p key={i} className="text-sm text-[#C0C0D0]/65 leading-relaxed mb-3 last:mb-0">
-            {parts.map((part, j) =>
-              j % 2 === 1 ? (
-                <span key={j} className="text-white font-semibold">
-                  {part}
-                </span>
-              ) : (
-                part
-              )
-            )}
-          </p>
-        );
-      }
-      if (line.startsWith("•")) {
-        return (
-          <p key={i} className="text-sm text-[#C0C0D0]/65 leading-relaxed mb-1.5 pl-3">
-            {line}
-          </p>
-        );
-      }
+function renderAnswer(text: string) {
+  const lines = text.split("\n\n");
+  return lines.map((line, i) => {
+    if (line.startsWith("**") || line.includes("**")) {
+      const parts = line.split(/\*\*(.*?)\*\*/g);
       return (
         <p key={i} className="text-sm text-[#C0C0D0]/65 leading-relaxed mb-3 last:mb-0">
-          {line}
+          {parts.map((part, j) =>
+            j % 2 === 1 ? (
+              <span key={j} className="text-white font-semibold">{part}</span>
+            ) : (
+              part
+            )
+          )}
         </p>
       );
-    });
-  };
+    }
+    if (line.startsWith("•")) {
+      return (
+        <p key={i} className="text-sm text-[#C0C0D0]/65 leading-relaxed mb-1.5 pl-3">{line}</p>
+      );
+    }
+    return (
+      <p key={i} className="text-sm text-[#C0C0D0]/65 leading-relaxed mb-3 last:mb-0">{line}</p>
+    );
+  });
+}
 
+function FAQItem({ q, a, featured }: { q: string; a: string; featured: boolean; index: number }) {
   return (
-    <div
-      className={`rounded-xl border transition-colors duration-300 overflow-hidden ${
-        open
-          ? "border-[#00D4FF]/22 bg-[#0D0D18]"
-          : "border-[#00D4FF]/8 bg-[#0A0A0F] hover:border-[#00D4FF]/15"
-      }`}
+    <details
+      open={featured}
+      className="group rounded-xl border border-[#1A2A35] bg-[#0A0A0F] open:border-[#00D4FF]/20 open:bg-[#0D0D18] transition-colors duration-200"
     >
-      <button
-        type="button"
-        onClick={() => setOpen((prev) => !prev)}
-        className="w-full flex items-start justify-between gap-4 p-5 text-left group"
-      >
+      <summary className="flex items-start justify-between gap-4 p-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden select-none">
         <div className="flex items-start gap-3 flex-1 min-w-0">
           {featured && (
             <span className="flex-shrink-0 mt-0.5 text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded bg-[#00D4FF]/15 text-[#00D4FF] whitespace-nowrap">
               Key Q
             </span>
           )}
-          <span
-            className={`text-sm font-semibold leading-snug transition-colors ${
-              open ? "text-white" : "text-[#C0C0D0]/80 group-hover:text-white"
-            }`}
-          >
+          <span className="text-sm font-semibold leading-snug text-[#C0C0D0]/80 group-open:text-white transition-colors">
             {q}
           </span>
         </div>
-        <ChevronDown
-          className="w-4 h-4 flex-shrink-0 mt-0.5 transition-all duration-200"
-          style={{
-            transform: open ? "rotate(180deg)" : "rotate(0deg)",
-            color: open ? "#00D4FF" : "rgba(192,192,208,0.25)",
-          }}
-        />
-      </button>
+        <ChevronDown className="w-4 h-4 flex-shrink-0 mt-0.5 text-[#C0C0D0]/25 group-open:text-[#00D4FF] group-open:rotate-180 transition-all duration-200" />
+      </summary>
 
-      {/* Inline styles guarantee grid-template-rows transition works regardless of Tailwind scanning */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateRows: open ? "1fr" : "0fr",
-          transition: "grid-template-rows 0.28s ease",
-        }}
-      >
-        <div style={{ overflow: "hidden" }}>
-          <div
-            className="px-5 pb-6 pt-4 border-t border-[#00D4FF]/8"
-            style={{
-              opacity: open ? 1 : 0,
-              transition: "opacity 0.2s ease",
-            }}
-          >
-            {renderAnswer(a)}
-          </div>
-        </div>
+      <div className="px-5 pb-6 pt-4 border-t border-[#00D4FF]/8">
+        {renderAnswer(a)}
       </div>
-    </div>
+    </details>
   );
 }
 
