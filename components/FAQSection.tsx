@@ -27,7 +27,19 @@ const faqs = [
   {
     category: "Admissions & Cost",
     q: "Who can apply? What does 'application-based' mean?",
-    a: `Any student entering 9th or 10th grade can apply — including students from outside D11. Under Colorado's open enrollment law, CSST is open to students statewide. A meaningful portion of enrolled students come from outside Colorado Springs, which tells you something: families are actively choosing to leave their home district for this.\n\nCSST is planning for approximately 100 students per cohort year, growing to a full 9–12 school of 400–500 students over time.\n\n"Application-based" does not mean academically selective. It is not like applying to a competitive magnet school where only top students get in. The application exists to ensure that students who enroll have genuinely chosen to be there — that they (and their families) understand what CSST is and are intentionally choosing this environment.\n\nFactors like GPA, test scores, or prior tech experience are not filters for admission. The school wants students who are motivated, curious, and ready for a different kind of high school — not students who have already proven they can excel in a traditional one.\n\nInformation Nights are a great first step before applying — they help families ask real questions and get a feel for whether CSST is the right fit.`,
+    a: `CSST is currently accepting 9th, 10th, and 11th grade students from across Colorado — you do not need to live within D11 boundaries to apply. Under Colorado's open enrollment law, CSST is open to students statewide. A meaningful portion of enrolled students come from outside Colorado Springs, which tells you something: families are actively choosing to leave their home district for this.\n\nCSST is planning for approximately 100 students per cohort year, growing to a full 9–12 school of 400–500 students over time.\n\n"Application-based" does not mean academically selective. It is not like applying to a competitive magnet school where only top students get in. The application exists to ensure that students who enroll have genuinely chosen to be there — that they (and their families) understand what CSST is and are intentionally choosing this environment.\n\nFactors like GPA, test scores, or prior tech experience are not filters for admission. The school wants students who are motivated, curious, and ready for a different kind of high school — not students who have already proven they can excel in a traditional one.\n\nInformation Nights are a great first step before applying — they help families ask real questions and get a feel for whether CSST is the right fit.`,
+    featured: false,
+  },
+  {
+    category: "Admissions & Cost",
+    q: "Is CSST a charter school?",
+    a: `No. CSST is a District 11 Innovation School — not a charter school.\n\nThe distinction matters. As a D11 Innovation School, CSST operates with state-approved waivers that give it flexibility in governance, staffing, curriculum, and program design. It is still fully within D11, accountable to D11 leadership, and students earn an official D11 diploma.\n\nCharter schools operate independently from the district that authorizes them. CSST does not. It has the freedom to be different, but it's still public, still D11, and still directly connected to the district's Academic Master Plan.`,
+    featured: false,
+  },
+  {
+    category: "Admissions & Cost",
+    q: "Is transportation provided?",
+    a: `Transportation options are available for students who reside within D11. If you live outside D11, please contact the school directly to discuss what might be available for your family.\n\n• Call: 719-328-4600\n• Email: nathan.gorsch@d11.org\n\nCSST is located at 3650 N. Nevada Ave. — enter on the west side of the building at the CSST entrance.`,
     featured: false,
   },
   {
@@ -50,6 +62,12 @@ const faqs = [
   },
   {
     category: "The Environment",
+    q: "Can students play sports or join extracurriculars?",
+    a: `Yes. Colorado state law allows students who attend a school without an athletics program to play sports at their district of residence or attendance. CSST students can participate in sports at other schools in the region — they are not shut out of athletics by choosing CSST.\n\nFor extracurriculars beyond sports, CSST's co-location at Catalyst Campus opens doors that most high schools simply can't offer: access to real startup events, industry networking, and professional development opportunities that are more valuable than most after-school programs.`,
+    featured: false,
+  },
+  {
+    category: "The Environment",
     q: "What is a normal day at CSST actually like?",
     a: `The honest answer is: different from what you're used to.\n\nCSST doesn't run a rigid bell-schedule of 45-minute periods where you sit at a desk while a teacher talks. The environment is closer to a professional workspace: team areas for project work, meeting rooms for presentations and collaboration, subject-specific labs for hands-on technical work, and common areas for independent focus.\n\nStudents manage more of their own time and schedule than in a traditional high school. Teachers act as mentors and coaches — guiding students through material and projects rather than delivering lectures to passive audiences. There are still structured learning blocks, direct instruction, and clear academic expectations. But the culture is one of ownership: students are treated as capable young adults, and expected to show up like it.\n\nFor students who've always felt like the traditional model wasn't built for them — that's by design.`,
     featured: false,
@@ -63,7 +81,7 @@ const faqs = [
   {
     category: "Applying",
     q: "How do I learn more or attend an Information Night?",
-    a: `Information Nights are the best first step. They're held at the school at 3650 N. Nevada Avenue — enter on the west side of the building at the CSST entrance. All nights start at 6:00 PM. You'll meet the staff, tour the facility, and get real answers to real questions.\n\nFuture information night dates are posted on the website as they're scheduled. You can also reach the school directly:\n\n• Email: info@csrockets.org\n• Contact: nathan.gorsch@d11.org\n• Website: csrockets.org\n\nApplications are submitted through the school website. The process is straightforward — the goal is to start a conversation, not to screen students out.`,
+    a: `Information Nights are the best first step. They're held at the school at 3650 N. Nevada Avenue — enter on the west side of the building at the CSST entrance. All nights start at 6:00 PM. You'll meet the staff, tour the facility, and get real answers to real questions.\n\nFuture information night dates are posted on the website as they're scheduled. You can also reach the school directly:\n\n• Phone: 719-328-4600\n• Email: nathan.gorsch@d11.org\n• Website: csrockets.org\n\nApplications are submitted through the school website. The process is straightforward — the goal is to start a conversation, not to screen students out.`,
     featured: false,
   },
 ];
