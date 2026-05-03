@@ -22,61 +22,13 @@ import {
 
 const tracks = [
   {
-    id: "technology",
-    icon: Code,
-    title: "Technology & Computing",
-    subtitle: "The foundation of everything we build",
-    color: "#00D4FF",
-    description:
-      "Students develop real fluency in software development, data systems, and computer science fundamentals. Whether building apps, analyzing data, or learning to code from scratch — this is where every pathway begins.",
-    modules: [
-      { icon: Code, text: "Software Development & Programming" },
-      { icon: Network, text: "Networks & Systems Architecture" },
-      { icon: Cpu, text: "Data Analysis & Computational Thinking" },
-      { icon: TrendingUp, text: "Tech Entrepreneurship Foundations" },
-    ],
-    badge: "Core Track",
-  },
-  {
-    id: "cyber",
-    icon: Shield,
-    title: "Cybersecurity",
-    subtitle: "Defending the digital world",
-    color: "#F59E0B",
-    description:
-      "Co-located inside the National Cybersecurity Center, students explore cybersecurity in a real professional environment — from ethical hacking to policy.",
-    modules: [
-      { icon: Lock, text: "Cybersecurity Fundamentals & Ethics" },
-      { icon: Shield, text: "Threat Detection & Incident Response" },
-      { icon: Network, text: "Network Security & Defense" },
-      { icon: Code, text: "Secure Application Development" },
-    ],
-    badge: "NCC Partner",
-  },
-  {
-    id: "ai",
-    icon: Brain,
-    title: "AI & Emerging Tech",
-    subtitle: "Understanding the tools changing everything",
-    color: "#A78BFA",
-    description:
-      "From AI ethics to machine learning, students examine how emerging technologies work — and grapple with the human questions they raise. Hands-on with the tools reshaping every industry.",
-    modules: [
-      { icon: Brain, text: "Artificial Intelligence Concepts" },
-      { icon: Cpu, text: "Machine Learning Basics" },
-      { icon: Lightbulb, text: "Ethics of Technology & AI" },
-      { icon: Code, text: "Applied AI Projects" },
-    ],
-    badge: "Emerging Tech",
-  },
-  {
     id: "aerospace",
     icon: Rocket,
-    title: "Aerospace & Space",
+    title: "Aerospace & Engineering",
     subtitle: "The final frontier — right next door",
     color: "#34D399",
     description:
-      "Colorado Springs is the center of U.S. space operations. Through Space ISAC and Space Foundation partnerships, students explore aerospace technology and the fast-growing space economy.",
+      "Colorado Springs is the center of U.S. space operations. Through Space ISAC and Space Foundation partnerships, students explore aerospace technology, engineering principles, and the fast-growing space economy.",
     modules: [
       { icon: Rocket, text: "Aerospace Industry & Space Operations" },
       { icon: Globe, text: "Space Domain Awareness" },
@@ -86,13 +38,29 @@ const tracks = [
     badge: "Space ISAC Partner",
   },
   {
+    id: "cyber",
+    icon: Shield,
+    title: "Cybersecurity & Computer Science",
+    subtitle: "Defending the digital world",
+    color: "#00D4FF",
+    description:
+      "Co-located inside the National Cybersecurity Center, students develop real fluency in computer science and explore cybersecurity in an active professional environment — from ethical hacking to secure software development.",
+    modules: [
+      { icon: Lock, text: "Cybersecurity Fundamentals & Ethics" },
+      { icon: Shield, text: "Threat Detection & Incident Response" },
+      { icon: Code, text: "Software Development & Programming" },
+      { icon: Network, text: "Networks, Systems & Defense" },
+    ],
+    badge: "NCC Partner",
+  },
+  {
     id: "entrepreneurship",
     icon: Lightbulb,
-    title: "Innovation & Entrepreneurship",
+    title: "Entrepreneurship & Innovation",
     subtitle: "From idea to impact",
     color: "#FB923C",
     description:
-      "Through Exponential Impact, students develop entrepreneurial mindsets — pitching ideas, prototyping solutions, and learning what it actually takes to build something real.",
+      "Through Exponential Impact, students develop entrepreneurial mindsets — pitching ideas, prototyping solutions, and learning what it actually takes to build something real in a live startup environment.",
     modules: [
       { icon: Lightbulb, text: "Design Thinking & Problem Solving" },
       { icon: TrendingUp, text: "Business & Venture Basics" },
@@ -100,6 +68,22 @@ const tracks = [
       { icon: Network, text: "Pitch & Communication Skills" },
     ],
     badge: "XI Accelerator",
+  },
+  {
+    id: "leadership",
+    icon: Star,
+    title: "Leadership & Community",
+    subtitle: "Building the people who build the future",
+    color: "#A78BFA",
+    description:
+      "Strong leaders aren't born — they're developed through practice, reflection, and real responsibility. This pathway builds the communication, collaboration, and civic mindset students need to lead in any field.",
+    modules: [
+      { icon: Globe, text: "Community Engagement & Civic Leadership" },
+      { icon: Network, text: "Collaboration & Team Dynamics" },
+      { icon: BookOpen, text: "Ethics, Decision-Making & Character" },
+      { icon: GraduationCap, text: "Career Readiness & Professional Development" },
+    ],
+    badge: "Core Pathway",
   },
 ];
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import Link from "next/link";
@@ -117,29 +117,40 @@ function renderAnswer(text: string) {
 }
 
 function FAQItem({ q, a, featured }: { q: string; a: string; featured: boolean; index: number }) {
+  const [open, setOpen] = useState(featured);
+
   return (
-    <details
-      open={featured}
-      className="group rounded-xl border border-[#1A2A35] bg-[#0A0A0F] open:border-[#00D4FF]/20 open:bg-[#0D0D18] transition-colors duration-200"
+    <div
+      className="rounded-xl border bg-[#0A0A0F] transition-colors duration-200"
+      style={{ borderColor: open ? "rgba(0,212,255,0.2)" : "rgba(0,212,255,0.08)", backgroundColor: open ? "#0D0D18" : undefined }}
     >
-      <summary className="flex items-start justify-between gap-4 p-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden select-none">
+      <button
+        type="button"
+        onClick={() => setOpen((prev) => !prev)}
+        className="w-full flex items-start justify-between gap-4 p-5 text-left"
+      >
         <div className="flex items-start gap-3 flex-1 min-w-0">
           {featured && (
             <span className="flex-shrink-0 mt-0.5 text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded bg-[#00D4FF]/15 text-[#00D4FF] whitespace-nowrap">
               Key Q
             </span>
           )}
-          <span className="text-sm font-semibold leading-snug text-[#C0C0D0]/80 group-open:text-white transition-colors">
+          <span className="text-sm font-semibold leading-snug" style={{ color: open ? "#fff" : "rgba(192,192,208,0.8)" }}>
             {q}
           </span>
         </div>
-        <ChevronDown className="w-4 h-4 flex-shrink-0 mt-0.5 text-[#C0C0D0]/25 group-open:text-[#00D4FF] group-open:rotate-180 transition-all duration-200" />
-      </summary>
+        <ChevronDown
+          className="w-4 h-4 flex-shrink-0 mt-0.5 transition-transform duration-200"
+          style={{ color: open ? "#00D4FF" : "rgba(192,192,208,0.25)", transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
+        />
+      </button>
 
-      <div className="px-5 pb-6 pt-4 border-t border-[#00D4FF]/8">
-        {renderAnswer(a)}
-      </div>
-    </details>
+      {open && (
+        <div className="px-5 pb-6 pt-4 border-t border-[#00D4FF]/8">
+          {renderAnswer(a)}
+        </div>
+      )}
+    </div>
   );
 }
 
