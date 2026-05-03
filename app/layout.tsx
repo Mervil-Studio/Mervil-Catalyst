@@ -22,25 +22,41 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "CSST — Colorado Springs School of Technology",
   description:
-    "An Innovation Zone school where Innovators become Founders. Cybersecurity, AI, and Aerospace at the intersection of the NCC, XI Accelerator, and Space ISAC.",
+    "A free, public high school in Colorado Springs for grades 9–12. Hands-on learning in cybersecurity, AI, aerospace, and entrepreneurship — co-located with the NCC, Space ISAC, and Exponential Impact. D11 Innovation Zone school.",
   keywords: [
     "CSST",
     "Colorado Springs School of Technology",
-    "cybersecurity",
-    "innovation",
-    "D11",
+    "Colorado Springs high school",
+    "D11 school",
+    "cybersecurity high school",
+    "aerospace high school",
+    "free public high school Colorado",
+    "innovation school Colorado Springs",
     "Space ISAC",
     "NCC",
+    "dual enrollment Colorado Springs",
+    "UCCS dual enrollment",
   ],
-  robots: {
-    index: false,
-    follow: false,
-    googleBot: { index: false, follow: false },
-  },
+  metadataBase: new URL("https://csrockets.org"),
   openGraph: {
     title: "CSST — Colorado Springs School of Technology",
-    description: "Where Innovators Become Founders.",
+    description:
+      "A free, public high school built for the 21st century. Cybersecurity, AI, aerospace, and entrepreneurship — co-located with the NCC, Space ISAC, and Exponential Impact. Now enrolling grades 9–12.",
     type: "website",
+    url: "https://csrockets.org",
+    siteName: "Colorado Springs School of Technology",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CSST — Colorado Springs School of Technology",
+    description:
+      "A free, public D11 high school. Cybersecurity · AI · Aerospace · Entrepreneurship. Co-located with the NCC and Space ISAC. Now enrolling.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
   },
 };
 

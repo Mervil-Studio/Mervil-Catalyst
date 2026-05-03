@@ -17,7 +17,7 @@ const steps = [
   { id: 1, label: "Student Info",   icon: User,     title: "Tell us about your student.",      subtitle: "Basic information about the incoming student." },
   { id: 2, label: "Contact",        icon: Phone,    title: "How can we reach you?",             subtitle: "Parent or guardian contact details." },
   { id: 3, label: "Background",     icon: FileText, title: "A little background.",              subtitle: "Learning profile and how you found us." },
-  { id: 4, label: "Your Story",     icon: Rocket,   title: "Why Mervil Catalyst?",              subtitle: "Help us understand your student's goals and character." },
+  { id: 4, label: "Your Story",     icon: Rocket,   title: "Why CSST?",              subtitle: "Help us understand your student's goals and character." },
 ];
 
 type FormData = {
@@ -159,7 +159,7 @@ export default function ApplyPage() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0F]/90 backdrop-blur-xl border-b border-[#00D4FF]/10 h-[72px] flex items-center px-6">
         <div className="max-w-5xl mx-auto w-full flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <Image src="/csst-logo.png" alt="Mervil Catalyst" width={120} height={28} className="h-8 w-auto object-contain" />
+            <Image src="/csst-logo.png" alt="CSST" width={120} height={28} className="h-8 w-auto object-contain" />
           </Link>
           <Link href="/" className="flex items-center gap-2 text-xs text-[#C0C0D0]/50 hover:text-white transition-colors">
             <ArrowLeft className="w-3.5 h-3.5" /> Back to site
@@ -179,18 +179,18 @@ export default function ApplyPage() {
               </div>
               <h1 className="font-display text-4xl font-black text-white mb-4">Application Received.</h1>
               <p className="text-lg text-[#C0C0D0]/60 leading-relaxed mb-3 max-w-md">
-                Thank you for applying to Mervil Catalyst for 2026–2027. Your application has been submitted.
+                Thank you for applying to CSST for 2026–2027. Your application has been submitted.
               </p>
               <p className="text-sm text-[#C0C0D0]/40 max-w-md mb-10">
-                The Mervil Catalyst admissions team will reach out with next steps. In the meantime, explore what
+                The CSST admissions team will reach out with next steps. In the meantime, explore what
                 makes this school unlike any other.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/"
                   className="px-6 py-3 rounded-xl bg-[#00D4FF] text-[#0A0A0F] text-sm font-bold hover:bg-white transition-colors shadow-[0_0_20px_rgba(0,212,255,0.3)]">
-                  Back to Mervil Catalyst →
+                  Back to CSST →
                 </Link>
-                <a href="mailto:nathan.gorsch@d11.org?subject=Mervil Catalyst Application Question"
+                <a href="mailto:nathan.gorsch@d11.org?subject=CSST Application Question"
                   className="px-6 py-3 rounded-xl border border-[#00D4FF]/20 text-sm text-[#C0C0D0] hover:text-white hover:border-[#00D4FF]/40 transition-all">
                   Email Admissions
                 </a>
@@ -206,7 +206,7 @@ export default function ApplyPage() {
                 </motion.div>
                 <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
                   className="font-display text-4xl md:text-5xl font-black text-white leading-tight mb-3">
-                  Apply to Mervil Catalyst.
+                  Apply to CSST.
                   <br /><span className="text-[#00D4FF]">100% Tuition Free.</span>
                 </motion.h1>
                 <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
@@ -299,7 +299,7 @@ export default function ApplyPage() {
                         <TextArea
                           label="Does your child have any specific learning needs?"
                           name="learningNeeds" value={data.learningNeeds} onChange={set}
-                          hint="Mervil Catalyst actively supports diverse learners. There's no wrong answer here."
+                          hint="CSST actively supports diverse learners. There's no wrong answer here."
                           placeholder="Share anything relevant — IEP, 504, learning differences, etc. Or simply write 'None known.'"
                         />
                         <TextArea
@@ -326,7 +326,7 @@ export default function ApplyPage() {
                         <TextArea
                           label="Why is your student interested in our school?"
                           name="whyInterested" value={data.whyInterested} onChange={set}
-                          placeholder="What draws them to Mervil Catalyst specifically?"
+                          placeholder="What draws them to CSST specifically?"
                         />
                         <TextArea
                           label="What positive contributions will your student bring?"
@@ -336,13 +336,13 @@ export default function ApplyPage() {
                         <TextArea
                           label="How do our pathways fit your student's interests or future plans?"
                           name="pathwaysFit" value={data.pathwaysFit} onChange={set}
-                          hint="Mervil Catalyst pathways: Cybersecurity · Aerospace · Entrepreneurship · Leadership"
+                          hint="CSST pathways: Cybersecurity · Aerospace · Entrepreneurship · Leadership"
                           placeholder="Which pathway(s) resonate and why?"
                         />
                         <TextArea
-                          label="How does your student demonstrate Mervil Catalyst's characteristics?"
+                          label="How does your student demonstrate CSST's characteristics?"
                           name="characteristics" value={data.characteristics} onChange={set}
-                          hint="Mervil Catalyst students are active participants, value respectful relationships, and are willing to work hard and grow."
+                          hint="CSST students are active participants, value respectful relationships, and are willing to work hard and grow."
                           placeholder="Share specific examples..."
                         />
                         <TextArea
@@ -394,7 +394,7 @@ export default function ApplyPage() {
 
                 {/* Fine print */}
                 <p className="text-[11px] text-[#C0C0D0]/25 text-center mt-6 leading-relaxed">
-                  Your application is submitted directly to Mervil Catalyst Admissions via the official D11 form system.
+                  Your application is submitted directly to CSST Admissions via the official D11 form system.
                   Submitting does not guarantee enrollment.
                 </p>
               </form>

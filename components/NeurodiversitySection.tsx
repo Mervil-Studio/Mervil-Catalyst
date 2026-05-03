@@ -320,7 +320,7 @@ export default function NeurodiversitySection() {
             className="inline-flex items-center gap-2 mb-6 text-[#A78BFA] text-xs font-medium tracking-[0.28em] uppercase"
           >
             <span className="w-8 h-px bg-[#A78BFA]" />
-            The Neuro-Innovation Manifesto
+            The Cognitive Edge
           </motion.div>
 
           <motion.h2
@@ -329,11 +329,13 @@ export default function NeurodiversitySection() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] tracking-tight mb-8"
           >
-            Traditional schools called
+            The traits the old system
             <br />
-            these <span className="text-[#A78BFA]">defects.</span>
+            called <span className="text-[#A78BFA]">problems.</span>
             <br />
-            We call them the future.
+            The new one calls
+            <br />
+            <span className="text-[#00D4FF]">essential.</span>
           </motion.h2>
 
           <motion.p
@@ -342,12 +344,13 @@ export default function NeurodiversitySection() {
             transition={{ duration: 0.7, delay: 0.28 }}
             className="text-lg text-[#C0C0D0]/65 leading-relaxed max-w-2xl"
           >
-            ADHD, Autism, and Dyslexia aren&apos;t being managed here. They&apos;re being{" "}
-            <span className="text-white font-medium">directed. Celebrated. Given space.</span>{" "}
-            These are the cognitive architectures that built the modern cybersecurity stack, designed
-            guidance systems for spacecraft, and found the zero-days nobody else could see.
-            In the world these students are entering, atypical thinking isn&apos;t a liability —
-            it&apos;s the edge.
+            Branson has spoken publicly about dyslexia and ADHD. Altman on ADHD. Thiel built an entire
+            intellectual framework — <span className="text-white font-medium">Zero to One</span> —
+            around the idea that the traits conventional institutions suppress are exactly the ones
+            that produce contrarian insight and new things. This isn&apos;t a coincidence.
+            It&apos;s pattern recognition about who actually builds what doesn&apos;t exist yet.
+            ADHD, autism, and dyslexia aren&apos;t being managed here — they&apos;re being{" "}
+            <span className="text-white font-medium">directed, channeled, and given room to run.</span>
           </motion.p>
         </div>
 
@@ -375,32 +378,35 @@ export default function NeurodiversitySection() {
               style={{ borderColor: "rgba(167,139,250,0.12)" }}
             >
               <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#A78BFA]/60 mb-4">
-                For Every Student
+                Not Just for Neurodivergent Students
               </p>
               <p className="font-display text-2xl font-black text-white leading-tight mb-4">
-                This isn&apos;t about sympathy.
+                This isn&apos;t a school
                 <br />
-                It&apos;s about{" "}
-                <span className="text-[#00D4FF]">better outcomes.</span>
+                for a diagnosis.
+                <br />
+                It&apos;s a school for{" "}
+                <span className="text-[#00D4FF]">a way of thinking.</span>
               </p>
               <p className="text-sm text-[#C0C0D0]/55 leading-relaxed">
-                Whether you&apos;re neurodivergent or neurotypical, Mervil Catalyst teaches you the same
-                high-value skill: how to recognize, respect, and build alongside minds that are
-                wired differently than yours. That&apos;s not compassion — it&apos;s a
-                competitive advantage most graduates never develop.
+                CSST isn&apos;t specifically for neurodivergent students. It&apos;s built around
+                the traits that neurodivergent people have in abundance — and that every student
+                who&apos;s ever felt like school wasn&apos;t built for them will recognize in
+                themselves. The environment is designed for that mind. Whether or not it came
+                with a diagnosis.
               </p>
             </div>
 
             {/* Right: what this means in practice */}
             <div className="lg:col-span-3 p-10">
               <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#00D4FF]/60 mb-6">
-                The Partnership Multiplier
+                What This Looks Like in Practice
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
                 {[
                   {
                     label: "If you're neurodivergent",
-                    body: "You'll find out what you're actually capable of when the system is built for you instead of against you. Not accommodated. Directed.",
+                    body: "You'll find out what you're actually capable of when the environment is built for you instead of against you. Not accommodated — directed.",
                     color: "#A78BFA",
                   },
                   {
@@ -409,13 +415,13 @@ export default function NeurodiversitySection() {
                     color: "#00D4FF",
                   },
                   {
-                    label: "For future employers",
-                    body: "Mervil Catalyst graduates understand cognitive diversity as a strategic asset. They build more resilient teams, ship better products, and solve harder problems.",
+                    label: "If you struggled in school",
+                    body: "The system wasn't measuring the right things. CSST is built around the skills that actually transfer — curiosity, problem-solving, and the ability to work on things that matter.",
                     color: "#34D399",
                   },
                   {
                     label: "The bigger point",
-                    body: "The best cyber and aerospace teams aren't built from people who think the same way. They're built by people who know how to multiply each other's strengths.",
+                    body: "The best cyber, aerospace, and entrepreneurship teams aren't built from people who think identically. They're built by people who know how to multiply each other's differences.",
                     color: "#F59E0B",
                   },
                 ].map(({ label, body, color }) => (

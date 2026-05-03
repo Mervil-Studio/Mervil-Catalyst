@@ -25,7 +25,7 @@ const leadership: Person[] = [
   {
     name: "Nathan Gorsch",
     title: "Executive Director / Principal",
-    bio: "Nathan leads Mervil Catalyst's vision of reimagining high school as a professional environment where students grow into capable, self-directed adults. His background spans education leadership and innovation-focused learning design. Nathan built Mervil Catalyst from the ground up inside the Catalyst Campus ecosystem, creating a school culture where ambition is the norm.",
+    bio: "Nathan leads CSST's vision of reimagining high school as a professional environment where students grow into capable, self-directed adults. His background spans education leadership and innovation-focused learning design. Nathan built CSST from the ground up inside the Catalyst Campus ecosystem, creating a school culture where ambition is the norm.",
     email: "nathan.gorsch@d11.org",
     photo: `${BASE}/nathan.jpg`,
     color: "#00D4FF",
@@ -35,7 +35,7 @@ const leadership: Person[] = [
   {
     name: "Bridget O'Connor",
     title: "Dean of Students",
-    bio: "Bridget ensures every student at Mervil Catalyst is seen, supported, and set up for success. She builds the community culture that makes Mervil Catalyst feel less like a school and more like a professional home base. Bridget is the connective tissue between students, families, and staff.",
+    bio: "Bridget ensures every student at CSST is seen, supported, and set up for success. She builds the community culture that makes CSST feel less like a school and more like a professional home base. Bridget is the connective tissue between students, families, and staff.",
     email: null,
     photo: `${BASE}/bridget.jpg`,
     color: "#A78BFA",
@@ -65,7 +65,7 @@ const leadership: Person[] = [
   {
     name: "Stacey Chavarria",
     title: "Admin Assistant & Registrar",
-    bio: "Stacey keeps Mervil Catalyst running smoothly — managing enrollment records, supporting families through the admissions process, and ensuring every student's academic record is accurate and up to date. She's often the first friendly face new families meet.",
+    bio: "Stacey keeps CSST running smoothly — managing enrollment records, supporting families through the admissions process, and ensuring every student's academic record is accurate and up to date. She's often the first friendly face new families meet.",
     photo: `${BASE}/stacey.jpg`,
     color: "#C0C0D0",
     initials: "SC",
@@ -86,7 +86,7 @@ const faculty: Person[] = [
   {
     name: "Liyah Patrick",
     title: "English & Humanities",
-    bio: "Liyah brings real-world communication and storytelling into the classroom. At Mervil Catalyst, English isn't just grammar — it's how you pitch an idea, write a proposal, or make your mark. She helps students find their voice and use it.",
+    bio: "Liyah brings real-world communication and storytelling into the classroom. At CSST, English isn't just grammar — it's how you pitch an idea, write a proposal, or make your mark. She helps students find their voice and use it.",
     photo: `${BASE}/liyah.jpg`,
     color: "#00D4FF",
     initials: "LP",
@@ -104,7 +104,7 @@ const faculty: Person[] = [
   {
     name: "Caleb Ulliman",
     title: "Science",
-    bio: "Caleb teaches science through inquiry and experimentation, connecting curriculum to the aerospace and technology sectors right outside Mervil Catalyst's doors. His lab approach builds the critical-thinking skills that define every great engineer.",
+    bio: "Caleb teaches science through inquiry and experimentation, connecting curriculum to the aerospace and technology sectors right outside CSST's doors. His lab approach builds the critical-thinking skills that define every great engineer.",
     photo: `${BASE}/caleb.jpg`,
     color: "#34D399",
     initials: "CU",
@@ -143,8 +143,8 @@ const board: Person[] = [
   {
     name: "Vance Brown",
     title: "Founder & Board President",
-    org: "Founder of Mervil Catalyst",
-    bio: "Vance is one of Colorado Springs' most influential figures at the intersection of technology, entrepreneurship, and education. He previously served as CEO of the National Cybersecurity Center and Director of Exponential Impact (XI) before founding Mervil Catalyst — building a school designed to feed directly into the ecosystems he helped create.",
+    org: "Founder of CSST",
+    bio: "Vance is one of Colorado Springs' most influential figures at the intersection of technology, entrepreneurship, and education. He previously served as CEO of the National Cybersecurity Center and Director of Exponential Impact (XI) before founding CSST — building a school designed to feed directly into the ecosystems he helped create.",
     photo: `${BASE}/vance.jpg`,
     color: "#00D4FF",
     initials: "VB",
@@ -154,9 +154,9 @@ const board: Person[] = [
     name: "Michael Gaal",
     title: "Board Member",
     org: "Superintendent, D11",
-    bio: "As Superintendent of Colorado Springs School District 11, Michael directly oversees Mervil Catalyst as a D11 Innovation Zone school. His support gives Mervil Catalyst the full infrastructure of a public school while preserving the flexibility to operate as a next-generation learning environment.",
+    bio: "Michael Gaal is one of the most consequential public education reformers in Colorado. As D11 Superintendent since 2022, he inherited a district where over 33% of schools were on the state watchlist — and has driven that number to under 10%. But his most audacious move was CSST. In April 2024, Gaal personally presented the Colorado Springs School of Technology to the Colorado State Board of Education as the centerpiece of D11's Academic Master Plan. The board approved it unanimously. Under his leadership, D11 is proving that public schools can be both rigorous and radically different — and that a city like Colorado Springs can build the talent pipeline its most important industries need, starting in high school.",
     photo: `${BASE}/michael.jpg`,
-    color: "#C0C0D0",
+    color: "#00D4FF",
     initials: "MG",
     linkedin: null,
   },
@@ -164,7 +164,7 @@ const board: Person[] = [
     name: "Greg Oslan",
     title: "Board Member",
     org: "CEO, National Cybersecurity Center",
-    bio: "Greg leads the NCC, the anchor co-location partner for Mervil Catalyst. Under his leadership the NCC secured a $1M NSF Innovation Engines grant and has expanded its national footprint. His board role creates a direct, structural bridge between Mervil Catalyst students and active cybersecurity professionals.",
+    bio: "Greg leads the NCC, the anchor co-location partner for CSST. Under his leadership the NCC secured a $1M NSF Innovation Engines grant and has expanded its national footprint. His board role creates a direct, structural bridge between CSST students and active cybersecurity professionals.",
     photo: `${BASE}/greg.jpg`,
     color: "#00D4FF",
     initials: "GO",
@@ -174,7 +174,7 @@ const board: Person[] = [
     name: "Erin Miller",
     title: "Board Member",
     org: "Executive Director, Space ISAC",
-    bio: "Erin leads Space ISAC, the global information sharing and analysis center for space-based threat intelligence. Her presence on the Mervil Catalyst board connects students directly to the aerospace defense sector and opens a pipeline into space security careers.",
+    bio: "Erin leads Space ISAC, the global information sharing and analysis center for space-based threat intelligence. Her presence on the CSST board connects students directly to the aerospace defense sector and opens a pipeline into space security careers.",
     photo: `${BASE}/erin.jpg`,
     color: "#34D399",
     initials: "EM",
@@ -184,7 +184,7 @@ const board: Person[] = [
     name: "Lance Bolton",
     title: "Board Member",
     org: "President, Pikes Peak State College",
-    bio: "As President of Pikes Peak State College, Lance's partnership enables Mervil Catalyst students to access dual enrollment across PPSC's catalog of over 200 credit programs — at no cost to students. His involvement makes college credit a default part of the Mervil Catalyst experience, not an exception.",
+    bio: "As President of Pikes Peak State College, Lance's partnership enables CSST students to access dual enrollment across PPSC's catalog of over 200 credit programs — at no cost to students. His involvement makes college credit a default part of the CSST experience, not an exception.",
     photo: `${BASE}/lance.jpg`,
     color: "#A78BFA",
     initials: "LB",
@@ -204,7 +204,7 @@ const board: Person[] = [
     name: "Dawn Conley",
     title: "Board Member",
     org: "Sr. Executive Director, Catalyst Campus",
-    bio: "Dawn oversees Catalyst Campus — the innovation hub where Mervil Catalyst is physically located. Her deep knowledge of the campus ecosystem, its tenants, and its mission makes her essential to Mervil Catalyst's co-location strategy and the daily lived experience of being surrounded by active startups and tech companies.",
+    bio: "Dawn oversees Catalyst Campus — the innovation hub where CSST is physically located. Her deep knowledge of the campus ecosystem, its tenants, and its mission makes her essential to CSST's co-location strategy and the daily lived experience of being surrounded by active startups and tech companies.",
     photo: `${BASE}/dawn.jpg`,
     color: "#FB923C",
     initials: "DC",
@@ -214,7 +214,7 @@ const board: Person[] = [
     name: "Col. Judson Dressler (Ret.)",
     title: "Board Member",
     org: "Dept. Head, Comp. & Cyber Sciences, USAFA",
-    bio: "Judson heads the Department of Computer and Cyber Sciences at the US Air Force Academy, bringing federal military perspective to Mervil Catalyst's cybersecurity and aerospace programs. His board role bridges the school to USAFA partnerships and provides insight into the defense-sector talent pipeline.",
+    bio: "Judson heads the Department of Computer and Cyber Sciences at the US Air Force Academy, bringing federal military perspective to CSST's cybersecurity and aerospace programs. His board role bridges the school to USAFA partnerships and provides insight into the defense-sector talent pipeline.",
     photo: `${BASE}/judson.jpg`,
     color: "#C0C0D0",
     initials: "JD",
@@ -437,7 +437,7 @@ export default function TeamSection() {
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, delay: 0.2 }}
             className="text-base text-[#C0C0D0]/60 max-w-2xl mb-2">
-            At Mervil Catalyst, teachers are mentors and coaches — not lecturers. Our staff guide curiosity, not dictate a path.
+            At CSST, teachers are mentors and coaches — not lecturers. Our staff guide curiosity, not dictate a path.
           </motion.p>
           <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.35 }}
             className="text-xs text-[#C0C0D0]/35 mb-10">Tap any card to learn more.</motion.p>
@@ -511,7 +511,7 @@ export default function TeamSection() {
               Board meetings are virtual &amp; open to the public. Next meeting:{" "}
               <span className="text-[#00D4FF]/70">May 6, 2026 at 1:00 PM</span>
             </p>
-            <a href="mailto:nathan.gorsch@d11.org?subject=Mervil Catalyst Board Meeting"
+            <a href="mailto:nathan.gorsch@d11.org?subject=CSST Board Meeting"
               className="text-xs text-[#00D4FF] font-medium hover:underline flex-shrink-0">
               Request the link →
             </a>

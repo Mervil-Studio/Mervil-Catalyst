@@ -158,6 +158,10 @@ export default function HeroSection() {
             {/* Trust badges */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
               className="flex flex-wrap items-center gap-2 mb-8">
+              <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#34D399]/30 bg-[#34D399]/8 text-[#34D399] text-xs font-semibold tracking-wide">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#34D399] animate-pulse" />
+                Now Enrolling — 2026–2027
+              </div>
               {trustBadges.map(({ icon: Icon, label }) => (
                 <div key={label}
                   className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#00D4FF]/25 bg-[#00D4FF]/6 text-[#00D4FF] text-xs font-semibold tracking-wide">
@@ -180,8 +184,8 @@ export default function HeroSection() {
               className="text-lg text-[#C0C0D0]/80 leading-relaxed mb-4 max-w-xl">
               Colorado Springs School of Technology is a{" "}
               <span className="text-white font-semibold">free, public high school</span> for grades 9–12.
-              Hands-on learning backed by industry, government, and higher education — connecting students
-              to careers that shape the future.
+              Space. Cybersecurity. Entrepreneurship. Ethics. Hands-on learning backed by industry,
+              government, and higher education — connecting students to the careers that shape the future.
             </motion.p>
 
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.45 }}
@@ -228,7 +232,7 @@ export default function HeroSection() {
             <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.4 }}
               className="absolute -right-4 top-12 z-20 px-4 py-3 rounded-xl border border-[#34D399]/25 bg-[#0A0A0F]/90 backdrop-blur-md shadow-xl">
               <div className="text-xl font-display font-black text-[#34D399]">400+</div>
-              <div className="text-[10px] text-[#C0C0D0]/60 font-medium">Students at Capacity</div>
+              <div className="text-[10px] text-[#C0C0D0]/60 font-medium">Students at Full Build-Out</div>
             </motion.div>
           </motion.div>
         </div>

@@ -35,7 +35,7 @@ const partners = [
     color: "#60A5FA",
     href: "https://www.uccs.edu",
     tagline: "Dual enrollment — earn real college credit",
-    description: "Mervil Catalyst students access the full UCCS course catalog for dual enrollment, walking away with transferable university credits before graduation.",
+    description: "CSST students access the full UCCS course catalog for dual enrollment, walking away with transferable university credits before graduation.",
     stat: "100+ programs",
     statLabel: "open for dual enrollment",
   },
@@ -49,7 +49,7 @@ const partners = [
     color: "#818CF8",
     href: "https://www.pikespeak.edu",
     tagline: "200+ courses, zero tuition cost",
-    description: "PPSC's open-access catalog gives every Mervil Catalyst student a path to college credit in technical, business, and professional fields at no cost.",
+    description: "PPSC's open-access catalog gives every CSST student a path to college credit in technical, business, and professional fields at no cost.",
     stat: "200+ courses",
     statLabel: "available for free",
   },
@@ -63,7 +63,7 @@ const partners = [
     color: "#34D399",
     href: "https://www.spacefoundation.org",
     tagline: "World-leading space education partner",
-    description: "The Space Foundation's global network connects Mervil Catalyst students to the international space industry, Discovery Center programs, and aerospace career pipelines.",
+    description: "The Space Foundation's global network connects CSST students to the international space industry, Discovery Center programs, and aerospace career pipelines.",
     stat: "50+ years",
     statLabel: "advancing space exploration",
   },
@@ -91,7 +91,7 @@ const partners = [
     color: "#00D4FF",
     href: "https://www.nationalcybersecuritycenter.org",
     tagline: "$1M NSF Innovation Engine — in the building",
-    description: "Mervil Catalyst is co-located inside the NCC. Students walk past active cyber operations daily and gain access to one of the nation's top cybersecurity organizations.",
+    description: "CSST is co-located inside the NCC. Students walk past active cyber operations daily and gain access to one of the nation's top cybersecurity organizations.",
     stat: "$1M NSF Grant",
     statLabel: "Innovation Engine recipient",
   },
@@ -105,7 +105,7 @@ const partners = [
     color: "#FCD34D",
     href: "https://www.exponentialimpact.com",
     tagline: "Colorado Springs' premier startup accelerator",
-    description: "Mervil Catalyst's founder previously directed XI. That connection is structural — students have mentorship access to active startup founders and the regional venture network.",
+    description: "CSST's founder previously directed XI. That connection is structural — students have mentorship access to active startup founders and the regional venture network.",
     stat: "Active Mentors",
     statLabel: "from the startup community",
   },
@@ -118,8 +118,8 @@ const partners = [
     category: "Innovation Hub",
     color: "#F472B6",
     href: "https://www.catalystcampus.org",
-    tagline: "Mervil Catalyst's physical home — a real innovation hub",
-    description: "Mervil Catalyst lives inside Catalyst Campus, a working environment of tech companies, startups, and defense contractors. Students don't simulate a professional setting — they're in one.",
+    tagline: "CSST's physical home — a real innovation hub",
+    description: "CSST lives inside Catalyst Campus, a working environment of tech companies, startups, and defense contractors. Students don't simulate a professional setting — they're in one.",
     stat: "50+ companies",
     statLabel: "sharing the building",
   },
@@ -133,7 +133,7 @@ const partners = [
     color: "#FB923C",
     href: "https://www.coloradospringschamberedc.com",
     tagline: "Gateway to Colorado Springs' economy",
-    description: "The region's economic development powerhouse ties Mervil Catalyst to the employer community, internship networks, and the workforce pipeline shaping the city's future.",
+    description: "The region's economic development powerhouse ties CSST to the employer community, internship networks, and the workforce pipeline shaping the city's future.",
     stat: "1,500+ businesses",
     statLabel: "in the regional network",
   },
@@ -145,7 +145,7 @@ const featured = [
     icon: Lock,
     name: "National Cybersecurity Center",
     tagline: "Co-located · NSF Innovation Engine recipient",
-    description: "Mervil Catalyst is physically housed within the NCC, giving students direct access to one of the nation's leading cybersecurity organizations and the professionals who run it daily.",
+    description: "CSST is physically housed within the NCC, giving students direct access to one of the nation's leading cybersecurity organizations and the professionals who run it daily.",
     highlights: [
       "$1M NSF Innovation Engines Grant recipient",
       "Students work alongside active cyber professionals",
@@ -160,7 +160,7 @@ const featured = [
     icon: Zap,
     name: "Exponential Impact",
     tagline: "Startup accelerator · Entrepreneurship pipeline",
-    description: "Colorado Springs' premier startup accelerator. Mervil Catalyst founder Vance Brown previously directed XI — the pipeline between this school and the startup ecosystem is structural, not incidental.",
+    description: "Colorado Springs' premier startup accelerator. CSST founder Vance Brown previously directed XI — the pipeline between this school and the startup ecosystem is structural, not incidental.",
     highlights: [
       "Active entrepreneur mentors in the building",
       "Pitch events with real investor audiences",
@@ -175,10 +175,10 @@ const featured = [
     icon: Satellite,
     name: "Space ISAC",
     tagline: "Global space threat intelligence · Watch Center",
-    description: "Space ISAC monitors threats to space-based infrastructure worldwide. Mervil Catalyst students gain direct exposure to aerospace security careers through proximity to the Watch Center.",
+    description: "Space ISAC monitors threats to space-based infrastructure worldwide. CSST students gain direct exposure to aerospace security careers through proximity to the Watch Center.",
     highlights: [
       "Global space domain awareness operations",
-      "Executive Director serves on Mervil Catalyst Board",
+      "Executive Director serves on CSST Board",
       "Aerospace and defense career pipeline",
       "Alignment with Space Foundation programs",
     ],
@@ -378,7 +378,7 @@ export default function EcosystemSection() {
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, delay: 0.2 }}
             className="text-lg text-[#C0C0D0]/70 leading-relaxed">
-            Industry, defense, and higher education formally partnered with Mervil Catalyst —
+            Industry, defense, and higher education formally partnered with CSST —
             not as sponsors, but as co-builders of what this school is.
           </motion.p>
         </div>
