@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
@@ -150,21 +150,13 @@ function FAQItem({
         </motion.div>
       </button>
 
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <div className="px-5 pb-6 border-t border-[#00D4FF]/8 pt-4">
-              {renderAnswer(a)}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className={`grid transition-all duration-300 ease-in-out ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+        <div className="overflow-hidden">
+          <div className={`px-5 pb-6 border-t border-[#00D4FF]/8 pt-4 transition-opacity duration-200 ${open ? "opacity-100" : "opacity-0"}`}>
+            {renderAnswer(a)}
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 }
