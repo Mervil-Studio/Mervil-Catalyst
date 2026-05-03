@@ -112,19 +112,16 @@ function FAQItem({
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-20px" }}
-      transition={{ duration: 0.45, delay: index * 0.05 }}
-      className={`rounded-xl border overflow-hidden transition-all duration-300 ${
+    <div
+      className={`rounded-xl border transition-colors duration-300 overflow-hidden ${
         open
           ? "border-[#00D4FF]/22 bg-[#0D0D18]"
           : "border-[#00D4FF]/8 bg-[#0A0A0F] hover:border-[#00D4FF]/15"
       }`}
     >
       <button
-        onClick={() => setOpen(!open)}
+        type="button"
+        onClick={() => setOpen((prev) => !prev)}
         className="w-full flex items-start justify-between gap-4 p-5 text-left group"
       >
         <div className="flex items-start gap-3 flex-1 min-w-0">
@@ -141,23 +138,36 @@ function FAQItem({
             {q}
           </span>
         </div>
-        <motion.div
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-          className={`flex-shrink-0 mt-0.5 transition-colors ${open ? "text-[#00D4FF]" : "text-[#C0C0D0]/25 group-hover:text-[#C0C0D0]/50"}`}
-        >
-          <ChevronDown className="w-4 h-4" />
-        </motion.div>
+        <ChevronDown
+          className="w-4 h-4 flex-shrink-0 mt-0.5 transition-all duration-200"
+          style={{
+            transform: open ? "rotate(180deg)" : "rotate(0deg)",
+            color: open ? "#00D4FF" : "rgba(192,192,208,0.25)",
+          }}
+        />
       </button>
 
-      <div className={`grid transition-all duration-300 ease-in-out ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
-        <div className="overflow-hidden">
-          <div className={`px-5 pb-6 border-t border-[#00D4FF]/8 pt-4 transition-opacity duration-200 ${open ? "opacity-100" : "opacity-0"}`}>
+      {/* Inline styles guarantee grid-template-rows transition works regardless of Tailwind scanning */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateRows: open ? "1fr" : "0fr",
+          transition: "grid-template-rows 0.28s ease",
+        }}
+      >
+        <div style={{ overflow: "hidden" }}>
+          <div
+            className="px-5 pb-6 pt-4 border-t border-[#00D4FF]/8"
+            style={{
+              opacity: open ? 1 : 0,
+              transition: "opacity 0.2s ease",
+            }}
+          >
             {renderAnswer(a)}
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
