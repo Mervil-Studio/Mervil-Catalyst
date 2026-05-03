@@ -1,0 +1,127 @@
+# Decap CMS configuration for CSST
+# Requires Netlify Identity + Git Gateway enabled in Netlify dashboard:
+#   Site settings → Identity → Enable
+#   Site settings → Identity → Services → Git Gateway → Enable
+
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/people
+public_folder: /people
+
+# Color options matching the CSST design system
+# Used as a select field across all people collections
+
+collections:
+  # ─── ANNOUNCEMENTS ────────────────────────────────────────────────────────────
+  - name: announcements
+    label: Announcements & Events
+    description: "Active banners shown on the site (open house dates, enrollment deadlines, etc.)"
+    files:
+      - name: announcements
+        label: Announcements
+        file: content/announcements.json
+        fields:
+          - name: items
+            label: Announcements
+            widget: list
+            fields:
+              - { name: active, label: "Show on site?", widget: boolean, default: true }
+              - { name: text, label: "Announcement text", widget: string }
+              - { name: cta, label: "Button label", widget: string, default: "Learn More" }
+              - { name: link, label: "Button link (use /apply or #faq etc.)", widget: string, default: "/apply" }
+
+  # ─── TEAM ─────────────────────────────────────────────────────────────────────
+  - name: team
+    label: Team
+    files:
+      - name: leadership
+        label: Leadership & Staff
+        file: content/leadership.json
+        fields:
+          - name: members
+            label: Team Members
+            widget: list
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: bio, label: Bio, widget: text }
+              - { name: email, label: Email (optional), widget: string, required: false }
+              - { name: linkedin, label: LinkedIn URL (optional), widget: string, required: false }
+              - { name: org, label: Organization (optional), widget: string, required: false }
+              - name: photo
+                label: Photo
+                widget: image
+                hint: "Upload to /people/ folder. Square or portrait crops work best."
+              - name: color
+                label: Accent Color
+                widget: select
+                options:
+                  - { label: "Cyan (Primary)", value: "#00D4FF" }
+                  - { label: "Purple", value: "#A78BFA" }
+                  - { label: "Green", value: "#34D399" }
+                  - { label: "Amber", value: "#F59E0B" }
+                  - { label: "Orange", value: "#FB923C" }
+                  - { label: "Silver (default)", value: "#C0C0D0" }
+              - { name: initials, label: "Initials (2 letters)", widget: string }
+
+      - name: faculty
+        label: Faculty
+        file: content/faculty.json
+        fields:
+          - name: members
+            label: Faculty Members
+            widget: list
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: title, label: Subject / Role, widget: string }
+              - { name: bio, label: Bio, widget: text }
+              - { name: email, label: Email (optional), widget: string, required: false }
+              - { name: linkedin, label: LinkedIn URL (optional), widget: string, required: false }
+              - { name: org, label: Organization (optional), widget: string, required: false }
+              - name: photo
+                label: Photo
+                widget: image
+                hint: "Upload to /people/ folder. Square or portrait crops work best."
+              - name: color
+                label: Accent Color
+                widget: select
+                options:
+                  - { label: "Cyan (Primary)", value: "#00D4FF" }
+                  - { label: "Purple", value: "#A78BFA" }
+                  - { label: "Green", value: "#34D399" }
+                  - { label: "Amber", value: "#F59E0B" }
+                  - { label: "Orange", value: "#FB923C" }
+                  - { label: "Silver (default)", value: "#C0C0D0" }
+              - { name: initials, label: "Initials (2 letters)", widget: string }
+
+      - name: board
+        label: Board of Directors
+        file: content/board.json
+        fields:
+          - name: members
+            label: Board Members
+            widget: list
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: org, label: Organization, widget: string }
+              - { name: bio, label: Bio, widget: text }
+              - { name: email, label: Email (optional), widget: string, required: false }
+              - { name: linkedin, label: LinkedIn URL (optional), widget: string, required: false }
+              - name: photo
+                label: Photo
+                widget: image
+                hint: "Upload to /people/ folder. Square or portrait crops work best."
+              - name: color
+                label: Accent Color
+                widget: select
+                options:
+                  - { label: "Cyan (Primary)", value: "#00D4FF" }
+                  - { label: "Purple", value: "#A78BFA" }
+                  - { label: "Green", value: "#34D399" }
+                  - { label: "Amber", value: "#F59E0B" }
+                  - { label: "Orange", value: "#FB923C" }
+                  - { label: "Silver (default)", value: "#C0C0D0" }
+              - { name: initials, label: "Initials (2 letters)", widget: string }

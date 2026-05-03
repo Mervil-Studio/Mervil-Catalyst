@@ -19,7 +19,7 @@ const footerLinks: Record<string, { label: string; href: string; external?: bool
   ],
   "Get Started": [
     { label: "Apply — It's Free", href: "/apply" },
-    { label: "Information Nights", href: "#admissions" },
+    { label: "Information Nights", href: "#faq" },
     { label: "FAQ", href: "#faq" },
     { label: "Meet the Team", href: "#team" },
   ],
@@ -147,13 +147,12 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-6">
             {["Privacy Policy", "Terms", "Accessibility"].map((item) => (
-              <Link
+              <span
                 key={item}
-                href="#"
-                className="text-xs text-[#C0C0D0]/25 hover:text-[#C0C0D0]/60 transition-colors"
+                className="text-xs text-[#C0C0D0]/25"
               >
                 {item}
-              </Link>
+              </span>
             ))}
           </div>
         </div>

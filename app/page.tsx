@@ -10,6 +10,10 @@ import TeamSection from "@/components/TeamSection";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 
+import leadershipData from "@/content/leadership.json";
+import facultyData from "@/content/faculty.json";
+import boardData from "@/content/board.json";
+
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
@@ -21,7 +25,11 @@ export default function Home() {
       <ProgramTracks />
       <EntrepreneurshipSection />
       <EcosystemSection />
-      <TeamSection />
+      <TeamSection
+        leadership={leadershipData.members}
+        faculty={facultyData.members}
+        board={boardData.members}
+      />
       <FAQSection />
       <Footer />
     </main>

@@ -153,6 +153,19 @@ export default function DiverseThinkersSection() {
           </div>
         </div>
 
+        {/* Trait subheader */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-14 mb-8"
+        >
+          <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-[#00D4FF]/50 mb-2">
+            Our Students Are
+          </p>
+          <div className="w-8 h-px bg-[#00D4FF]/30" />
+        </motion.div>
+
         {/* Trait grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
           {traits.map(({ icon: Icon, label, sublabel, color, description }, i) => (

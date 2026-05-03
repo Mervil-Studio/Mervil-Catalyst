@@ -19,9 +19,9 @@ interface Person {
   org?: string | null;
 }
 
-// ─── DATA ─────────────────────────────────────────────────────────────────────
+// ─── DEFAULT DATA (used as fallback if props not supplied) ────────────────────
 
-const leadership: Person[] = [
+const defaultLeadership: Person[] = [
   {
     name: "Nathan Gorsch",
     title: "Executive Director / Principal",
@@ -82,7 +82,7 @@ const leadership: Person[] = [
   },
 ];
 
-const faculty: Person[] = [
+const defaultFaculty: Person[] = [
   {
     name: "Liyah Patrick",
     title: "English & Humanities",
@@ -139,7 +139,7 @@ const faculty: Person[] = [
   },
 ];
 
-const board: Person[] = [
+const defaultBoard: Person[] = [
   {
     name: "Vance Brown",
     title: "Founder & Board President",
@@ -413,7 +413,13 @@ function PortraitCard({ person, onClick }: { person: Person; onClick: () => void
 }
 
 // ─── SECTION ──────────────────────────────────────────────────────────────────
-export default function TeamSection() {
+interface TeamSectionProps {
+  leadership?: Person[];
+  faculty?: Person[];
+  board?: Person[];
+}
+
+export default function TeamSection({ leadership = defaultLeadership, faculty = defaultFaculty, board = defaultBoard }: TeamSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const [modalPerson, setModalPerson] = useState<Person | null>(null);

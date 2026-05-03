@@ -1,0 +1,103 @@
+{
+  "members": [
+    {
+      "name": "Vance Brown",
+      "title": "Founder & Board President",
+      "org": "Founder of CSST",
+      "bio": "Vance is one of Colorado Springs' most influential figures at the intersection of technology, entrepreneurship, and education. He previously served as CEO of the National Cybersecurity Center and Director of Exponential Impact (XI) before founding CSST — building a school designed to feed directly into the ecosystems he helped create.",
+      "email": null,
+      "photo": "/people/vance.jpg",
+      "color": "#00D4FF",
+      "initials": "VB",
+      "linkedin": "https://www.linkedin.com/in/vance-brown/"
+    },
+    {
+      "name": "Michael Gaal",
+      "title": "Board Member",
+      "org": "Superintendent, D11",
+      "bio": "Michael Gaal is one of the most consequential public education reformers in Colorado. As D11 Superintendent since 2022, he inherited a district where over 33% of schools were on the state watchlist — and has driven that number to under 10%. But his most audacious move was CSST. In April 2024, Gaal personally presented the Colorado Springs School of Technology to the Colorado State Board of Education as the centerpiece of D11's Academic Master Plan. The board approved it unanimously. Under his leadership, D11 is proving that public schools can be both rigorous and radically different — and that a city like Colorado Springs can build the talent pipeline its most important industries need, starting in high school.",
+      "email": null,
+      "photo": "/people/michael.jpg",
+      "color": "#00D4FF",
+      "initials": "MG",
+      "linkedin": null
+    },
+    {
+      "name": "Greg Oslan",
+      "title": "Board Member",
+      "org": "CEO, National Cybersecurity Center",
+      "bio": "Greg leads the NCC, the anchor co-location partner for CSST. Under his leadership the NCC secured a $1M NSF Innovation Engines grant and has expanded its national footprint. His board role creates a direct, structural bridge between CSST students and active cybersecurity professionals.",
+      "email": null,
+      "photo": "/people/greg.jpg",
+      "color": "#00D4FF",
+      "initials": "GO",
+      "linkedin": "https://www.linkedin.com/in/greg-oslan-245123/"
+    },
+    {
+      "name": "Erin Miller",
+      "title": "Board Member",
+      "org": "Executive Director, Space ISAC",
+      "bio": "Erin leads Space ISAC, the global information sharing and analysis center for space-based threat intelligence. Her presence on the CSST board connects students directly to the aerospace defense sector and opens a pipeline into space security careers.",
+      "email": null,
+      "photo": "/people/erin.jpg",
+      "color": "#34D399",
+      "initials": "EM",
+      "linkedin": "https://www.linkedin.com/in/erinmarlenemiller/"
+    },
+    {
+      "name": "Lance Bolton",
+      "title": "Board Member",
+      "org": "President, Pikes Peak State College",
+      "bio": "As President of Pikes Peak State College, Lance's partnership enables CSST students to access dual enrollment across PPSC's catalog of over 200 credit programs — at no cost to students. His involvement makes college credit a default part of the CSST experience, not an exception.",
+      "email": null,
+      "photo": "/people/lance.jpg",
+      "color": "#A78BFA",
+      "initials": "LB",
+      "linkedin": "https://www.linkedin.com/in/lance-bolton-b4619842/"
+    },
+    {
+      "name": "Johnna Reeder Kleymeyer",
+      "title": "Board Member",
+      "org": "CEO, Colorado Springs Chamber & EDC",
+      "bio": "Johnna leads the Colorado Springs Chamber & EDC, the region's primary economic development organization. Her board role ensures CSST is directly connected to the hiring priorities of the Colorado Springs business community and the talent pipeline that shapes the regional economy.",
+      "email": null,
+      "photo": "/people/johnna.jpg",
+      "color": "#F59E0B",
+      "initials": "JK",
+      "linkedin": "https://www.linkedin.com/in/johnna-reeder-kleymeyer-7056984/"
+    },
+    {
+      "name": "Dawn Conley",
+      "title": "Board Member",
+      "org": "Sr. Executive Director, Catalyst Campus",
+      "bio": "Dawn oversees Catalyst Campus — the innovation hub where CSST is physically located. Her deep knowledge of the campus ecosystem, its tenants, and its mission makes her essential to CSST's co-location strategy and the daily lived experience of being surrounded by active startups and tech companies.",
+      "email": null,
+      "photo": "/people/dawn.jpg",
+      "color": "#FB923C",
+      "initials": "DC",
+      "linkedin": "https://www.linkedin.com/in/dawnconley/"
+    },
+    {
+      "name": "Col. Judson Dressler (Ret.)",
+      "title": "Board Member",
+      "org": "Dept. Head, Comp. & Cyber Sciences, USAFA",
+      "bio": "Judson heads the Department of Computer and Cyber Sciences at the US Air Force Academy, bringing federal military perspective to CSST's cybersecurity and aerospace programs. His board role bridges the school to USAFA partnerships and provides insight into the defense-sector talent pipeline.",
+      "email": null,
+      "photo": "/people/judson.jpg",
+      "color": "#C0C0D0",
+      "initials": "JD",
+      "linkedin": "https://www.linkedin.com/in/judson-dressler-phd-27245993/"
+    },
+    {
+      "name": "Jennifer Sobanet",
+      "title": "Board Member",
+      "org": "Education & Innovation Leader",
+      "bio": "Jennifer brings a depth of experience in education leadership, higher education, and workforce innovation. Her perspective ensures CSST's programs remain aligned with where education is headed — not just where it has been.",
+      "email": null,
+      "photo": "/people/jennifer.jpg",
+      "color": "#C0C0D0",
+      "initials": "JS",
+      "linkedin": null
+    }
+  ]
+}
