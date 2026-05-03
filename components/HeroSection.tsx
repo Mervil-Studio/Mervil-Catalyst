@@ -201,18 +201,21 @@ export default function HeroSection() {
                 Apply — It&apos;s Free
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </Link>
-              <Link href="#programs"
+              <a href="#programs"
                 className="group flex items-center gap-2 px-7 py-3.5 rounded-xl border border-[#00D4FF]/30 text-[#00D4FF] font-semibold text-sm hover:bg-[#00D4FF]/10 hover:border-[#00D4FF]/60 transition-all duration-200">
                 Explore Programs
                 <ChevronRight className="w-4 h-4 text-[#00D4FF]/50 group-hover:text-[#00D4FF] group-hover:translate-x-0.5 transition-all" />
-              </Link>
+              </a>
             </motion.div>
 
-            {/* Info night */}
+            {/* Inquiry contact */}
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.75 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#00D4FF]/15 bg-[#1A1A2E]/60 text-[#C0C0D0]/55 text-xs font-medium">
+              className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-[#00D4FF]/15 bg-[#1A1A2E]/60 text-[#C0C0D0]/55 text-xs font-medium">
               <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] animate-pulse flex-shrink-0" />
-              Information Nights — 6:00 PM · 3650 N. Nevada Ave · Enter west side
+              Questions?&nbsp;
+              <a href="tel:7193284600" className="text-[#00D4FF]/70 hover:text-[#00D4FF] transition-colors">719-328-4600</a>
+              <span className="text-[#C0C0D0]/25">·</span>
+              <a href="mailto:nathan.gorsch@d11.org" className="text-[#00D4FF]/70 hover:text-[#00D4FF] transition-colors">nathan.gorsch@d11.org</a>
             </motion.div>
           </div>
 
