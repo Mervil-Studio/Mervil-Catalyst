@@ -127,14 +127,11 @@ export default function DiverseThinkersSection() {
               transition={{ duration: 0.7, delay: 0.36 }}
               className="text-base text-[#C0C0D0]/55 leading-relaxed"
             >
-              And here&apos;s the part nobody says out loud: the industrial school model —
-              designed for a world that no longer exists — isn&apos;t just hard on the kids who
-              struggle with it. It produces the wrong outcomes for nearly every student. Nobody
-              actually learns through incessant standardized testing and the real pressure of a
-              system built to rank and sort. They survive it. They study for the test, pass the
-              test, and forget everything by Thursday. That&apos;s not education — that&apos;s
-              compliance training. The research on retention, intrinsic motivation, and genuine
-              understanding has been saying this for decades.
+              The industrial school model was built for compliance, not curiosity — and the
+              research on genuine retention and intrinsic motivation has been making that case for
+              decades. Memorize for the test, pass the test, forget everything by Thursday.
+              That&apos;s not education. That&apos;s sorting. The more interesting question is
+              what learning actually looks like when it works.
             </motion.p>
 
             <motion.p
@@ -143,13 +140,13 @@ export default function DiverseThinkersSection() {
               transition={{ duration: 0.7, delay: 0.44 }}
               className="text-base text-[#C0C0D0]/55 leading-relaxed"
             >
-              Real learning doesn&apos;t feel like school. It feels like falling down a rabbit hole
-              at midnight because you can&apos;t stop. It feels like building something you didn&apos;t
-              know how to build yesterday. It feels like a question that won&apos;t leave you alone.
-              That&apos;s what intrinsic motivation looks like — and it&apos;s available to every
-              student, not just the ones the system has already labeled as problems. CSST was built
-              around a simple belief: learning should be something you want to do, not something
-              you have to survive.
+              It feels like falling down a rabbit hole at midnight because you can&apos;t stop.
+              Like building something you didn&apos;t know how to build yesterday. Like a question
+              that won&apos;t leave you alone — and being in an environment that actually wants you
+              to chase it rather than redirect you back to the syllabus. That&apos;s what CSST was
+              built around: learning driven by genuine curiosity, connected to real work and real
+              industry, available to every kind of student. When school is designed this way,
+              students don&apos;t just perform better. They want to be there.
             </motion.p>
           </div>
         </div>
