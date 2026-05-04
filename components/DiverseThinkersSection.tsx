@@ -127,11 +127,11 @@ export default function DiverseThinkersSection() {
               transition={{ duration: 0.7, delay: 0.36 }}
               className="text-base text-[#C0C0D0]/55 leading-relaxed"
             >
-              The industrial school model was built for compliance, not curiosity — and the
-              research on genuine retention and intrinsic motivation has been making that case for
-              decades. Memorize for the test, pass the test, forget everything by Thursday.
-              That&apos;s not education. That&apos;s sorting. The more interesting question is
-              what learning actually looks like when it works.
+              The research on genuine retention and intrinsic motivation has been making one thing
+              clear for decades: when students are learning only to pass a test, they aren&apos;t
+              really learning. CSST was designed so that&apos;s never the point. The more
+              interesting question — the one this school was built to answer — is what learning
+              actually looks like when it works.
             </motion.p>
 
             <motion.p
