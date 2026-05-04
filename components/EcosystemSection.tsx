@@ -28,7 +28,7 @@ const partners = [
   {
     id: "uccs",
     icon: GraduationCap,
-    logo: "/logos/uccs-real.svg",
+    logo: "/logos/uccs-wordmark.png",
     name: "Univ. of Colorado Colorado Springs",
     short: "UCCS",
     category: "Higher Education",
