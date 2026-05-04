@@ -28,8 +28,9 @@ const partners = [
   {
     id: "uccs",
     icon: GraduationCap,
-    logo: "/logos/uccs-wordmark.png",
-    logoWhiteBg: true,
+    logo: "/logos/uccs-signature-reverse.png",
+    /** Reverse (dark BG) artwork — show true colors, no silhouette filter */
+    logoStyle: "natural-on-dark" as const,
     name: "Univ. of Colorado Colorado Springs",
     short: "UCCS",
     category: "Higher Education",
@@ -193,6 +194,8 @@ function PartnerCard({ p, index, inView }: { p: typeof partners[0]; index: numbe
   const [hovered, setHovered] = useState(false);
   const [logoError, setLogoError] = useState(false);
   const Icon = p.icon;
+  const logoNatural =
+    "logoStyle" in p && (p as { logoStyle?: string }).logoStyle === "natural-on-dark";
 
   return (
     <motion.a
@@ -233,9 +236,13 @@ function PartnerCard({ p, index, inView }: { p: typeof partners[0]; index: numbe
           {/* Logo / icon slot */}
           {p.logo && !logoError ? (
             <div
-              className="h-9 w-[72px] rounded-xl flex items-center justify-center flex-shrink-0 border transition-all duration-300 overflow-hidden px-1.5"
+              className={
+                logoNatural
+                  ? "h-10 min-w-[148px] max-w-[200px] rounded-xl flex items-center justify-center flex-shrink-0 border transition-all duration-300 overflow-hidden px-2"
+                  : "h-9 w-[72px] rounded-xl flex items-center justify-center flex-shrink-0 border transition-all duration-300 overflow-hidden px-1.5"
+              }
               style={{
-                background: (p as typeof p & { logoWhiteBg?: boolean }).logoWhiteBg ? "#fff" : `${p.color}10`,
+                background: logoNatural ? "#000" : `${p.color}10`,
                 borderColor: `${p.color}22`,
                 boxShadow: hovered ? `0 0 16px ${p.color}28` : "none",
               }}
@@ -243,12 +250,12 @@ function PartnerCard({ p, index, inView }: { p: typeof partners[0]; index: numbe
               <Image
                 src={p.logo}
                 alt={p.name}
-                width={60}
-                height={28}
-                className="object-contain w-full h-full"
+                width={logoNatural ? 180 : 60}
+                height={logoNatural ? 32 : 28}
+                className="object-contain object-left w-full h-full"
                 style={
-                  (p as typeof p & { logoWhiteBg?: boolean }).logoWhiteBg
-                    ? { opacity: hovered ? 1 : 0.85 }
+                  logoNatural
+                    ? { opacity: hovered ? 1 : 0.92 }
                     : { filter: "brightness(0) invert(1)", opacity: hovered ? 0.9 : 0.6 }
                 }
                 onError={() => setLogoError(true)}
