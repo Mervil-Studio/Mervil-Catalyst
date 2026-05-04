@@ -29,6 +29,7 @@ const partners = [
     id: "uccs",
     icon: GraduationCap,
     logo: "/logos/uccs-wordmark.png",
+    logoWhiteBg: true,
     name: "Univ. of Colorado Colorado Springs",
     short: "UCCS",
     category: "Higher Education",
@@ -234,7 +235,7 @@ function PartnerCard({ p, index, inView }: { p: typeof partners[0]; index: numbe
             <div
               className="h-9 w-[72px] rounded-xl flex items-center justify-center flex-shrink-0 border transition-all duration-300 overflow-hidden px-1.5"
               style={{
-                background: `${p.color}10`,
+                background: (p as typeof p & { logoWhiteBg?: boolean }).logoWhiteBg ? "#fff" : `${p.color}10`,
                 borderColor: `${p.color}22`,
                 boxShadow: hovered ? `0 0 16px ${p.color}28` : "none",
               }}
@@ -245,7 +246,11 @@ function PartnerCard({ p, index, inView }: { p: typeof partners[0]; index: numbe
                 width={60}
                 height={28}
                 className="object-contain w-full h-full"
-                style={{ filter: "brightness(0) invert(1)", opacity: hovered ? 0.9 : 0.6 }}
+                style={
+                  (p as typeof p & { logoWhiteBg?: boolean }).logoWhiteBg
+                    ? { opacity: hovered ? 1 : 0.85 }
+                    : { filter: "brightness(0) invert(1)", opacity: hovered ? 0.9 : 0.6 }
+                }
                 onError={() => setLogoError(true)}
                 unoptimized
               />
