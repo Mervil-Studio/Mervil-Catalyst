@@ -112,12 +112,12 @@ export default function DiverseThinkersSection() {
               transition={{ duration: 0.7, delay: 0.28 }}
               className="text-lg text-[#C0C0D0]/70 leading-relaxed"
             >
-              Now look at who&apos;s building this century. Jobs didn&apos;t improve the phone —
-              he decided the keyboard was the wrong premise. Altman didn&apos;t build a better search
-              engine — he decided the interface between humans and knowledge needed to be rebuilt
-              from scratch. Thiel, Karp, Zuckerberg — every one of them won by questioning whether
-              the existing system should exist at all. And nearly every one of them, by their own
-              account, didn&apos;t fit the mold that same education system was built to produce.
+              Now look at who&apos;s building this century. The founders reshaping AI, aerospace,
+              cybersecurity, and the global economy didn&apos;t win by being the best at what
+              already existed. They won by deciding the premise was wrong — that the keyboard
+              shouldn&apos;t exist, that the interface needed to be rebuilt from scratch, that the
+              whole category was the wrong question. And by their own accounts, almost universally,
+              they didn&apos;t fit the mold that same education system was built to produce.
             </motion.p>
 
             <motion.p
