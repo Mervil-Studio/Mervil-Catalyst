@@ -100,10 +100,11 @@ export default function DiverseThinkersSection() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-lg text-[#C0C0D0]/70 leading-relaxed"
             >
-              Ford. Rockefeller. Vanderbilt. They built empires through a single genius:
-              systematization. Predictable hierarchies. Scalable processes. Workers who followed
-              instructions. The American education system was designed alongside them — literally —
-              to produce that workforce. Standardized. Reliable. Interchangeable.
+              The great industrialists of the 20th century — Ford, Rockefeller, Vanderbilt — built
+              empires through a single genius: systematization. Predictable hierarchies. Scalable
+              processes. Workers who followed instructions. The American education system was designed
+              alongside them — literally — to produce that workforce. Standardized. Reliable.
+              Interchangeable.
             </motion.p>
 
             <motion.p
@@ -112,7 +113,7 @@ export default function DiverseThinkersSection() {
               transition={{ duration: 0.7, delay: 0.28 }}
               className="text-lg text-[#C0C0D0]/70 leading-relaxed"
             >
-              Now look at who&apos;s building this century. The founders reshaping AI, aerospace,
+              The leaders of the 21st century are different. The founders reshaping AI, aerospace,
               cybersecurity, and the global economy didn&apos;t win by being the best at what
               already existed. They won by deciding the premise was wrong — that the keyboard
               shouldn&apos;t exist, that the interface needed to be rebuilt from scratch, that the
