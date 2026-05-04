@@ -151,6 +151,39 @@ export default function DiverseThinkersSection() {
           </div>
         </div>
 
+        {/* Testimonials */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.52 }}
+          className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5"
+        >
+          {[
+            { quote: "On our drive to school Monday, I was talking with my daughter about her teachers. She was unable to pick a favorite because they were all SOOOO AWESOME!", name: "Bruce", role: "CSST Parent", color: "#00D4FF" },
+            { quote: "I was actually excited for break to be over so I could come back to school and be around all of these amazing people!", name: "Dominic", role: "CSST Student", color: "#A78BFA" },
+            { quote: "My son LOVES this school and comes home happy, excited and eager for school the next day. I really appreciate you all!", name: "Destiny", role: "CSST Parent", color: "#34D399" },
+          ].map(({ quote, name, role, color }, i) => (
+            <motion.div
+              key={name}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.56 + i * 0.1 }}
+              className="relative p-5 rounded-xl border bg-[#0A0A0F]"
+              style={{ borderColor: `${color}15` }}
+            >
+              <span className="absolute top-3 right-4 font-display text-4xl font-black leading-none select-none" style={{ color: `${color}12` }}>&ldquo;</span>
+              <p className="text-sm text-[#C0C0D0]/65 leading-relaxed mb-4">&ldquo;{quote}&rdquo;</p>
+              <div className="flex items-center gap-2.5">
+                <div className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0" style={{ background: `${color}18`, color }}>{name[0]}</div>
+                <div>
+                  <p className="text-xs font-semibold text-white">{name}</p>
+                  <p className="text-[10px] text-[#C0C0D0]/40">{role}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
         {/* Trait subheader */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
