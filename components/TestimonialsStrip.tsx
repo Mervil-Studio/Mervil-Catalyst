@@ -51,15 +51,26 @@ export default function TestimonialsStrip() {
       <div className="absolute inset-0 grid-bg opacity-10" />
 
       <div className="relative max-w-7xl mx-auto px-6">
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-[10px] font-bold tracking-[0.28em] uppercase text-center mb-10"
-          style={{ color: `rgba(var(--accent-rgb), 0.45)` }}
+          className="mb-12"
         >
-          In Their Own Words
-        </motion.p>
+          <div
+            className="inline-flex items-center gap-2 mb-4 text-xs font-medium tracking-[0.25em] uppercase"
+            style={{ color: "var(--accent)" }}
+          >
+            <span className="w-8 h-px" style={{ background: "var(--accent)" }} />
+            In Their Own Words
+          </div>
+          <h2
+            className="font-display text-3xl md:text-4xl lg:text-5xl font-black leading-tight tracking-tight"
+            style={{ color: "var(--text-primary)" }}
+          >
+            What Families &amp; Students Say
+          </h2>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map(({ quote, name, role, color, avatar }, i) => (

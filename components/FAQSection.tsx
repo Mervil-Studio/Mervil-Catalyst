@@ -121,33 +121,45 @@ function FAQItem({ q, a, featured }: { q: string; a: string; featured: boolean; 
 
   return (
     <div
-      className="rounded-xl border transition-colors duration-200 cursor-pointer select-none"
+      className="rounded-xl border overflow-hidden transition-colors duration-200"
       style={{ background: open ? "var(--bg-card)" : "var(--bg-secondary)", borderColor: open ? "var(--border-accent)" : "var(--border-subtle)" }}
-      onClick={() => setOpen((prev) => !prev)}
-      role="button"
-      aria-expanded={open}
-      tabIndex={0}
-      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen((prev) => !prev); } }}
     >
-      <div className="w-full flex items-start justify-between gap-4 p-5">
+      {/* Full-width native button — clickable anywhere across the question row */}
+      <button
+        type="button"
+        onClick={() => setOpen((prev) => !prev)}
+        aria-expanded={open}
+        className="w-full flex items-start justify-between gap-4 p-5 text-left cursor-pointer"
+        style={{ background: "transparent" }}
+      >
         <div className="flex items-start gap-3 flex-1 min-w-0">
           {featured && (
-            <span className="flex-shrink-0 mt-0.5 text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded whitespace-nowrap" style={{ background: "rgba(var(--accent-rgb),0.15)", color: "var(--accent)" }}>
+            <span
+              className="flex-shrink-0 mt-0.5 text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded whitespace-nowrap"
+              style={{ background: "rgba(var(--accent-rgb),0.15)", color: "var(--accent)" }}
+            >
               Key Q
             </span>
           )}
-          <span className="text-sm font-semibold leading-snug" style={{ color: open ? "var(--text-primary)" : "var(--text-muted)" }}>
+          <span
+            className="text-sm font-semibold leading-snug"
+            style={{ color: open ? "var(--text-primary)" : "var(--text-muted)" }}
+          >
             {q}
           </span>
         </div>
         <ChevronDown
           className="w-4 h-4 flex-shrink-0 mt-0.5 transition-transform duration-200"
-          style={{ color: open ? "var(--accent)" : "var(--text-muted)", opacity: open ? 1 : 0.4, transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
+          style={{
+            color: open ? "var(--accent)" : "var(--text-muted)",
+            opacity: open ? 1 : 0.5,
+            transform: open ? "rotate(180deg)" : "rotate(0deg)",
+          }}
         />
-      </div>
+      </button>
 
       {open && (
-        <div className="px-5 pb-6 pt-4 border-t cursor-auto" style={{ borderColor: "var(--border-subtle)" }} onClick={(e) => e.stopPropagation()}>
+        <div className="px-5 pb-6 pt-4 border-t" style={{ borderColor: "var(--border-subtle)" }}>
           {renderAnswer(a)}
         </div>
       )}

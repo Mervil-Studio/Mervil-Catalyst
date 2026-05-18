@@ -11,15 +11,16 @@ const TRACK_ICONS: Record<Theme, React.ElementType> = {
   leadership:       Star,
 };
 
-const BAR_HEIGHT = 56; // px — keep in sync with the fixed bar's rendered height
+const NAV_HEIGHT = 72;  // px — fixed navigation bar height
+const BAR_HEIGHT = 56;  // px — fixed theme selector bar height
 
 export default function ThemeSelectorSection() {
   const { theme, setTheme } = useTheme();
 
   return (
     <>
-      {/* Spacer — holds the bar's height in normal page flow so hero isn't hidden */}
-      <div style={{ height: BAR_HEIGHT }} aria-hidden />
+      {/* Spacer — reserves space for BOTH fixed bars so page content isn't hidden behind them */}
+      <div style={{ height: NAV_HEIGHT + BAR_HEIGHT }} aria-hidden />
 
       {/* Fixed bar — sits immediately below the fixed nav (72px) */}
       <div

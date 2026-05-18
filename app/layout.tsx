@@ -70,6 +70,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${orbitron.variable} ${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <head>
         {/* Inline script prevents flash of unstyled theme on load */}
