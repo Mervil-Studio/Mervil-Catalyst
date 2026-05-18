@@ -7,24 +7,24 @@
 
 /* ── DEFAULT (:root) — leadership light (matches JS default) ─────────────── */
 :root {
-  --bg-primary:    #F7F5FF;
-  --bg-secondary:  #EEEBFF;
+  --bg-primary:    #F4FDFF;
+  --bg-secondary:  #E6F7FC;
   --bg-card:       #FFFFFF;
-  --bg-elevated:   #EDE9FE;
-  --bg-nav:        rgba(247, 245, 255, 0.97);
-  --text-primary:  #150B2E;
-  --text-muted:    #4C3A72;
-  --accent:        #7C3AED;
-  --accent-dim:    #6D28D9;
-  --accent-rgb:    124, 58, 237;
-  --border-subtle: rgba(124, 58, 237, 0.10);
-  --border-accent: rgba(124, 58, 237, 0.20);
-  --border-strong: rgba(124, 58, 237, 0.40);
-  --glow:          rgba(124, 58, 237, 0.25);
-  --shadow-glow:   0 0 20px rgba(124, 58, 237, 0.15), 0 0 60px rgba(124, 58, 237, 0.06);
-  --grid-line:     rgba(124, 58, 237, 0.05);
-  --scrollbar-thumb:       rgba(124, 58, 237, 0.25);
-  --scrollbar-thumb-hover: rgba(124, 58, 237, 0.50);
+  --bg-elevated:   #D4EFF8;
+  --bg-nav:        rgba(244, 253, 255, 0.97);
+  --text-primary:  #0C2027;
+  --text-muted:    #1C5068;
+  --accent:        #0891B2;
+  --accent-dim:    #0E7490;
+  --accent-rgb:    8, 145, 178;
+  --border-subtle: rgba(8, 145, 178, 0.10);
+  --border-accent: rgba(8, 145, 178, 0.22);
+  --border-strong: rgba(8, 145, 178, 0.42);
+  --glow:          rgba(8, 145, 178, 0.25);
+  --shadow-glow:   0 0 20px rgba(8, 145, 178, 0.15), 0 0 60px rgba(8, 145, 178, 0.06);
+  --grid-line:     rgba(8, 145, 178, 0.05);
+  --scrollbar-thumb:       rgba(8, 145, 178, 0.25);
+  --scrollbar-thumb-hover: rgba(8, 145, 178, 0.50);
   color-scheme: light;
 }
 
@@ -97,26 +97,26 @@
   color-scheme: light;
 }
 
-/* ── LEADERSHIP — light, lavender purple ─────────────────────────────────── */
+/* ── LEADERSHIP — light, CSST teal ───────────────────────────────────────── */
 [data-theme="leadership"] {
-  --bg-primary:    #F7F5FF;
-  --bg-secondary:  #EEEBFF;
+  --bg-primary:    #F4FDFF;
+  --bg-secondary:  #E6F7FC;
   --bg-card:       #FFFFFF;
-  --bg-elevated:   #EDE9FE;
-  --bg-nav:        rgba(247, 245, 255, 0.97);
-  --text-primary:  #150B2E;
-  --text-muted:    #4C3A72;
-  --accent:        #7C3AED;
-  --accent-dim:    #6D28D9;
-  --accent-rgb:    124, 58, 237;
-  --border-subtle: rgba(124, 58, 237, 0.10);
-  --border-accent: rgba(124, 58, 237, 0.20);
-  --border-strong: rgba(124, 58, 237, 0.40);
-  --glow:          rgba(124, 58, 237, 0.25);
-  --shadow-glow:   0 0 20px rgba(124, 58, 237, 0.15), 0 0 60px rgba(124, 58, 237, 0.06);
-  --grid-line:     rgba(124, 58, 237, 0.05);
-  --scrollbar-thumb:       rgba(124, 58, 237, 0.25);
-  --scrollbar-thumb-hover: rgba(124, 58, 237, 0.50);
+  --bg-elevated:   #D4EFF8;
+  --bg-nav:        rgba(244, 253, 255, 0.97);
+  --text-primary:  #0C2027;
+  --text-muted:    #1C5068;
+  --accent:        #0891B2;
+  --accent-dim:    #0E7490;
+  --accent-rgb:    8, 145, 178;
+  --border-subtle: rgba(8, 145, 178, 0.10);
+  --border-accent: rgba(8, 145, 178, 0.22);
+  --border-strong: rgba(8, 145, 178, 0.42);
+  --glow:          rgba(8, 145, 178, 0.25);
+  --shadow-glow:   0 0 20px rgba(8, 145, 178, 0.15), 0 0 60px rgba(8, 145, 178, 0.06);
+  --grid-line:     rgba(8, 145, 178, 0.05);
+  --scrollbar-thumb:       rgba(8, 145, 178, 0.25);
+  --scrollbar-thumb-hover: rgba(8, 145, 178, 0.50);
   color-scheme: light;
 }
 

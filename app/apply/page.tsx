@@ -12,23 +12,23 @@ import Image from "next/image";
 const FORM_ACTION =
   "https://docs.google.com/forms/d/e/1FAIpQLScj-nwvtMNed8326hjj_EY05tnANYv_A-NYURFWPwJqbhH9TA/formResponse";
 
-// Leadership palette
+// Leadership palette — CSST teal
 const L = {
-  bg:         "#F7F5FF",
-  bgCard:     "#FFFFFF",
-  bgElevated: "#EDE9FE",
-  bgSecondary:"#EEEBFF",
-  nav:        "rgba(247, 245, 255, 0.97)",
-  textPrimary:"#150B2E",
-  textMuted:  "#4C3A72",
-  textFaint:  "#7C5AAA",
-  accent:     "#7C3AED",
-  accentDim:  "#6D28D9",
-  accentRgb:  "124, 58, 237",
-  border:     "rgba(124, 58, 237, 0.12)",
-  borderMid:  "rgba(124, 58, 237, 0.22)",
-  borderStrong:"rgba(124, 58, 237, 0.40)",
-  glow:       "0 0 0 3px rgba(124, 58, 237, 0.10)",
+  bg:          "#F4FDFF",
+  bgCard:      "#FFFFFF",
+  bgElevated:  "#D4EFF8",
+  bgSecondary: "#E6F7FC",
+  nav:         "rgba(244, 253, 255, 0.97)",
+  textPrimary: "#0C2027",
+  textMuted:   "#1C5068",
+  textFaint:   "#2A7A96",
+  accent:      "#0891B2",
+  accentDim:   "#0E7490",
+  accentRgb:   "8, 145, 178",
+  border:      "rgba(8, 145, 178, 0.12)",
+  borderMid:   "rgba(8, 145, 178, 0.28)",
+  borderStrong:"rgba(8, 145, 178, 0.45)",
+  glow:        "0 0 0 3px rgba(8, 145, 178, 0.12)",
 };
 
 // ─── Step definitions ─────────────────────────────────────────────────────────
