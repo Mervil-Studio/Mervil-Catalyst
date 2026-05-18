@@ -10,8 +10,8 @@
   --bg-card:       #0D0D18;
   --bg-elevated:   #12121F;
   --bg-nav:        rgba(10, 10, 15, 0.95);
-  --text-primary:  #E8F0E8;
-  --text-muted:    #B0C8B0;
+  --text-primary:  #FFFFFF;
+  --text-muted:    #D4E8D4;
   --accent:        #34D399;
   --accent-dim:    #10B981;
   --accent-rgb:    52, 211, 153;
@@ -56,8 +56,8 @@
   --bg-card:       #0A0D1A;
   --bg-elevated:   #0F1220;
   --bg-nav:        rgba(6, 8, 15, 0.96);
-  --text-primary:  #E0EEFF;
-  --text-muted:    #8AAAC8;
+  --text-primary:  #FFFFFF;
+  --text-muted:    #C8DCF0;
   --accent:        #00D4FF;
   --accent-dim:    #00A8CC;
   --accent-rgb:    0, 212, 255;
@@ -186,6 +186,20 @@ body {
     rgba(var(--accent-rgb), 0.010) 2px,
     rgba(var(--accent-rgb), 0.010) 4px
   );
+}
+
+/* ── DARK THEME READABILITY — bump body copy size and line-height ─────── */
+[data-theme="aerospace"] section p,
+[data-theme="cyber"] section p {
+  font-size: 1rem;      /* 16px instead of 14px (text-sm) */
+  line-height: 1.75;
+}
+[data-theme="aerospace"] section p.text-xs,
+[data-theme="cyber"] section p.text-xs,
+[data-theme="aerospace"] section p.text-\[11px\],
+[data-theme="cyber"] section p.text-\[11px\] {
+  font-size: 0.875rem;  /* keep truly small labels small, just bump to 14px */
+  line-height: 1.65;
 }
 
 /* ── ANIMATIONS ──────────────────────────────────────────────────────────── */
