@@ -2,29 +2,8 @@
 
 /* ── PATHWAY THEMES ───────────────────────────────────────────────────────── */
 /* 2 dark  (Aerospace, Cyber)  · 2 light  (Entrepreneurship, Leadership)      */
-
-/* ── AEROSPACE — dark, green accent ─────────────────────────────────────── */
-[data-theme="aerospace"] {
-  --bg-primary:    #0A0A0F;
-  --bg-secondary:  #080810;
-  --bg-card:       #0D0D18;
-  --bg-elevated:   #12121F;
-  --bg-nav:        rgba(10, 10, 15, 0.95);
-  --text-primary:  #FFFFFF;
-  --text-muted:    #D4E8D4;
-  --accent:        #34D399;
-  --accent-dim:    #10B981;
-  --accent-rgb:    52, 211, 153;
-  --border-subtle: rgba(52, 211, 153, 0.08);
-  --border-accent: rgba(52, 211, 153, 0.18);
-  --border-strong: rgba(52, 211, 153, 0.35);
-  --glow:          rgba(52, 211, 153, 0.4);
-  --shadow-glow:   0 0 20px rgba(52, 211, 153, 0.25), 0 0 60px rgba(52, 211, 153, 0.08);
-  --grid-line:     rgba(52, 211, 153, 0.04);
-  --scrollbar-thumb:       rgba(52, 211, 153, 0.3);
-  --scrollbar-thumb-hover: rgba(52, 211, 153, 0.6);
-  color-scheme: dark;
-}
+/* :root MUST come first — [data-theme] selectors share the same specificity  */
+/* and the LATER rule wins, so :root must be the base that they override.     */
 
 /* ── DEFAULT (:root) — leadership light (matches JS default) ─────────────── */
 :root {
@@ -47,6 +26,29 @@
   --scrollbar-thumb:       rgba(124, 58, 237, 0.25);
   --scrollbar-thumb-hover: rgba(124, 58, 237, 0.50);
   color-scheme: light;
+}
+
+/* ── AEROSPACE — dark, green accent ─────────────────────────────────────── */
+[data-theme="aerospace"] {
+  --bg-primary:    #0A0A0F;
+  --bg-secondary:  #080810;
+  --bg-card:       #0D0D18;
+  --bg-elevated:   #12121F;
+  --bg-nav:        rgba(10, 10, 15, 0.95);
+  --text-primary:  #FFFFFF;
+  --text-muted:    #D4E8D4;
+  --accent:        #34D399;
+  --accent-dim:    #10B981;
+  --accent-rgb:    52, 211, 153;
+  --border-subtle: rgba(52, 211, 153, 0.08);
+  --border-accent: rgba(52, 211, 153, 0.18);
+  --border-strong: rgba(52, 211, 153, 0.35);
+  --glow:          rgba(52, 211, 153, 0.4);
+  --shadow-glow:   0 0 20px rgba(52, 211, 153, 0.25), 0 0 60px rgba(52, 211, 153, 0.08);
+  --grid-line:     rgba(52, 211, 153, 0.04);
+  --scrollbar-thumb:       rgba(52, 211, 153, 0.3);
+  --scrollbar-thumb-hover: rgba(52, 211, 153, 0.6);
+  color-scheme: dark;
 }
 
 /* ── CYBER — dark, cyan accent ───────────────────────────────────────────── */
