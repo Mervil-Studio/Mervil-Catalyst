@@ -223,7 +223,6 @@ export default function EntrepreneurshipSection() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="relative group p-6 rounded-xl border transition-all duration-300 overflow-hidden"
                 style={{ background: "var(--bg-card)", borderColor: `${color}15` }}
-                style={{ borderColor: `${color}15` }}
               >
                 {/* Stage number background */}
                 <span className="absolute top-4 right-4 font-display text-4xl font-black opacity-5 group-hover:opacity-10 transition-opacity" style={{ color }}>
