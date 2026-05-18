@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Lightbulb, TrendingUp, Users, Presentation, Rocket, ChevronRight, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const stages = [
@@ -54,10 +55,10 @@ export default function EntrepreneurshipSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="entrepreneurship" ref={ref} className="relative py-28 bg-[#080810] overflow-hidden">
+    <section id="entrepreneurship" ref={ref} className="relative py-28 overflow-hidden" style={{ background: "var(--bg-primary)" }}>
       <div className="absolute inset-0 grid-bg opacity-20" />
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-80 h-[600px] bg-[#F59E0B]/5 blur-[120px] pointer-events-none" />
-      <div className="absolute right-0 bottom-0 w-60 h-60 bg-[#A78BFA]/5 blur-[100px] pointer-events-none" />
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-80 h-[600px] blur-[120px] pointer-events-none" style={{ background: "rgba(245,158,11,0.05)" }} />
+      <div className="absolute right-0 bottom-0 w-60 h-60 blur-[100px] pointer-events-none" style={{ background: "rgba(167,139,250,0.05)" }} />
 
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -77,7 +78,8 @@ export default function EntrepreneurshipSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-6"
+              className="font-display text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-6"
+            style={{ color: "var(--text-primary)" }}
             >
               Build Something
               <br />
@@ -88,7 +90,8 @@ export default function EntrepreneurshipSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-lg text-[#C0C0D0]/70 leading-relaxed mb-6"
+              className="text-lg leading-relaxed mb-6"
+              style={{ color: "var(--text-muted)" }}
             >
               Entrepreneurship at CSST isn&apos;t a class where you write a fake business plan
               and move on. It&apos;s a live environment connected to the XI Accelerator where
@@ -100,7 +103,8 @@ export default function EntrepreneurshipSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.28 }}
-              className="text-base text-[#C0C0D0]/55 leading-relaxed mb-8"
+              className="text-base leading-relaxed mb-8"
+              style={{ color: "var(--text-muted)", opacity: 0.75 }}
             >
               This pathway isn&apos;t only for students who want to start a company. It&apos;s
               for anyone who wants to develop the mindset of a builder — the ability to spot an
@@ -118,7 +122,7 @@ export default function EntrepreneurshipSection() {
               {outcomes.map((o) => (
                 <div key={o} className="flex items-start gap-3">
                   <ArrowRight className="w-3.5 h-3.5 text-[#F59E0B] flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-[#C0C0D0]/60">{o}</span>
+                  <span className="text-sm" style={{ color: "var(--text-muted)", opacity: 0.8 }}>{o}</span>
                 </div>
               ))}
             </motion.div>
@@ -129,23 +133,41 @@ export default function EntrepreneurshipSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="relative rounded-2xl border border-[#F59E0B]/20 bg-[#0D0D18] overflow-hidden p-8"
+            className="relative rounded-2xl border overflow-hidden"
+            style={{ background: "var(--bg-card)", borderColor: "rgba(245,158,11,0.20)" }}
           >
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F59E0B]/40 to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F59E0B]/40 to-transparent z-10" />
+
+            {/* Photo header */}
+            <div className="relative w-full overflow-hidden" style={{ height: 200 }}>
+              <Image
+                src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=900&h=400&fit=crop&auto=format&q=75"
+                alt="Student presenting at pitch day — placeholder for CSST pitch event"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.10), transparent, var(--bg-card))" }} />
+              <div className="absolute bottom-3 left-4 text-[9px] text-white/40 font-medium tracking-wide">
+                Placeholder · Replace with real CSST pitch day photo
+              </div>
+            </div>
+
             <div className="absolute inset-0 bg-gradient-to-b from-[#F59E0B]/5 to-transparent pointer-events-none" />
 
-            <div className="relative">
+            <div className="relative p-8">
               <div className="w-14 h-14 rounded-xl flex items-center justify-center border border-[#F59E0B]/25 bg-[#F59E0B]/10 mb-6">
                 <Rocket className="w-7 h-7 text-[#F59E0B]" strokeWidth={1.5} />
               </div>
 
-              <h3 className="font-display text-2xl font-black text-white mb-2">
+              <h3 className="font-display text-2xl font-black mb-2" style={{ color: "var(--text-primary)" }}>
                 Exponential Impact
               </h3>
               <p className="text-sm font-medium text-[#F59E0B] mb-5">
                 Colorado Springs&apos; Premier Startup Accelerator
               </p>
-              <p className="text-sm text-[#C0C0D0]/60 leading-relaxed mb-6">
+              <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--text-muted)", opacity: 0.8 }}>
                 Exponential Impact has launched dozens of ventures across the Colorado Springs
                 region. CSST founder Vance Brown previously led both XI and the National
                 Cybersecurity Center — meaning the connection between this school and the
@@ -159,7 +181,7 @@ export default function EntrepreneurshipSection() {
                   "Connection to regional investor network",
                   "Pathway to post-graduation venture support",
                 ].map((item) => (
-                  <div key={item} className="flex items-center gap-2.5 text-xs text-[#C0C0D0]/55">
+                  <div key={item} className="flex items-center gap-2.5 text-xs" style={{ color: "var(--text-muted)", opacity: 0.7 }}>
                     <span className="w-1 h-1 rounded-full bg-[#F59E0B] flex-shrink-0" />
                     {item}
                   </div>
@@ -170,7 +192,8 @@ export default function EntrepreneurshipSection() {
                 href="https://www.exponentialimpact.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm font-semibold text-[#F59E0B] hover:text-white transition-colors group"
+                className="flex items-center gap-2 text-sm font-semibold transition-colors group"
+                style={{ color: "#F59E0B" }}
               >
                 Visit Exponential Impact
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -198,7 +221,8 @@ export default function EntrepreneurshipSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="relative group p-6 rounded-xl border border-[#00D4FF]/8 bg-[#0D0D18] hover:border-opacity-30 transition-all duration-300 overflow-hidden"
+                className="relative group p-6 rounded-xl border transition-all duration-300 overflow-hidden"
+                style={{ background: "var(--bg-card)", borderColor: `${color}15` }}
                 style={{ borderColor: `${color}15` }}
               >
                 {/* Stage number background */}
@@ -214,8 +238,8 @@ export default function EntrepreneurshipSection() {
                 <p className="text-[10px] font-bold tracking-widest uppercase mb-1" style={{ color }}>
                   {stage}
                 </p>
-                <h3 className="text-sm font-bold text-white mb-3">{title}</h3>
-                <p className="text-xs text-[#C0C0D0]/50 leading-relaxed">{description}</p>
+                <h3 className="text-sm font-bold mb-3" style={{ color: "var(--text-primary)" }}>{title}</h3>
+                <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)", opacity: 0.7 }}>{description}</p>
               </motion.div>
             ))}
           </div>

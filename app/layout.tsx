@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Orbitron, Space_Grotesk, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "./theme-context";
 import "./globals.css";
 
 const orbitron = Orbitron({
@@ -70,8 +71,18 @@ export default function RootLayout({
       lang="en"
       className={`${orbitron.variable} ${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#0A0A0F] text-[#E8E8F0]">
-        {children}
+      <head>
+        {/* Inline script prevents flash of unstyled theme on load */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('csst-theme');document.documentElement.setAttribute('data-theme',(t&&['aerospace','cyber','entrepreneurship','leadership'].includes(t))?t:'leadership');}catch(e){document.documentElement.setAttribute('data-theme','leadership');}})();`,
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-bg-primary text-text-primary">
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

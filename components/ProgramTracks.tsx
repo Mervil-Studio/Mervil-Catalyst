@@ -149,11 +149,8 @@ function TrackCard({ track, index }: { track: typeof tracks[0]; index: number })
       onMouseLeave={() => setActive(false)}
     >
       <div
-        className="relative rounded-2xl border bg-[#0D0D18] overflow-hidden transition-all duration-300 h-full"
-        style={{
-          borderColor: active ? `${track.color}38` : "rgba(0,212,255,0.08)",
-          boxShadow: active ? `0 0 30px ${track.color}10` : "none",
-        }}
+        className="relative rounded-2xl border overflow-hidden transition-all duration-300 h-full"
+        style={{ background: "var(--bg-card)", borderColor: active ? `${track.color}38` : "var(--border-subtle)", boxShadow: active ? `0 0 30px ${track.color}10` : "none" }}
       >
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${track.color}40, transparent)` }} />
 
@@ -177,9 +174,9 @@ function TrackCard({ track, index }: { track: typeof tracks[0]; index: number })
             </span>
           </div>
 
-          <h3 className="font-display text-base font-bold text-white mb-1 leading-tight">{track.title}</h3>
+          <h3 className="font-display text-base font-bold mb-1 leading-tight" style={{ color: "var(--text-primary)" }}>{track.title}</h3>
           <p className="text-xs font-medium mb-4" style={{ color: track.color }}>{track.subtitle}</p>
-          <p className="text-sm text-[#C0C0D0]/60 leading-relaxed mb-5">{track.description}</p>
+          <p className="text-sm leading-relaxed mb-5" style={{ color: "var(--text-muted)", opacity: 0.8 }}>{track.description}</p>
 
           <div className="space-y-2">
             {track.modules.map(({ icon: MIcon, text }) => (
@@ -187,7 +184,7 @@ function TrackCard({ track, index }: { track: typeof tracks[0]; index: number })
                 <div className="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0" style={{ background: `${track.color}10` }}>
                   <MIcon className="w-3 h-3" style={{ color: track.color }} />
                 </div>
-                <span className="text-xs text-[#C0C0D0]/50 font-medium">{text}</span>
+                <span className="text-xs font-medium" style={{ color: "var(--text-muted)", opacity: 0.7 }}>{text}</span>
               </div>
             ))}
           </div>
@@ -208,10 +205,11 @@ function DualEnrollCard({ partner, index }: { partner: typeof dualEnrollPartners
       transition={{ duration: 0.65, delay: index * 0.12 }}
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
-      className="relative rounded-2xl border bg-[#0D0D18] overflow-hidden transition-all duration-300"
+      className="relative rounded-2xl border overflow-hidden transition-all duration-300"
       style={{
+        background: "var(--bg-card)",
         borderColor: active ? `${partner.color}40` : `${partner.color}18`,
-        boxShadow: active ? `0 0 40px ${partner.color}12, 0 20px 60px rgba(0,0,0,0.4)` : "0 4px 20px rgba(0,0,0,0.3)",
+        boxShadow: active ? `0 0 40px ${partner.color}12` : "none",
       }}
     >
       {/* Top accent line */}
@@ -237,8 +235,8 @@ function DualEnrollCard({ partner, index }: { partner: typeof dualEnrollPartners
                 {partner.type}
               </span>
             </div>
-            <h3 className="font-display text-xl font-black text-white leading-tight">{partner.shortName}</h3>
-            <p className="text-xs text-[#C0C0D0]/50 mt-0.5">{partner.name}</p>
+            <h3 className="font-display text-xl font-black leading-tight" style={{ color: "var(--text-primary)" }}>{partner.shortName}</h3>
+            <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)", opacity: 0.6 }}>{partner.name}</p>
           </div>
           <a
             href={partner.href}
@@ -261,18 +259,18 @@ function DualEnrollCard({ partner, index }: { partner: typeof dualEnrollPartners
           {partner.stats.map(({ value, label }) => (
             <div key={label} className="text-center">
               <div className="font-display text-xl font-black" style={{ color: partner.color }}>{value}</div>
-              <div className="text-[10px] text-[#C0C0D0]/45 mt-0.5 leading-tight">{label}</div>
+              <div className="text-[10px] mt-0.5 leading-tight" style={{ color: "var(--text-muted)", opacity: 0.55 }}>{label}</div>
             </div>
           ))}
         </div>
 
         {/* Description */}
-        <p className="text-sm text-[#C0C0D0]/65 leading-relaxed mb-5">{partner.description}</p>
+        <p className="text-sm leading-relaxed mb-5" style={{ color: "var(--text-muted)", opacity: 0.8 }}>{partner.description}</p>
 
         {/* Highlights */}
         <ul className="space-y-2">
           {partner.highlights.map((h) => (
-            <li key={h} className="flex items-start gap-2.5 text-xs text-[#C0C0D0]/55">
+            <li key={h} className="flex items-start gap-2.5 text-xs" style={{ color: "var(--text-muted)", opacity: 0.7 }}>
               <Star className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: partner.color }} />
               {h}
             </li>
@@ -288,9 +286,9 @@ export default function ProgramTracks() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="programs" ref={ref} className="relative py-28 bg-[#080810] overflow-hidden">
+    <section id="programs" ref={ref} className="relative py-28 overflow-hidden" style={{ background: "var(--bg-primary)" }}>
       <div className="absolute inset-0 grid-bg opacity-20" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#00D4FF]/3 blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] blur-[100px] pointer-events-none" style={{ background: "rgba(var(--accent-rgb),0.03)" }} />
 
       <div className="max-w-7xl mx-auto px-6">
         {/* ── HEADER ── */}
@@ -299,9 +297,10 @@ export default function ProgramTracks() {
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 mb-6 text-[#00D4FF] text-xs font-medium tracking-[0.25em] uppercase"
+            className="inline-flex items-center gap-2 mb-6 text-xs font-medium tracking-[0.25em] uppercase"
+            style={{ color: "var(--accent)" }}
           >
-            <span className="w-8 h-px bg-[#00D4FF]" />
+            <span className="w-8 h-px" style={{ background: "var(--accent)" }} />
             Curriculum & Pathways
           </motion.div>
 
@@ -309,18 +308,20 @@ export default function ProgramTracks() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-6"
+            className="font-display text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-6"
+            style={{ color: "var(--text-primary)" }}
           >
             A Curriculum Built
             <br />
-            <span className="text-[#00D4FF]">By Industry.</span>
+            <span style={{ color: "var(--accent)" }}>By Industry.</span>
           </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg text-[#C0C0D0]/70 leading-relaxed"
+            className="text-lg leading-relaxed"
+            style={{ color: "var(--text-muted)" }}
           >
             Every learning pathway connects to a real industry partner. Students get more than
             a classroom — they get access to professionals, career exposure, and dual enrollment
@@ -348,25 +349,25 @@ export default function ProgramTracks() {
             {/* Divider */}
             <div className="flex items-center gap-4 mb-8">
               <div className="flex-1 h-px bg-gradient-to-r from-[#00D4FF]/20 to-transparent" />
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#00D4FF]/20 bg-[#00D4FF]/5">
-                <GraduationCap className="w-4 h-4 text-[#00D4FF]" />
-                <span className="text-xs font-bold tracking-widest text-[#00D4FF] uppercase">Dual Enrollment</span>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full border" style={{ borderColor: "var(--border-accent)", background: "rgba(var(--accent-rgb),0.05)" }}>
+                <GraduationCap className="w-4 h-4" style={{ color: "var(--accent)" }} />
+                <span className="text-xs font-bold tracking-widest uppercase" style={{ color: "var(--accent)" }}>Dual Enrollment</span>
               </div>
               <div className="flex-1 h-px bg-gradient-to-l from-[#00D4FF]/20 to-transparent" />
             </div>
 
             <div className="max-w-3xl">
-              <h3 className="font-display text-3xl md:text-4xl font-black text-white leading-tight mb-4">
+              <h3 className="font-display text-3xl md:text-4xl font-black leading-tight mb-4" style={{ color: "var(--text-primary)" }}>
                 Earn Real College Credit.
                 <br />
-                <span className="text-[#00D4FF]">While You&apos;re Still in High School.</span>
+                <span style={{ color: "var(--accent)" }}>While You&apos;re Still in High School.</span>
               </h3>
-              <p className="text-base text-[#C0C0D0]/65 leading-relaxed mb-3">
-                CSST students have access to the <strong className="text-white">full course catalogs</strong> of
+              <p className="text-base leading-relaxed mb-3" style={{ color: "var(--text-muted)" }}>
+                CSST students have access to the <strong style={{ color: "var(--text-primary)" }}>full course catalogs</strong> of
                 two Colorado Springs institutions — not a limited subset of approved classes, but the entire
                 catalog of each school.
               </p>
-              <p className="text-sm text-[#C0C0D0]/50 leading-relaxed">
+              <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)", opacity: 0.7 }}>
                 College credit earned is real, documented on an official transcript, and transferable.
                 Many students enter their freshman year of college with a semester or more of credit
                 already completed — at zero cost to their family.
@@ -387,13 +388,14 @@ export default function ProgramTracks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="p-5 rounded-xl border border-[#00D4FF]/10 bg-[#0D0D18] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+            className="p-5 rounded-xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+            style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}
           >
             <div className="flex items-start gap-3">
               <BookOpen className="w-4 h-4 text-[#00D4FF]/60 mt-0.5 flex-shrink-0" />
               <div>
-                <p className="text-sm font-semibold text-white mb-0.5">How to Get Started with Dual Enrollment</p>
-                <p className="text-xs text-[#C0C0D0]/50 leading-relaxed">
+                <p className="text-sm font-semibold mb-0.5" style={{ color: "var(--text-primary)" }}>How to Get Started with Dual Enrollment</p>
+                <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)", opacity: 0.7 }}>
                   Work with your CSST counselor (Milithza McNeil) to identify courses that align with
                   your interests and count toward both HS graduation and your college plan.
                 </p>

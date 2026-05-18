@@ -94,10 +94,10 @@ function renderAnswer(text: string) {
     if (line.startsWith("**") || line.includes("**")) {
       const parts = line.split(/\*\*(.*?)\*\*/g);
       return (
-        <p key={i} className="text-sm text-[#C0C0D0]/65 leading-relaxed mb-3 last:mb-0">
+        <p key={i} className="text-sm leading-relaxed mb-3 last:mb-0" style={{ color: "var(--text-muted)", opacity: 0.8 }}>
           {parts.map((part, j) =>
             j % 2 === 1 ? (
-              <span key={j} className="text-white font-semibold">{part}</span>
+              <span key={j} className="font-semibold" style={{ color: "var(--text-primary)" }}>{part}</span>
             ) : (
               part
             )
@@ -107,11 +107,11 @@ function renderAnswer(text: string) {
     }
     if (line.startsWith("•")) {
       return (
-        <p key={i} className="text-sm text-[#C0C0D0]/65 leading-relaxed mb-1.5 pl-3">{line}</p>
+        <p key={i} className="text-sm leading-relaxed mb-1.5 pl-3" style={{ color: "var(--text-muted)", opacity: 0.8 }}>{line}</p>
       );
     }
     return (
-      <p key={i} className="text-sm text-[#C0C0D0]/65 leading-relaxed mb-3 last:mb-0">{line}</p>
+      <p key={i} className="text-sm leading-relaxed mb-3 last:mb-0" style={{ color: "var(--text-muted)", opacity: 0.8 }}>{line}</p>
     );
   });
 }
@@ -121,32 +121,33 @@ function FAQItem({ q, a, featured }: { q: string; a: string; featured: boolean; 
 
   return (
     <div
-      className="rounded-xl border bg-[#0A0A0F] transition-colors duration-200"
-      style={{ borderColor: open ? "rgba(0,212,255,0.2)" : "rgba(0,212,255,0.08)", backgroundColor: open ? "#0D0D18" : undefined }}
+      className="rounded-xl border transition-colors duration-200 cursor-pointer select-none"
+      style={{ background: open ? "var(--bg-card)" : "var(--bg-secondary)", borderColor: open ? "var(--border-accent)" : "var(--border-subtle)" }}
+      onClick={() => setOpen((prev) => !prev)}
+      role="button"
+      aria-expanded={open}
+      tabIndex={0}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen((prev) => !prev); } }}
     >
-      <button
-        type="button"
-        onClick={() => setOpen((prev) => !prev)}
-        className="w-full flex items-start justify-between gap-4 p-5 text-left"
-      >
+      <div className="w-full flex items-start justify-between gap-4 p-5">
         <div className="flex items-start gap-3 flex-1 min-w-0">
           {featured && (
-            <span className="flex-shrink-0 mt-0.5 text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded bg-[#00D4FF]/15 text-[#00D4FF] whitespace-nowrap">
+            <span className="flex-shrink-0 mt-0.5 text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded whitespace-nowrap" style={{ background: "rgba(var(--accent-rgb),0.15)", color: "var(--accent)" }}>
               Key Q
             </span>
           )}
-          <span className="text-sm font-semibold leading-snug" style={{ color: open ? "#fff" : "rgba(192,192,208,0.8)" }}>
+          <span className="text-sm font-semibold leading-snug" style={{ color: open ? "var(--text-primary)" : "var(--text-muted)" }}>
             {q}
           </span>
         </div>
         <ChevronDown
           className="w-4 h-4 flex-shrink-0 mt-0.5 transition-transform duration-200"
-          style={{ color: open ? "#00D4FF" : "rgba(192,192,208,0.25)", transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
+          style={{ color: open ? "var(--accent)" : "var(--text-muted)", opacity: open ? 1 : 0.4, transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
         />
-      </button>
+      </div>
 
       {open && (
-        <div className="px-5 pb-6 pt-4 border-t border-[#00D4FF]/8">
+        <div className="px-5 pb-6 pt-4 border-t cursor-auto" style={{ borderColor: "var(--border-subtle)" }} onClick={(e) => e.stopPropagation()}>
           {renderAnswer(a)}
         </div>
       )}
@@ -159,9 +160,9 @@ export default function FAQSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="faq" ref={ref} className="relative py-28 bg-[#0A0A0F] overflow-hidden">
+    <section id="faq" ref={ref} className="relative py-28 overflow-hidden" style={{ background: "var(--bg-secondary)" }}>
       <div className="absolute inset-0 grid-bg opacity-20" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-[#00D4FF]/4 blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] blur-[100px] pointer-events-none" style={{ background: "rgba(var(--accent-rgb),0.04)" }} />
 
       <div className="max-w-4xl mx-auto px-6">
         {/* Header */}
@@ -170,9 +171,10 @@ export default function FAQSection() {
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 mb-6 text-[#00D4FF] text-xs font-medium tracking-[0.25em] uppercase"
+            className="inline-flex items-center gap-2 mb-6 text-xs font-medium tracking-[0.25em] uppercase"
+            style={{ color: "var(--accent)" }}
           >
-            <span className="w-8 h-px bg-[#00D4FF]" />
+            <span className="w-8 h-px" style={{ background: "var(--accent)" }} />
             Common Questions
           </motion.div>
 
@@ -180,21 +182,23 @@ export default function FAQSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl font-black text-white leading-tight tracking-tight mb-4"
+            className="font-display text-4xl md:text-5xl font-black leading-tight tracking-tight mb-4"
+            style={{ color: "var(--text-primary)" }}
           >
             Straight Answers.
             <br />
-            <span className="text-[#00D4FF]">No Brochure Speak.</span>
+            <span style={{ color: "var(--accent)" }}>No Brochure Speak.</span>
           </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-base text-[#C0C0D0]/60 leading-relaxed"
+            className="text-base leading-relaxed"
+            style={{ color: "var(--text-muted)" }}
           >
             Start with the most important one: CSST is for{" "}
-            <span className="text-white font-medium">every kind of student</span> — not just
+            <span className="font-medium" style={{ color: "var(--text-primary)" }}>every kind of student</span> — not just
             &ldquo;tech kids.&rdquo;
           </motion.p>
         </div>
@@ -206,7 +210,8 @@ export default function FAQSection() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-[10px] font-bold tracking-[0.25em] text-[#00D4FF]/45 uppercase mb-4 pl-1"
+              className="text-[10px] font-bold tracking-[0.25em] uppercase mb-4 pl-1"
+              style={{ color: "rgba(var(--accent-rgb),0.50)" }}
             >
               {cat}
             </motion.p>
@@ -226,18 +231,20 @@ export default function FAQSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="mt-8 p-6 rounded-xl border border-[#00D4FF]/12 bg-[#0D0D18] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          className="mt-8 p-6 rounded-xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          style={{ background: "var(--bg-card)", borderColor: "var(--border-accent)" }}
         >
           <div>
-            <p className="text-sm font-semibold text-white mb-1">Still have questions?</p>
-            <p className="text-xs text-[#C0C0D0]/50">
+            <p className="text-sm font-semibold mb-1" style={{ color: "var(--text-primary)" }}>Still have questions?</p>
+            <p className="text-xs" style={{ color: "var(--text-muted)", opacity: 0.7 }}>
               Come to an Information Night at 3650 N. Nevada — or reach out directly.
             </p>
           </div>
           <div className="flex gap-3 flex-shrink-0 flex-wrap">
             <a
               href="mailto:info@csrockets.org"
-              className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-[#00D4FF]/25 text-[#00D4FF] text-sm font-semibold hover:bg-[#00D4FF]/10 transition-all"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-lg border text-sm font-semibold transition-all"
+              style={{ borderColor: "var(--border-accent)", color: "var(--accent)" }}
             >
               Email Us
             </a>
@@ -245,7 +252,8 @@ export default function FAQSection() {
               href="https://www.csrockets.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#00D4FF] text-[#0A0A0F] text-sm font-bold hover:bg-white transition-all group"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-all group"
+              style={{ background: "var(--accent)", color: "var(--bg-primary)" }}
             >
               Apply at csrockets.org
               <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />

@@ -259,8 +259,8 @@ function PersonModal({ person, onClose }: { person: Person; onClose: () => void 
           onClick={onClose}
         />
         <motion.div
-          className="relative z-10 w-full max-w-md rounded-2xl border bg-[#0D0D18] overflow-hidden"
-          style={{ borderColor: `${person.color}25` }}
+          className="relative z-10 w-full max-w-md rounded-2xl border overflow-hidden"
+          style={{ background: "var(--bg-card)", borderColor: `${person.color}25` }}
           initial={{ opacity: 0, scale: 0.92, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
@@ -269,8 +269,8 @@ function PersonModal({ person, onClose }: { person: Person; onClose: () => void 
           <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, transparent, ${person.color}, transparent)` }} />
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-20 w-8 h-8 rounded-lg border flex items-center justify-center text-[#C0C0D0]/50 hover:text-white hover:border-[#C0C0D0]/30 transition-all"
-            style={{ borderColor: `${person.color}20` }}
+            className="absolute top-4 right-4 z-20 w-8 h-8 rounded-lg border flex items-center justify-center transition-all"
+            style={{ borderColor: `${person.color}20`, color: "var(--text-muted)" }}
             aria-label="Close"
           >
             <X className="w-4 h-4" />
@@ -285,14 +285,16 @@ function PersonModal({ person, onClose }: { person: Person; onClose: () => void 
                 className="w-full h-full object-cover object-top" unoptimized />
             </div>
             <div className="pb-1">
-              <h3 className="font-display text-lg font-bold text-white leading-tight">{person.name}</h3>
+              <h3 className="font-display text-lg font-bold leading-tight" style={{ color: "var(--text-primary)" }}>{person.name}</h3>
               <p className="text-xs font-semibold mt-1" style={{ color: person.color }}>{person.title}</p>
               {person.org && (
-                <p className="text-[11px] text-[#C0C0D0]/45 mt-0.5">{person.org}</p>
+                <p className="text-[11px] mt-0.5" style={{ color: "var(--text-muted)", opacity: 0.6 }}>{person.org}</p>
               )}
               {person.email && (
                 <a href={`mailto:${person.email}`}
-                  className="inline-flex items-center gap-1 text-[10px] text-[#C0C0D0]/45 hover:text-[#C0C0D0] mt-1 transition-colors">
+                  className="inline-flex items-center gap-1 text-[10px] mt-1 transition-colors"
+                  style={{ color: "var(--text-muted)", opacity: 0.6 }}
+                >
                   <Mail className="w-3 h-3" /> {person.email}
                 </a>
               )}
@@ -300,7 +302,7 @@ function PersonModal({ person, onClose }: { person: Person; onClose: () => void 
           </div>
 
           <div className="px-7 py-5">
-            <p className="text-sm text-[#C0C0D0]/70 leading-relaxed">{person.bio}</p>
+            <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>{person.bio}</p>
           </div>
 
           {person.linkedin && (
@@ -330,8 +332,8 @@ function SquarePhotoCard({ person, onClick }: { person: Person; onClick: () => v
       onClick={onClick}
       whileHover={{ y: -4 }}
       transition={{ type: "spring", stiffness: 400, damping: 22 }}
-      className="group relative rounded-xl overflow-hidden border bg-[#0A0A0F] text-left w-full cursor-pointer focus:outline-none transition-all duration-300"
-      style={{ borderColor: `${person.color}15` }}
+      className="group relative rounded-xl overflow-hidden border text-left w-full cursor-pointer focus:outline-none transition-all duration-300"
+      style={{ background: "var(--bg-primary)", borderColor: `${person.color}15` }}
       onMouseEnter={(e) => (e.currentTarget.style.borderColor = `${person.color}35`)}
       onMouseLeave={(e) => (e.currentTarget.style.borderColor = `${person.color}15`)}
     >
@@ -343,24 +345,23 @@ function SquarePhotoCard({ person, onClick }: { person: Person; onClick: () => v
           className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
           unoptimized
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-transparent to-transparent opacity-60" />
-        {/* hover overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-transparent to-transparent opacity-60" />
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
           style={{ background: `${person.color}12` }}>
-          <div className="w-9 h-9 rounded-full border flex items-center justify-center bg-[#0A0A0F]/80"
-            style={{ borderColor: `${person.color}60` }}>
+          <div className="w-9 h-9 rounded-full border flex items-center justify-center"
+            style={{ background: "var(--bg-primary)", borderColor: `${person.color}60`, opacity: 0.9 }}>
             <ExternalLink className="w-4 h-4" style={{ color: person.color }} />
           </div>
         </div>
         {person.linkedin && (
           <div className="absolute top-2 right-2 w-6 h-6 rounded-full flex items-center justify-center"
-            style={{ background: "#0A0A0F", border: `1px solid ${person.color}40` }}>
+            style={{ background: "var(--bg-primary)", border: `1px solid ${person.color}40` }}>
             <ExternalLink className="w-3 h-3" style={{ color: person.color }} />
           </div>
         )}
       </div>
       <div className="px-3 py-3">
-        <p className="text-xs font-semibold text-white leading-tight">{person.name}</p>
+        <p className="text-xs font-semibold leading-tight" style={{ color: "var(--text-primary)" }}>{person.name}</p>
         <p className="text-[10px] mt-0.5" style={{ color: `${person.color}80` }}>{person.title}</p>
       </div>
     </motion.button>
@@ -374,8 +375,8 @@ function PortraitCard({ person, onClick }: { person: Person; onClick: () => void
       onClick={onClick}
       whileHover={{ y: -3 }}
       transition={{ type: "spring", stiffness: 400, damping: 22 }}
-      className="group relative rounded-xl overflow-hidden border bg-[#0A0A0F] text-left w-full cursor-pointer focus:outline-none transition-all duration-300"
-      style={{ borderColor: `${person.color}15` }}
+      className="group relative rounded-xl overflow-hidden border text-left w-full cursor-pointer focus:outline-none transition-all duration-300"
+      style={{ background: "var(--bg-primary)", borderColor: `${person.color}15` }}
       onMouseEnter={(e) => (e.currentTarget.style.borderColor = `${person.color}30`)}
       onMouseLeave={(e) => (e.currentTarget.style.borderColor = `${person.color}15`)}
     >
@@ -387,25 +388,25 @@ function PortraitCard({ person, onClick }: { person: Person; onClick: () => void
           className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
           unoptimized
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/10 to-transparent" />
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
           style={{ background: `${person.color}10` }}>
-          <div className="w-8 h-8 rounded-full border flex items-center justify-center bg-[#0A0A0F]/80"
-            style={{ borderColor: `${person.color}50` }}>
+          <div className="w-8 h-8 rounded-full border flex items-center justify-center"
+            style={{ background: "var(--bg-primary)", borderColor: `${person.color}50`, opacity: 0.9 }}>
             <ExternalLink className="w-3.5 h-3.5" style={{ color: person.color }} />
           </div>
         </div>
         {person.linkedin && (
           <div className="absolute top-2 right-2 w-5 h-5 rounded-full flex items-center justify-center"
-            style={{ background: "#0A0A0F", border: `1px solid ${person.color}40` }}>
+            style={{ background: "var(--bg-primary)", border: `1px solid ${person.color}40` }}>
             <ExternalLink className="w-2.5 h-2.5" style={{ color: person.color }} />
           </div>
         )}
       </div>
       <div className="px-3 pt-2.5 pb-3">
-        <p className="text-[11px] font-semibold text-white leading-tight">{person.name}</p>
+        <p className="text-[11px] font-semibold leading-tight" style={{ color: "var(--text-primary)" }}>{person.name}</p>
         {person.org && (
-          <p className="text-[10px] text-[#C0C0D0]/40 mt-0.5 leading-snug">{person.org}</p>
+          <p className="text-[10px] mt-0.5 leading-snug" style={{ color: "var(--text-muted)", opacity: 0.6 }}>{person.org}</p>
         )}
       </div>
     </motion.button>
@@ -425,7 +426,7 @@ export default function TeamSection({ leadership = defaultLeadership, faculty = 
   const [modalPerson, setModalPerson] = useState<Person | null>(null);
 
   return (
-    <section id="team" ref={ref} className="relative py-28 bg-[#080810] overflow-hidden">
+    <section id="team" ref={ref} className="relative py-28 overflow-hidden" style={{ background: "var(--bg-secondary)" }}>
       <div className="absolute inset-0 grid-bg opacity-20" />
       {modalPerson && <PersonModal person={modalPerson} onClose={() => setModalPerson(null)} />}
 
@@ -434,19 +435,19 @@ export default function TeamSection({ leadership = defaultLeadership, faculty = 
         {/* ── LEADERSHIP + ADMIN ─────────────────────────────────────────── */}
         <div className="mb-20">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 mb-6 text-[#00D4FF] text-xs font-medium tracking-[0.25em] uppercase">
-            <span className="w-8 h-px bg-[#00D4FF]" />The People Behind It
+            className="inline-flex items-center gap-2 mb-6 text-xs font-medium tracking-[0.25em] uppercase" style={{ color: "var(--accent)" }}>
+            <span className="w-8 h-px" style={{ background: "var(--accent)" }} />The People Behind It
           </motion.div>
           <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl font-black text-white leading-tight tracking-tight mb-3">
+            className="font-display text-4xl md:text-5xl font-black leading-tight tracking-tight mb-3" style={{ color: "var(--text-primary)" }}>
             Leadership &amp; Team
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-base text-[#C0C0D0]/60 max-w-2xl mb-2">
+            className="text-base max-w-2xl mb-2" style={{ color: "var(--text-muted)" }}>
             At CSST, teachers are mentors and coaches — not lecturers. Our staff guide curiosity, not dictate a path.
           </motion.p>
           <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.35 }}
-            className="text-xs text-[#C0C0D0]/35 mb-10">Tap any card to learn more.</motion.p>
+            className="text-xs mb-10" style={{ color: "var(--text-muted)", opacity: 0.5 }}>Tap any card to learn more.</motion.p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {leadership.map((person, i) => (
@@ -461,19 +462,19 @@ export default function TeamSection({ leadership = defaultLeadership, faculty = 
         {/* ── FACULTY ───────────────────────────────────────────────────── */}
         <div className="mb-20">
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 mb-6 text-[#00D4FF] text-xs font-medium tracking-[0.25em] uppercase">
-            <span className="w-8 h-px bg-[#00D4FF]" />In The Classroom
+            className="inline-flex items-center gap-2 mb-6 text-xs font-medium tracking-[0.25em] uppercase" style={{ color: "var(--accent)" }}>
+            <span className="w-8 h-px" style={{ background: "var(--accent)" }} />In The Classroom
           </motion.div>
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl font-black text-white leading-tight tracking-tight mb-3">
+            className="font-display text-4xl md:text-5xl font-black leading-tight tracking-tight mb-3" style={{ color: "var(--text-primary)" }}>
             Faculty
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-base text-[#C0C0D0]/60 max-w-2xl mb-2">
+            className="text-base max-w-2xl mb-2" style={{ color: "var(--text-muted)" }}>
             Industry professionals and educators who bring real-world context into every subject.
           </motion.p>
           <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.35 }}
-            className="text-xs text-[#C0C0D0]/35 mb-10">Tap any card to learn more. LinkedIn badge = verified profile.</motion.p>
+            className="text-xs mb-10" style={{ color: "var(--text-muted)", opacity: 0.5 }}>Tap any card to learn more. LinkedIn badge = verified profile.</motion.p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {faculty.map((f, i) => (
@@ -488,19 +489,19 @@ export default function TeamSection({ leadership = defaultLeadership, faculty = 
         {/* ── BOARD ─────────────────────────────────────────────────────── */}
         <div>
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 mb-6 text-[#00D4FF] text-xs font-medium tracking-[0.25em] uppercase">
-            <span className="w-8 h-px bg-[#00D4FF]" />Governance
+            className="inline-flex items-center gap-2 mb-6 text-xs font-medium tracking-[0.25em] uppercase" style={{ color: "var(--accent)" }}>
+            <span className="w-8 h-px" style={{ background: "var(--accent)" }} />Governance
           </motion.div>
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl font-black text-white leading-tight tracking-tight mb-3">
+            className="font-display text-4xl md:text-5xl font-black leading-tight tracking-tight mb-3" style={{ color: "var(--text-primary)" }}>
             Board of Directors
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-base text-[#C0C0D0]/60 max-w-2xl mb-2">
+            className="text-base max-w-2xl mb-2" style={{ color: "var(--text-muted)" }}>
             Governed by the CEOs and leaders of its own ecosystem — the same organizations students work alongside every day.
           </motion.p>
           <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.35 }}
-            className="text-xs text-[#C0C0D0]/35 mb-10">Tap any card for background and LinkedIn.</motion.p>
+            className="text-xs mb-10" style={{ color: "var(--text-muted)", opacity: 0.5 }}>Tap any card for background and LinkedIn.</motion.p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {board.map((member, i) => (
@@ -512,13 +513,15 @@ export default function TeamSection({ leadership = defaultLeadership, faculty = 
           </div>
 
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.6 }}
-            className="mt-8 p-4 rounded-xl border border-[#00D4FF]/8 bg-[#0D0D18] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-            <p className="text-xs text-[#C0C0D0]/40">
+            className="mt-8 p-4 rounded-xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"
+            style={{ background: "var(--bg-card)", borderColor: "var(--border-subtle)" }}
+          >
+            <p className="text-xs" style={{ color: "var(--text-muted)", opacity: 0.6 }}>
               Board meetings are virtual &amp; open to the public. Next meeting:{" "}
-              <span className="text-[#00D4FF]/70">May 6, 2026 at 1:00 PM</span>
+              <span style={{ color: "var(--accent)", opacity: 1 }}>May 6, 2026 at 1:00 PM</span>
             </p>
             <a href="mailto:nathan.gorsch@d11.org?subject=CSST Board Meeting"
-              className="text-xs text-[#00D4FF] font-medium hover:underline flex-shrink-0">
+              className="text-xs font-medium hover:underline flex-shrink-0" style={{ color: "var(--accent)" }}>
               Request the link →
             </a>
           </motion.div>

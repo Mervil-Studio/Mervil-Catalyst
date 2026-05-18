@@ -27,35 +27,40 @@ const footerLinks: Record<string, { label: string; href: string; external?: bool
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#060608] border-t border-[#00D4FF]/10 overflow-hidden">
-      {/* Top glow */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00D4FF]/30 to-transparent" />
+    <footer className="relative overflow-hidden" style={{ background: "var(--bg-secondary)", borderTop: "1px solid var(--border-accent)" }}>
+      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `linear-gradient(90deg, transparent, rgba(var(--accent-rgb), 0.30), transparent)` }} />
 
       {/* CTA Banner */}
-      <div className="relative border-b border-[#00D4FF]/8 py-16 overflow-hidden">
+      <div className="relative py-16 overflow-hidden" style={{ borderBottom: "1px solid var(--border-subtle)" }}>
         <div className="absolute inset-0 grid-bg opacity-20" />
-        <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[500px] h-32 bg-[#00D4FF]/6 blur-[80px]" />
+        <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[500px] h-32 blur-[80px]" style={{ background: `rgba(var(--accent-rgb), 0.06)` }} />
 
         <div className="relative max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
-            <p className="text-xs font-medium tracking-[0.25em] uppercase text-[#00D4FF]/60 mb-2">
+            <p className="text-xs font-medium tracking-[0.25em] uppercase mb-2" style={{ color: `rgba(var(--accent-rgb), 0.6)` }}>
               Now Enrolling — 2026–2027
             </p>
-            <h3 className="font-display text-3xl md:text-4xl font-black text-white">
+            <h3 className="font-display text-3xl md:text-4xl font-black" style={{ color: "var(--text-primary)" }}>
               Applications Are Open.
             </h3>
           </div>
           <div className="flex items-center gap-4">
             <Link
               href="/apply"
-              className="flex items-center gap-2 px-8 py-4 rounded-lg bg-[#00D4FF] text-[#0A0A0F] font-bold tracking-wide hover:bg-white transition-all duration-200 shadow-[0_0_30px_rgba(0,212,255,0.35)] group"
+              className="flex items-center gap-2 px-8 py-4 rounded-lg font-bold tracking-wide transition-all duration-200 group"
+              style={{
+                background: "var(--accent)",
+                color: "var(--bg-primary)",
+                boxShadow: `0 0 30px rgba(var(--accent-rgb), 0.35)`,
+              }}
             >
               Apply Now — It&apos;s Free
               <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>
             <a
               href="mailto:info@csrockets.org"
-              className="px-8 py-4 rounded-lg border border-[#00D4FF]/25 text-[#00D4FF] font-semibold hover:bg-[#00D4FF]/10 transition-all duration-200"
+              className="px-8 py-4 rounded-lg border font-semibold transition-all duration-200"
+              style={{ borderColor: "var(--border-accent)", color: "var(--accent)" }}
             >
               Email Admissions
             </a>
@@ -69,36 +74,38 @@ export default function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#00D4FF]/10 border border-[#00D4FF]/25">
-                <Zap className="w-5 h-5 text-[#00D4FF]" />
+              <div
+                className="w-10 h-10 rounded-xl flex items-center justify-center border"
+                style={{ background: `rgba(var(--accent-rgb), 0.10)`, borderColor: "var(--border-accent)" }}
+              >
+                <Zap className="w-5 h-5" style={{ color: "var(--accent)" }} />
               </div>
               <div>
-                <div className="font-display text-sm font-black tracking-[0.15em] text-white">CSST</div>
-                <div className="text-[9px] tracking-[0.2em] text-[#00D4FF]/60 uppercase">
+                <div className="font-display text-sm font-black tracking-[0.15em]" style={{ color: "var(--text-primary)" }}>CSST</div>
+                <div className="text-[9px] tracking-[0.2em] uppercase" style={{ color: `rgba(var(--accent-rgb), 0.6)` }}>
                   Colorado Springs School of Technology
                 </div>
               </div>
             </div>
 
-            <p className="text-sm text-[#C0C0D0]/50 leading-relaxed mb-8 max-w-xs">
+            <p className="text-sm leading-relaxed mb-8 max-w-xs" style={{ color: "var(--text-muted)" }}>
               A D11 Innovation Zone school where Innovators become Founders. Embedded in the most
               concentrated tech ecosystem in the Mountain West.
             </p>
 
-            {/* Contact */}
             <div className="space-y-3">
-              <div className="flex items-center gap-3 text-xs text-[#C0C0D0]/40">
-                <MapPin className="w-3.5 h-3.5 text-[#00D4FF]/50 flex-shrink-0" />
+              <div className="flex items-center gap-3 text-xs" style={{ color: "var(--text-muted)" }}>
+                <MapPin className="w-3.5 h-3.5 flex-shrink-0" style={{ color: `rgba(var(--accent-rgb), 0.5)` }} />
                 Colorado Springs, CO · D11 Innovation Zone
               </div>
-              <div className="flex items-center gap-3 text-xs text-[#C0C0D0]/40">
-                <Mail className="w-3.5 h-3.5 text-[#00D4FF]/50 flex-shrink-0" />
-                <a href="mailto:info@csrockets.org" className="hover:text-[#00D4FF] transition-colors">
+              <div className="flex items-center gap-3 text-xs" style={{ color: "var(--text-muted)" }}>
+                <Mail className="w-3.5 h-3.5 flex-shrink-0" style={{ color: `rgba(var(--accent-rgb), 0.5)` }} />
+                <a href="mailto:info@csrockets.org" className="hover:text-accent transition-colors" style={{ color: "inherit" }}>
                   info@csrockets.org
                 </a>
               </div>
-              <div className="flex items-center gap-3 text-xs text-[#C0C0D0]/40">
-                <Shield className="w-3.5 h-3.5 text-[#00D4FF]/50 flex-shrink-0" />
+              <div className="flex items-center gap-3 text-xs" style={{ color: "var(--text-muted)" }}>
+                <Shield className="w-3.5 h-3.5 flex-shrink-0" style={{ color: `rgba(var(--accent-rgb), 0.5)` }} />
                 NCC Partner School · Space ISAC Pipeline
               </div>
             </div>
@@ -107,7 +114,10 @@ export default function Footer() {
           {/* Link columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="font-display text-xs font-bold tracking-[0.2em] uppercase text-[#00D4FF]/70 mb-5">
+              <h4
+                className="font-display text-xs font-bold tracking-[0.2em] uppercase mb-5"
+                style={{ color: `rgba(var(--accent-rgb), 0.7)` }}
+              >
                 {category}
               </h4>
               <ul className="space-y-3">
@@ -118,7 +128,10 @@ export default function Footer() {
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-sm text-[#C0C0D0]/50 hover:text-[#00D4FF] transition-colors duration-200 group"
+                        className="flex items-center gap-1.5 text-sm transition-colors duration-200 group"
+                        style={{ color: "var(--text-muted)" }}
+                        onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "var(--accent)"; }}
+                        onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-muted)"; }}
                       >
                         {label}
                         <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -126,7 +139,10 @@ export default function Footer() {
                     ) : (
                       <Link
                         href={href}
-                        className="text-sm text-[#C0C0D0]/50 hover:text-[#00D4FF] transition-colors duration-200"
+                        className="text-sm transition-colors duration-200"
+                        style={{ color: "var(--text-muted)" }}
+                        onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "var(--accent)"; }}
+                        onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-muted)"; }}
                       >
                         {label}
                       </Link>
@@ -140,17 +156,14 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-[#00D4FF]/8">
+      <div style={{ borderTop: "1px solid var(--border-subtle)" }}>
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-[#C0C0D0]/25 tracking-wide">
+          <p className="text-xs tracking-wide" style={{ color: `rgba(var(--accent-rgb), 0.25)` }}>
             © {new Date().getFullYear()} Colorado Springs School of Technology · D11 · All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             {["Privacy Policy", "Terms", "Accessibility"].map((item) => (
-              <span
-                key={item}
-                className="text-xs text-[#C0C0D0]/25"
-              >
+              <span key={item} className="text-xs" style={{ color: `rgba(var(--accent-rgb), 0.25)` }}>
                 {item}
               </span>
             ))}

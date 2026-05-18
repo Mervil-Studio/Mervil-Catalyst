@@ -61,9 +61,9 @@ export default function DiverseThinkersSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="mission" ref={ref} className="relative py-28 bg-[#0A0A0F] overflow-hidden">
+    <section id="mission" ref={ref} className="relative py-28 overflow-hidden" style={{ background: "var(--bg-primary)" }}>
       <div className="absolute inset-0 grid-bg opacity-20" />
-      <div className="absolute left-1/2 top-1/3 -translate-x-1/2 w-[700px] h-[500px] bg-[#A78BFA]/5 blur-[140px] pointer-events-none" />
+      <div className="absolute left-1/2 top-1/3 -translate-x-1/2 w-[700px] h-[500px] blur-[140px] pointer-events-none" style={{ background: "rgba(167,139,250,0.05)" }} />
 
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -72,9 +72,10 @@ export default function DiverseThinkersSection() {
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 mb-6 text-[#A78BFA] text-xs font-medium tracking-[0.25em] uppercase"
+            className="inline-flex items-center gap-2 mb-6 text-xs font-medium tracking-[0.25em] uppercase"
+            style={{ color: "var(--accent)" }}
           >
-            <span className="w-8 h-px bg-[#A78BFA]" />
+            <span className="w-8 h-px" style={{ background: "var(--accent)" }} />
             Who This School Is For
           </motion.div>
 
@@ -82,15 +83,16 @@ export default function DiverseThinkersSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-8"
+            className="font-display text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-8"
+            style={{ color: "var(--text-primary)" }}
           >
             The Last Era Rewarded
             <br />
-            <span className="text-[#A78BFA]">the System.</span>
+            <span style={{ color: "var(--accent)" }}>the System.</span>
             <br />
             This One Is Built by People
             <br />
-            <span className="text-[#00D4FF]">Who Rejected It.</span>
+            <span style={{ color: "var(--accent-dim)" }}>Who Rejected It.</span>
           </motion.h2>
 
           <div className="space-y-5 max-w-3xl">
@@ -98,8 +100,9 @@ export default function DiverseThinkersSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-lg text-[#C0C0D0]/70 leading-relaxed"
-            >
+            className="text-lg leading-relaxed"
+            style={{ color: "var(--text-muted)" }}
+          >
               The great industrialists of the 20th century — Ford, Rockefeller, Vanderbilt — built
               empires through a single genius: systematization. Predictable hierarchies. Scalable
               processes. Workers who followed instructions. The American education system was designed
@@ -111,7 +114,8 @@ export default function DiverseThinkersSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.28 }}
-              className="text-lg text-[#C0C0D0]/70 leading-relaxed"
+              className="text-lg leading-relaxed"
+              style={{ color: "var(--text-muted)" }}
             >
               The leaders of the 21st century are different. The founders reshaping AI, aerospace,
               cybersecurity, and the global economy didn&apos;t win by being the best at what
@@ -125,7 +129,8 @@ export default function DiverseThinkersSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.36 }}
-              className="text-base text-[#C0C0D0]/55 leading-relaxed"
+              className="text-base leading-relaxed"
+              style={{ color: "var(--text-muted)", opacity: 0.75 }}
             >
               The research on genuine retention and intrinsic motivation has been making one thing
               clear for decades: when students are learning only to pass a test, they aren&apos;t
@@ -138,7 +143,8 @@ export default function DiverseThinkersSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.44 }}
-              className="text-base text-[#C0C0D0]/55 leading-relaxed"
+              className="text-base leading-relaxed"
+              style={{ color: "var(--text-muted)", opacity: 0.75 }}
             >
               It feels like falling down a rabbit hole at midnight because you can&apos;t stop.
               Like building something you didn&apos;t know how to build yesterday. Like a question
@@ -168,16 +174,17 @@ export default function DiverseThinkersSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.56 + i * 0.1 }}
-              className="relative p-5 rounded-xl border bg-[#0A0A0F]"
+              className="relative p-5 rounded-xl border"
+              style={{ background: "var(--bg-card)" }}
               style={{ borderColor: `${color}15` }}
             >
               <span className="absolute top-3 right-4 font-display text-4xl font-black leading-none select-none" style={{ color: `${color}12` }}>&ldquo;</span>
-              <p className="text-sm text-[#C0C0D0]/65 leading-relaxed mb-4">&ldquo;{quote}&rdquo;</p>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--text-muted)" }}>&ldquo;{quote}&rdquo;</p>
               <div className="flex items-center gap-2.5">
                 <div className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0" style={{ background: `${color}18`, color }}>{name[0]}</div>
                 <div>
-                  <p className="text-xs font-semibold text-white">{name}</p>
-                  <p className="text-[10px] text-[#C0C0D0]/40">{role}</p>
+                  <p className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>{name}</p>
+                  <p className="text-[10px]" style={{ color: "var(--text-muted)", opacity: 0.6 }}>{role}</p>
                 </div>
               </div>
             </motion.div>
@@ -191,10 +198,10 @@ export default function DiverseThinkersSection() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-14 mb-8"
         >
-          <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-[#00D4FF]/50 mb-2">
+          <p className="text-[10px] font-bold tracking-[0.28em] uppercase mb-2" style={{ color: "var(--accent)" }}>
             Our Students Are
           </p>
-          <div className="w-8 h-px bg-[#00D4FF]/30" />
+          <div className="w-8 h-px" style={{ background: "var(--accent)", opacity: 0.4 }} />
         </motion.div>
 
         {/* Trait grid */}
@@ -205,8 +212,8 @@ export default function DiverseThinkersSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 + i * 0.09 }}
-              className="group relative p-6 rounded-xl border bg-[#0D0D18] transition-all duration-300 overflow-hidden"
-              style={{ borderColor: `${color}15` }}
+              className="group relative p-6 rounded-xl border transition-all duration-300 overflow-hidden"
+              style={{ background: "#0D0D18", borderColor: `${color}15` }}
               onMouseEnter={(e) => (e.currentTarget.style.borderColor = `${color}38`)}
               onMouseLeave={(e) => (e.currentTarget.style.borderColor = `${color}15`)}
             >
@@ -220,11 +227,11 @@ export default function DiverseThinkersSection() {
               >
                 <Icon className="w-5 h-5" style={{ color }} strokeWidth={1.5} />
               </div>
-              <h3 className="font-display text-sm font-bold text-white mb-1 leading-tight">{label}</h3>
+              <h3 className="font-display text-sm font-bold mb-1 leading-tight text-white">{label}</h3>
               <p className="text-[10px] font-semibold tracking-wider uppercase mb-3" style={{ color }}>
                 {sublabel}
               </p>
-              <p className="text-xs text-[#C0C0D0]/55 leading-relaxed">{description}</p>
+              <p className="text-xs leading-relaxed text-[#C0C0D0]/60">{description}</p>
             </motion.div>
           ))}
         </div>
@@ -236,7 +243,7 @@ export default function DiverseThinkersSection() {
           transition={{ duration: 0.6, delay: 0.65 }}
           className="mb-10"
         >
-          <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#00D4FF]/60 mb-6">
+          <p className="text-[10px] font-bold tracking-[0.25em] uppercase mb-6" style={{ color: "var(--accent)" }}>
             What This Looks Like in Practice
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -264,11 +271,15 @@ export default function DiverseThinkersSection() {
             ].map(({ label, body, color }) => (
               <div
                 key={label}
-                className="p-5 rounded-xl border"
-                style={{ borderColor: `${color}18`, background: `${color}06` }}
+                className="p-5 rounded-xl border-l-[3px] border"
+                style={{
+                  borderColor: "var(--border-subtle)",
+                  borderLeftColor: color,
+                  background: "var(--bg-card)",
+                }}
               >
-                <p className="text-xs font-bold text-white mb-1.5">{label}</p>
-                <p className="text-[11px] text-[#C0C0D0]/55 leading-relaxed">{body}</p>
+                <p className="text-xs font-bold mb-1.5" style={{ color: "var(--text-primary)" }}>{label}</p>
+                <p className="text-[11px] leading-relaxed" style={{ color: "var(--text-muted)" }}>{body}</p>
               </div>
             ))}
           </div>
@@ -279,24 +290,26 @@ export default function DiverseThinkersSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.75 }}
-          className="relative rounded-2xl border border-[#A78BFA]/20 bg-[#0D0D18] overflow-hidden p-10 mb-5"
+          className="relative rounded-2xl border overflow-hidden p-10 mb-5"
+          style={{ background: "var(--bg-card)", borderColor: "var(--border-accent)" }}
         >
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#A78BFA]/40 to-transparent" />
-          <div className="absolute top-0 left-0 w-1 bottom-0 bg-gradient-to-b from-[#A78BFA]/40 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, var(--accent), transparent)", opacity: 0.5 }} />
+          <div className="absolute top-0 left-0 w-1 bottom-0" style={{ background: "linear-gradient(to bottom, var(--accent), transparent)", opacity: 0.4 }} />
 
           <div className="max-w-3xl">
-            <p className="font-display text-2xl md:text-3xl font-black text-white leading-tight mb-4">
+            <p className="font-display text-2xl md:text-3xl font-black leading-tight mb-4" style={{ color: "var(--text-primary)" }}>
               &ldquo;The last century was built by people who perfected the system.{" "}
-              <span className="text-[#A78BFA]">This one is being built by people who couldn&apos;t follow it.</span>&rdquo;
+              <span style={{ color: "var(--accent)" }}>This one is being built by people who couldn&apos;t follow it.</span>&rdquo;
             </p>
-            <p className="text-sm text-[#C0C0D0]/50 leading-relaxed mb-8 max-w-2xl">
+            <p className="text-sm leading-relaxed mb-8 max-w-2xl" style={{ color: "var(--text-muted)", opacity: 0.7 }}>
               At CSST, that&apos;s not a warning sign on an application. That&apos;s the student
               we built this school for. One of the few schools in Colorado — and among a handful
               nationally — designed from the ground up to foster the next generation of that kind of mind.
             </p>
             <Link
               href="/apply"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-[#A78BFA]/30 text-[#A78BFA] text-sm font-semibold hover:bg-[#A78BFA]/10 hover:border-[#A78BFA]/60 transition-all duration-200 group"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border text-sm font-semibold transition-all duration-200 group"
+              style={{ borderColor: "var(--border-accent)", color: "var(--accent)" }}
             >
               See If CSST Is Right for You
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -309,30 +322,31 @@ export default function DiverseThinkersSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.9 }}
-          className="relative rounded-2xl border border-[#00D4FF]/15 bg-[#0D0D18] overflow-hidden p-8 flex flex-col sm:flex-row items-start gap-6"
+          className="relative rounded-2xl border overflow-hidden p-8 flex flex-col sm:flex-row items-start gap-6"
+          style={{ background: "var(--bg-card)", borderColor: "var(--border-accent)" }}
         >
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00D4FF]/25 to-transparent" />
 
           {/* D11 badge */}
           <div className="flex-shrink-0 flex flex-col items-center gap-2 pt-1">
-            <div className="w-12 h-12 rounded-xl bg-[#00D4FF]/10 border border-[#00D4FF]/25 flex items-center justify-center">
-              <span className="font-display text-xs font-black text-[#00D4FF] tracking-wider">D11</span>
+            <div className="w-12 h-12 rounded-xl border flex items-center justify-center" style={{ background: "rgba(var(--accent-rgb),0.10)", borderColor: "var(--border-accent)" }}>
+              <span className="font-display text-xs font-black tracking-wider" style={{ color: "var(--accent)" }}>D11</span>
             </div>
-            <span className="text-[9px] font-bold tracking-widest uppercase text-[#00D4FF]/40 text-center leading-tight">
+            <span className="text-[9px] font-bold tracking-widest uppercase text-center leading-tight" style={{ color: "rgba(var(--accent-rgb),0.40)" }}>
               Official<br />D11 Position
             </span>
           </div>
 
           <div>
-            <p className="text-base md:text-lg text-white/85 leading-relaxed italic mb-4">
+            <p className="text-base md:text-lg leading-relaxed italic mb-4" style={{ color: "var(--text-primary)", opacity: 0.85 }}>
               &ldquo;CSST is built on that premise of — how do we accelerate opportunity and outcomes
               for students in space, in cyber, in entrepreneurship? We can be unique by bringing
               the power of the city and local economy directly to our students.&rdquo;
             </p>
             <div>
-              <p className="text-sm font-bold text-[#00D4FF]">Michael Gaal</p>
-              <p className="text-xs text-[#C0C0D0]/45">Superintendent, Colorado Springs School District 11</p>
-              <p className="text-[10px] text-[#C0C0D0]/30 mt-0.5">Colorado State Board of Education, April 2024</p>
+              <p className="text-sm font-bold" style={{ color: "var(--accent)" }}>Michael Gaal</p>
+              <p className="text-xs" style={{ color: "var(--text-muted)", opacity: 0.6 }}>Superintendent, Colorado Springs School District 11</p>
+              <p className="text-[10px] mt-0.5" style={{ color: "var(--text-muted)", opacity: 0.4 }}>Colorado State Board of Education, April 2024</p>
             </div>
           </div>
         </motion.div>

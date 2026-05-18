@@ -2,6 +2,10 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
+
+// picsum.photos gives consistent placeholder headshots by seed (no auth needed)
+const AVATAR = (seed: string) => `https://picsum.photos/seed/${seed}/80/80`;
 
 const testimonials = [
   {
@@ -10,6 +14,7 @@ const testimonials = [
     name: "Bruce",
     role: "CSST Parent",
     color: "#00D4FF",
+    avatar: AVATAR("csst-parent-bruce"),
   },
   {
     quote:
@@ -17,6 +22,7 @@ const testimonials = [
     name: "Dominic",
     role: "CSST Student",
     color: "#A78BFA",
+    avatar: AVATAR("csst-student-dominic"),
   },
   {
     quote:
@@ -24,6 +30,7 @@ const testimonials = [
     name: "Destiny",
     role: "CSST Parent",
     color: "#34D399",
+    avatar: AVATAR("csst-parent-destiny"),
   },
 ];
 
@@ -32,7 +39,15 @@ export default function TestimonialsStrip() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section ref={ref} className="relative py-16 bg-[#080810] border-y border-[#00D4FF]/8 overflow-hidden">
+    <section
+      ref={ref}
+      className="relative py-16 overflow-hidden"
+      style={{
+        background: "var(--bg-secondary)",
+        borderTop: "1px solid var(--border-subtle)",
+        borderBottom: "1px solid var(--border-subtle)",
+      }}
+    >
       <div className="absolute inset-0 grid-bg opacity-10" />
 
       <div className="relative max-w-7xl mx-auto px-6">
@@ -40,20 +55,21 @@ export default function TestimonialsStrip() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-[10px] font-bold tracking-[0.28em] uppercase text-[#00D4FF]/45 text-center mb-10"
+          className="text-[10px] font-bold tracking-[0.28em] uppercase text-center mb-10"
+          style={{ color: `rgba(var(--accent-rgb), 0.45)` }}
         >
           In Their Own Words
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map(({ quote, name, role, color }, i) => (
+          {testimonials.map(({ quote, name, role, color, avatar }, i) => (
             <motion.div
               key={name}
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.55, delay: i * 0.12 }}
-              className="relative p-6 rounded-2xl border bg-[#0A0A0F]"
-              style={{ borderColor: `${color}15` }}
+              className="relative p-6 rounded-2xl border flex flex-col"
+              style={{ background: "var(--bg-card)", borderColor: `${color}18` }}
             >
               {/* Quote mark */}
               <span
@@ -63,20 +79,29 @@ export default function TestimonialsStrip() {
                 &ldquo;
               </span>
 
-              <p className="text-sm text-[#C0C0D0]/70 leading-relaxed mb-5 relative z-10">
+              {/* Quote text */}
+              <p className="text-sm leading-relaxed mb-5 relative z-10 flex-1" style={{ color: "var(--text-muted)" }}>
                 &ldquo;{quote}&rdquo;
               </p>
 
+              {/* Attribution with circular photo */}
               <div className="flex items-center gap-3">
                 <div
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0"
-                  style={{ background: `${color}18`, color }}
+                  className="w-10 h-10 rounded-full overflow-hidden border-2 flex-shrink-0"
+                  style={{ borderColor: `${color}35` }}
                 >
-                  {name[0]}
+                  <Image
+                    src={avatar}
+                    alt={name}
+                    width={40}
+                    height={40}
+                    className="w-full h-full object-cover"
+                    unoptimized
+                  />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-white">{name}</p>
-                  <p className="text-[10px] text-[#C0C0D0]/40">{role}</p>
+                  <p className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>{name}</p>
+                  <p className="text-[10px]" style={{ color }}>{role}</p>
                 </div>
               </div>
             </motion.div>

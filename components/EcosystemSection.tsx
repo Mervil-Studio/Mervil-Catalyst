@@ -207,11 +207,8 @@ function PartnerCard({ p, index, inView }: { p: typeof partners[0]; index: numbe
       transition={{ duration: 0.55, delay: 0.2 + index * 0.07 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative flex flex-col rounded-2xl overflow-hidden border bg-[#0D0D18] transition-all duration-300 cursor-pointer"
-      style={{
-        borderColor: hovered ? `${p.color}40` : `${p.color}18`,
-        boxShadow: hovered ? `0 8px 40px ${p.color}12, inset 0 1px 0 ${p.color}15` : `inset 0 1px 0 ${p.color}08`,
-      }}
+      className="group relative flex flex-col rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer"
+      style={{ background: "var(--bg-card)", borderColor: hovered ? `${p.color}40` : `${p.color}18`, boxShadow: hovered ? `0 8px 40px ${p.color}12` : "none" }}
     >
       {/* Top glow bar */}
       <div
@@ -242,7 +239,7 @@ function PartnerCard({ p, index, inView }: { p: typeof partners[0]; index: numbe
                   : "h-9 w-[72px] rounded-xl flex items-center justify-center flex-shrink-0 border transition-all duration-300 overflow-hidden px-1.5"
               }
               style={{
-                background: logoNatural ? "#000" : `${p.color}10`,
+                background: "#0D0D18",
                 borderColor: `${p.color}22`,
                 boxShadow: hovered ? `0 0 16px ${p.color}28` : "none",
               }}
@@ -266,8 +263,8 @@ function PartnerCard({ p, index, inView }: { p: typeof partners[0]; index: numbe
             <div
               className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 border transition-all duration-300"
               style={{
-                background: `${p.color}12`,
-                borderColor: `${p.color}25`,
+                background: "#0D0D18",
+                borderColor: `${p.color}40`,
                 boxShadow: hovered ? `0 0 16px ${p.color}30` : "none",
               }}
             >
@@ -284,12 +281,12 @@ function PartnerCard({ p, index, inView }: { p: typeof partners[0]; index: numbe
 
         {/* Name + tagline */}
         <div>
-          <h3 className="font-display text-sm font-bold text-white leading-tight">{p.name}</h3>
-          <p className="text-[11px] text-[#C0C0D0]/45 mt-1 leading-snug">{p.tagline}</p>
+          <h3 className="font-display text-sm font-bold leading-tight" style={{ color: "var(--text-primary)" }}>{p.name}</h3>
+          <p className="text-[11px] mt-1 leading-snug" style={{ color: "var(--text-muted)", opacity: 0.6 }}>{p.tagline}</p>
         </div>
 
         {/* Description */}
-        <p className="text-[11px] text-[#C0C0D0]/55 leading-relaxed flex-1">{p.description}</p>
+        <p className="text-[11px] leading-relaxed flex-1" style={{ color: "var(--text-muted)", opacity: 0.75 }}>{p.description}</p>
 
         {/* Stat footer */}
         <div
@@ -298,7 +295,7 @@ function PartnerCard({ p, index, inView }: { p: typeof partners[0]; index: numbe
         >
           <div>
             <span className="text-sm font-bold" style={{ color: p.color }}>{p.stat}</span>
-            <span className="text-[10px] text-[#C0C0D0]/40 block leading-tight">{p.statLabel}</span>
+            <span className="text-[10px] block leading-tight" style={{ color: "var(--text-muted)", opacity: 0.5 }}>{p.statLabel}</span>
           </div>
           <ExternalLink
             className="w-3.5 h-3.5 transition-all duration-300"
@@ -322,11 +319,8 @@ function FeaturedCard({ partner, index }: { partner: typeof featured[0]; index: 
       transition={{ duration: 0.65, delay: index * 0.12 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative flex flex-col rounded-2xl border bg-[#0D0D18] overflow-hidden transition-all duration-300"
-      style={{
-        borderColor: hovered ? `${partner.color}35` : `${partner.color}15`,
-        boxShadow: hovered ? `0 0 40px ${partner.color}12` : "none",
-      }}
+      className="relative flex flex-col rounded-2xl border overflow-hidden transition-all duration-300"
+      style={{ background: "var(--bg-card)", borderColor: hovered ? `${partner.color}35` : `${partner.color}15`, boxShadow: hovered ? `0 0 40px ${partner.color}12` : "none" }}
     >
       <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${partner.color}55, transparent)` }} />
       <motion.div animate={{ opacity: hovered ? 1 : 0 }} transition={{ duration: 0.3 }}
@@ -336,7 +330,7 @@ function FeaturedCard({ partner, index }: { partner: typeof featured[0]; index: 
       <div className="relative p-7 flex flex-col flex-1">
         <div className="flex items-start justify-between mb-5">
           <div className="w-12 h-12 rounded-xl flex items-center justify-center border transition-all duration-300"
-            style={{ background: `${partner.color}12`, borderColor: `${partner.color}25`, boxShadow: hovered ? `0 0 20px ${partner.color}25` : "none" }}>
+            style={{ background: "#0D0D18", borderColor: `${partner.color}40`, boxShadow: hovered ? `0 0 20px ${partner.color}25` : "none" }}>
             <Icon className="w-6 h-6" style={{ color: partner.color }} strokeWidth={1.5} />
           </div>
           <a href={partner.href} target="_blank" rel="noopener noreferrer"
@@ -346,13 +340,13 @@ function FeaturedCard({ partner, index }: { partner: typeof featured[0]; index: 
           </a>
         </div>
 
-        <h3 className="font-display text-base font-bold text-white mb-1 leading-tight">{partner.name}</h3>
+        <h3 className="font-display text-base font-bold mb-1 leading-tight" style={{ color: "var(--text-primary)" }}>{partner.name}</h3>
         <p className="text-xs font-medium tracking-wide mb-4" style={{ color: partner.color }}>{partner.tagline}</p>
-        <p className="text-sm text-[#C0C0D0]/60 leading-relaxed mb-5 flex-1">{partner.description}</p>
+        <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: "var(--text-muted)", opacity: 0.8 }}>{partner.description}</p>
 
         <ul className="space-y-2">
           {partner.highlights.map((h) => (
-            <li key={h} className="flex items-start gap-2 text-xs text-[#C0C0D0]/50">
+            <li key={h} className="flex items-start gap-2 text-xs" style={{ color: "var(--text-muted)", opacity: 0.7 }}>
               <span className="w-1 h-1 rounded-full flex-shrink-0 mt-1.5" style={{ background: partner.color }} />
               {h}
             </li>
@@ -369,27 +363,30 @@ export default function EcosystemSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="ecosystem" ref={ref} className="relative py-28 bg-[#0A0A0F] overflow-hidden">
+    <section id="ecosystem" ref={ref} className="relative py-28 overflow-hidden" style={{ background: "var(--bg-primary)" }}>
       <div className="absolute inset-0 grid-bg opacity-25" />
-      <div className="absolute left-0 top-1/3 w-72 h-[600px] bg-[#00D4FF]/4 blur-[120px] pointer-events-none" />
-      <div className="absolute right-0 bottom-1/3 w-72 h-[600px] bg-[#F59E0B]/4 blur-[120px] pointer-events-none" />
-      <div className="absolute right-1/4 top-0 w-48 h-72 bg-[#34D399]/3 blur-[80px] pointer-events-none" />
+      <div className="absolute left-0 top-1/3 w-72 h-[600px] blur-[120px] pointer-events-none" style={{ background: "rgba(0,212,255,0.04)" }} />
+      <div className="absolute right-0 bottom-1/3 w-72 h-[600px] blur-[120px] pointer-events-none" style={{ background: "rgba(245,158,11,0.04)" }} />
+      <div className="absolute right-1/4 top-0 w-48 h-72 blur-[80px] pointer-events-none" style={{ background: "rgba(52,211,153,0.03)" }} />
 
       <div className="max-w-7xl mx-auto px-6">
 
         {/* ── HEADER ── */}
         <div className="max-w-3xl mb-16">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 mb-6 text-[#00D4FF] text-xs font-medium tracking-[0.25em] uppercase">
-            <span className="w-8 h-px bg-[#00D4FF]" />The Co-Location Advantage
+            className="inline-flex items-center gap-2 mb-6 text-xs font-medium tracking-[0.25em] uppercase"
+            style={{ color: "var(--accent)" }}>
+            <span className="w-8 h-px" style={{ background: "var(--accent)" }} />The Co-Location Advantage
           </motion.div>
           <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-5">
+            className="font-display text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-5"
+            style={{ color: "var(--text-primary)" }}>
             9 Official Partners.
-            <br /><span className="text-[#00D4FF]">All In.</span>
+            <br /><span style={{ color: "var(--accent)" }}>All In.</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg text-[#C0C0D0]/70 leading-relaxed">
+            className="text-lg leading-relaxed"
+            style={{ color: "var(--text-muted)" }}>
             Industry, defense, and higher education formally partnered with CSST —
             not as sponsors, but as co-builders of what this school is.
           </motion.p>
@@ -408,12 +405,12 @@ export default function EcosystemSection() {
           className="flex items-center gap-5 mb-16"
         >
           <div className="flex-1 h-px bg-gradient-to-r from-[#00D4FF]/30 to-transparent" />
-          <div className="flex items-center gap-3 px-4 py-2 rounded-full border border-[#00D4FF]/20 bg-[#00D4FF]/5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] animate-pulse" />
-            <span className="text-xs font-bold tracking-[0.2em] text-[#00D4FF]/70 uppercase whitespace-nowrap">
+          <div className="flex items-center gap-3 px-4 py-2 rounded-full border" style={{ borderColor: "var(--border-accent)", background: "rgba(var(--accent-rgb),0.05)" }}>
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "var(--accent)" }} />
+            <span className="text-xs font-bold tracking-[0.2em] uppercase whitespace-nowrap" style={{ color: "rgba(var(--accent-rgb),0.70)" }}>
               Anchor Partners — In the Building
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "var(--accent)" }} />
           </div>
           <div className="flex-1 h-px bg-gradient-to-l from-[#00D4FF]/30 to-transparent" />
         </motion.div>
