@@ -120,14 +120,6 @@ function PhotoFrame() {
           ))}
         </div>
 
-        {/* Status badge */}
-        <div
-          className="absolute top-4 left-4 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full backdrop-blur-sm border"
-          style={{ background: "var(--bg-primary)", borderColor: "var(--border-accent)", opacity: 0.9 }}
-        >
-          <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "var(--accent)" }} />
-          <span className="text-[10px] font-bold tracking-[0.2em] uppercase" style={{ color: "var(--accent)" }}>Live Campus</span>
-        </div>
       </div>
     </div>
   );
