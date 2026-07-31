@@ -7,6 +7,8 @@ import TheSpaceSection from "@/components/TheSpaceSection";
 import ProgramTracks from "@/components/ProgramTracks";
 import EcosystemSection from "@/components/EcosystemSection";
 import StudentLifeSection from "@/components/StudentLifeSection";
+import CelebrationsSection from "@/components/CelebrationsSection";
+import CalendarSection from "@/components/CalendarSection";
 import TestimonialsStrip from "@/components/TestimonialsStrip";
 import TeamSection from "@/components/TeamSection";
 import FAQSection from "@/components/FAQSection";
@@ -66,6 +68,18 @@ export default function Home() {
       />
 
       <TestimonialsStrip />
+
+      {/* Break 5 — celebrations / community vibe */}
+      <ImageBreak
+        src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1600&h=700&fit=crop&auto=format&q=80"
+        alt="Students celebrating together — placeholder for CSST community moments"
+        height={320}
+        caption="Placeholder · Replace with CSST event photos"
+      />
+
+      <CelebrationsSection />
+      <CalendarSection />
+
       <TeamSection
         leadership={leadershipData.members}
         faculty={facultyData.members}
