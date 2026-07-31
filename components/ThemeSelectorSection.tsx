@@ -19,15 +19,15 @@ export default function ThemeSelectorSection() {
 
   return (
     <>
-      {/* Spacer — reserves space for BOTH fixed bars so page content isn't hidden behind them */}
-      <div style={{ height: NAV_HEIGHT + BAR_HEIGHT }} aria-hidden />
+      {/* Spacer — reserves space for announcement bar + nav + theme bar */}
+      <div style={{ height: `calc(var(--announce-h, 0px) + ${NAV_HEIGHT + BAR_HEIGHT}px)` }} aria-hidden />
 
-      {/* Fixed bar — sits immediately below the fixed nav (72px) */}
+      {/* Fixed bar — sits immediately below the fixed nav */}
       <div
         id="pathway"
         className="fixed left-0 right-0 z-40 overflow-hidden"
         style={{
-          top: 72,
+          top: `calc(var(--announce-h, 0px) + ${NAV_HEIGHT}px)`,
           height: BAR_HEIGHT,
           background: "var(--bg-secondary)",
           borderBottom: "1px solid var(--border-subtle)",

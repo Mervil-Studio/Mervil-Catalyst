@@ -5,12 +5,14 @@ import Link from "next/link";
 import { X, Megaphone } from "lucide-react";
 import announcements from "@/data/announcements.json";
 
+const BAR_H = 44; // px — announcement bar height, kept in sync with CSS
+
 type Announcement = {
   id: string;
   text: string;
   link?: string;
   linkLabel?: string;
-  expires?: string; // ISO date string — bar auto-hides after this date
+  expires?: string;
 };
 
 function getActive(): Announcement[] {
@@ -30,10 +32,14 @@ export default function AnnouncementBar() {
     try {
       const stored = JSON.parse(localStorage.getItem("csst-dismissed-announcements") || "[]");
       setDismissed(stored);
-    } catch {
-      // ignore
-    }
+    } catch { /* ignore */ }
   }, []);
+
+  // Keep the CSS variable in sync so Navigation + ThemeSelectorSection shift down
+  const isVisible = mounted && getActive().filter((a) => !dismissed.includes(a.id)).length > 0;
+  useEffect(() => {
+    document.documentElement.style.setProperty("--announce-h", isVisible ? `${BAR_H}px` : "0px");
+  }, [isVisible]);
 
   const dismiss = (id: string) => {
     const next = [...dismissed, id];
@@ -41,26 +47,23 @@ export default function AnnouncementBar() {
     try { localStorage.setItem("csst-dismissed-announcements", JSON.stringify(next)); } catch { /* ignore */ }
   };
 
-  if (!mounted) return null;
+  if (!mounted || !isVisible) return null;
 
-  const active = getActive().filter((a) => !dismissed.includes(a.id));
-  if (active.length === 0) return null;
-
-  // Show only the most recent (first) active announcement
-  const item = active[0];
+  const item = getActive().filter((a) => !dismissed.includes(a.id))[0];
 
   return (
     <div
-      className="w-full z-50 flex items-center justify-center gap-3 px-4 py-2.5 text-sm"
+      className="fixed left-0 right-0 z-[60] flex items-center justify-center gap-3 px-4 text-sm font-medium"
       style={{
+        top: 0,
+        height: BAR_H,
         background: "var(--accent)",
         color: "#fff",
-        minHeight: 44,
       }}
     >
       <Megaphone className="w-4 h-4 shrink-0 opacity-80" />
 
-      <p className="text-center leading-snug font-medium">
+      <p className="text-center leading-snug">
         {item.text}
         {item.link && (
           <Link

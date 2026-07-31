@@ -40,8 +40,9 @@ export default function Navigation() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        className="fixed left-0 right-0 z-50 transition-all duration-300"
         style={{
+          top: "var(--announce-h, 0px)",
           background: scrolled ? "var(--bg-nav)" : `${meta.accent}04`,
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
@@ -56,8 +57,8 @@ export default function Navigation() {
             <Image
               src="/csst-logo.png"
               alt="Colorado Springs School of Technology"
-              width={160} height={36}
-              className="h-9 w-auto object-contain"
+              width={220} height={52}
+              className="h-12 w-auto object-contain"
               priority
             />
             <div className="hidden md:block pl-3" style={{ borderLeft: "1px solid var(--border-accent)" }}>
