@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { X } from "lucide-react";
 import announcements from "@/data/announcements.json";
@@ -24,23 +25,17 @@ function getActive(): Announcement[] {
   );
 }
 
-// ── Rocket SVG ─────────────────────────────────────────────────────────────
-function RocketIcon({ size = 48 }: { size?: number }) {
+// ── Real CSST rocket from the school logo ─────────────────────────────────
+function RocketIcon({ size = 80 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 48 48" fill="none">
-      {/* Body */}
-      <path d="M24 4C24 4 14 14 14 26H34C34 14 24 4 24 4Z" fill="currentColor" opacity="0.9" />
-      {/* Nose cone */}
-      <path d="M20 10C20 10 24 4 24 4C24 4 28 10 28 10H20Z" fill="currentColor" />
-      {/* Wings */}
-      <path d="M14 26L8 34H14V26Z" fill="currentColor" opacity="0.6" />
-      <path d="M34 26L40 34H34V26Z" fill="currentColor" opacity="0.6" />
-      {/* Bottom nozzle */}
-      <rect x="20" y="33" width="8" height="4" rx="1" fill="currentColor" opacity="0.7" />
-      {/* Window */}
-      <circle cx="24" cy="22" r="3.5" fill="white" opacity="0.3" />
-      <circle cx="24" cy="22" r="2" fill="white" opacity="0.5" />
-    </svg>
+    <Image
+      src="/csst-rocket.png"
+      alt="CSST Rocket"
+      width={size}
+      height={Math.round(size * 1.79)} // original aspect ratio 200x358
+      style={{ objectFit: "contain" }}
+      priority
+    />
   );
 }
 
@@ -150,10 +145,10 @@ export default function AnnouncementModal() {
                   opacity: { duration: 0.2, delay: 0.15 },
                 }}
                 className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center"
-                style={{ top: -56, zIndex: 2 }}
+                style={{ top: -88, zIndex: 2 }}
               >
-                <div style={{ color: "var(--accent)" }}>
-                  <RocketIcon size={48} />
+                <div style={{ filter: `drop-shadow(0 0 12px rgba(var(--accent-rgb), 0.6)) drop-shadow(0 0 28px rgba(var(--accent-rgb), 0.3))` }}>
+                  <RocketIcon size={80} />
                 </div>
                 <ExhaustParticles active />
               </motion.div>
@@ -165,7 +160,7 @@ export default function AnnouncementModal() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 8 }}
                 transition={{ duration: 0.4, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                className="relative rounded-2xl overflow-hidden pt-16 px-8 pb-7"
+                className="relative rounded-2xl overflow-hidden pt-20 px-8 pb-7"
                 style={{
                   background: "var(--bg-card)",
                   border: "1px solid var(--border-accent)",
