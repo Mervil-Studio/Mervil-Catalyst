@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { X } from "lucide-react";
 import announcements from "@/data/announcements.json";
@@ -25,17 +24,43 @@ function getActive(): Announcement[] {
   );
 }
 
-// ── Real CSST rocket from the school logo ─────────────────────────────────
+// ── CSST Rockets mascot — rocket with person silhouette, matches school icon ─
 function RocketIcon({ size = 80 }: { size?: number }) {
   return (
-    <Image
-      src="/csst-rocket.png"
-      alt="CSST Rocket"
+    <svg
       width={size}
-      height={Math.round(size * 1.79)} // original aspect ratio 200x358
-      style={{ objectFit: "contain" }}
-      priority
-    />
+      height={size}
+      viewBox="0 0 100 110"
+      fill="currentColor"
+      aria-hidden
+    >
+      {/* Nose cone */}
+      <path d="M50 2 C38 2 26 18 22 36 L78 36 C74 18 62 2 50 2Z" />
+      {/* Main body */}
+      <rect x="22" y="34" width="56" height="40" rx="4" />
+      {/* Person silhouette inside body */}
+      <g fill="white" opacity="0.35">
+        {/* Head */}
+        <circle cx="50" cy="46" r="6" />
+        {/* Arms spread */}
+        <rect x="30" y="52" width="40" height="5" rx="2.5" />
+        {/* Torso */}
+        <rect x="44" y="52" width="12" height="14" rx="3" />
+        {/* Legs */}
+        <rect x="42" y="64" width="6" height="8" rx="2" />
+        <rect x="52" y="64" width="6" height="8" rx="2" />
+      </g>
+      {/* Left fin */}
+      <path d="M22 58 L6 76 L22 74Z" />
+      {/* Right fin */}
+      <path d="M78 58 L94 76 L78 74Z" />
+      {/* Nozzle */}
+      <rect x="36" y="74" width="28" height="8" rx="3" />
+      {/* Exhaust flame outer */}
+      <path d="M40 82 C36 90 32 102 50 108 C68 102 64 90 60 82Z" opacity="0.55" />
+      {/* Exhaust flame inner */}
+      <path d="M44 82 C42 91 44 100 50 104 C56 100 58 91 56 82Z" opacity="0.8" />
+    </svg>
   );
 }
 
