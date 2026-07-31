@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Orbitron, Space_Grotesk, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "./theme-context";
 import AnnouncementBar from "@/components/AnnouncementBar";
+import AnnouncementModal from "@/components/AnnouncementModal";
 import "./globals.css";
 
 const orbitron = Orbitron({
@@ -83,6 +84,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-bg-primary text-text-primary">
         <ThemeProvider>
+          <AnnouncementModal />
           <AnnouncementBar />
           {children}
         </ThemeProvider>

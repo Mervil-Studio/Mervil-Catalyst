@@ -5,7 +5,9 @@ import Link from "next/link";
 import { X, Megaphone } from "lucide-react";
 import announcements from "@/data/announcements.json";
 
-const BAR_H = 44; // px — announcement bar height, kept in sync with CSS
+const BAR_H = 44;
+// Shared storage key with AnnouncementModal — bar shows only after modal is seen
+const STORAGE_KEY = "csst-seen-announcements";
 
 type Announcement = {
   id: string;
@@ -17,26 +19,31 @@ type Announcement = {
 
 function getActive(): Announcement[] {
   const now = new Date();
-  return (announcements as Announcement[]).filter((a) => {
-    if (!a.expires) return true;
-    return new Date(a.expires) >= now;
-  });
+  return (announcements as Announcement[]).filter((a) =>
+    !a.expires || new Date(a.expires) >= now
+  );
 }
 
 export default function AnnouncementBar() {
+  const [seen, setSeen]       = useState<string[]>([]);
   const [dismissed, setDismissed] = useState<string[]>([]);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     try {
-      const stored = JSON.parse(localStorage.getItem("csst-dismissed-announcements") || "[]");
-      setDismissed(stored);
+      // "seen" = acknowledged via modal; "dismissed" = X'd out of the bar too
+      const seenStored      = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+      const dismissedStored = JSON.parse(localStorage.getItem("csst-dismissed-bar") || "[]");
+      setSeen(seenStored);
+      setDismissed(dismissedStored);
     } catch { /* ignore */ }
   }, []);
 
-  // Keep the CSS variable in sync so Navigation + ThemeSelectorSection shift down
-  const isVisible = mounted && getActive().filter((a) => !dismissed.includes(a.id)).length > 0;
+  // Bar shows only for announcements the user has already seen in the modal
+  const isVisible = mounted &&
+    getActive().some((a) => seen.includes(a.id) && !dismissed.includes(a.id));
+
   useEffect(() => {
     document.documentElement.style.setProperty("--announce-h", isVisible ? `${BAR_H}px` : "0px");
   }, [isVisible]);
@@ -44,12 +51,13 @@ export default function AnnouncementBar() {
   const dismiss = (id: string) => {
     const next = [...dismissed, id];
     setDismissed(next);
-    try { localStorage.setItem("csst-dismissed-announcements", JSON.stringify(next)); } catch { /* ignore */ }
+    try { localStorage.setItem("csst-dismissed-bar", JSON.stringify(next)); } catch { /* ignore */ }
   };
 
   if (!mounted || !isVisible) return null;
 
-  const item = getActive().filter((a) => !dismissed.includes(a.id))[0];
+  const item = getActive().find((a) => seen.includes(a.id) && !dismissed.includes(a.id));
+  if (!item) return null;
 
   return (
     <div
