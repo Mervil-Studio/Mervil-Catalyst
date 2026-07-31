@@ -14,38 +14,20 @@ const BEHOLD_FEED_ID = ""; // ← paste Behold Feed ID here
 
 const INSTAGRAM_URL = "https://www.instagram.com/csrockets_cos/";
 
-// Placeholder posts shown until Behold is wired up
+// Placeholder posts — 12 items = 3 rows × 4 cols on desktop
 const PLACEHOLDER_POSTS = [
-  {
-    id: "1",
-    img: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=400&h=400&fit=crop&auto=format&q=80",
-    caption: "Students collaborating on a project",
-  },
-  {
-    id: "2",
-    img: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400&h=400&fit=crop&auto=format&q=80",
-    caption: "Innovation in the classroom",
-  },
-  {
-    id: "3",
-    img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=400&fit=crop&auto=format&q=80",
-    caption: "Team work makes the dream work",
-  },
-  {
-    id: "4",
-    img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=400&fit=crop&auto=format&q=80",
-    caption: "Student presentations",
-  },
-  {
-    id: "5",
-    img: "https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&h=400&fit=crop&auto=format&q=80",
-    caption: "Celebrating achievements",
-  },
-  {
-    id: "6",
-    img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=400&fit=crop&auto=format&q=80",
-    caption: "Learning together",
-  },
+  { id:  "1", img: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=500&h=500&fit=crop&auto=format&q=80", caption: "Students collaborating" },
+  { id:  "2", img: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=500&h=500&fit=crop&auto=format&q=80", caption: "Innovation in the classroom" },
+  { id:  "3", img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&h=500&fit=crop&auto=format&q=80", caption: "Teamwork" },
+  { id:  "4", img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=500&h=500&fit=crop&auto=format&q=80", caption: "Student presentations" },
+  { id:  "5", img: "https://images.unsplash.com/photo-1544717305-2782549b5136?w=500&h=500&fit=crop&auto=format&q=80", caption: "Celebrating achievements" },
+  { id:  "6", img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=500&fit=crop&auto=format&q=80", caption: "Learning together" },
+  { id:  "7", img: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=500&h=500&fit=crop&auto=format&q=80", caption: "Community celebration" },
+  { id:  "8", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&h=500&fit=crop&auto=format&q=80", caption: "Hands-on learning" },
+  { id:  "9", img: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=500&h=500&fit=crop&auto=format&q=80", caption: "STEM exploration" },
+  { id: "10", img: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=500&h=500&fit=crop&auto=format&q=80", caption: "School life" },
+  { id: "11", img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=500&h=500&fit=crop&auto=format&q=80", caption: "Making a difference" },
+  { id: "12", img: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=500&h=500&fit=crop&auto=format&q=80", caption: "Future ready" },
 ];
 
 // Injects the Behold widget script once and renders the custom element via dangerouslySetInnerHTML
@@ -101,7 +83,7 @@ export default function CelebrationsSection() {
               className="font-display text-3xl md:text-4xl lg:text-5xl font-black leading-tight tracking-tight"
               style={{ color: "var(--text-primary)" }}
             >
-              Celebrating Our Rockets
+              Celebrate Life With Us at CSST
             </h2>
             <a
               href={INSTAGRAM_URL}
@@ -133,7 +115,7 @@ export default function CelebrationsSection() {
             <BeholdFeed feedId={BEHOLD_FEED_ID} />
           ) : (
             // Placeholder grid until Behold is connected
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
               {PLACEHOLDER_POSTS.map((post, i) => (
                 <motion.div
                   key={post.id}

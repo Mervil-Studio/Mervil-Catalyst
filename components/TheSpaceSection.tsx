@@ -197,7 +197,7 @@ export default function TheSpaceSection() {
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold mb-1" style={{ color: "var(--text-primary)" }}>{title}</h3>
-                  <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)", opacity: 0.7 }}>{description}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)", opacity: 0.85 }}>{description}</p>
                 </div>
               </motion.div>
             ))}

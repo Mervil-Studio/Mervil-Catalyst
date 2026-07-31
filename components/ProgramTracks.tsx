@@ -270,7 +270,7 @@ function DualEnrollCard({ partner, index }: { partner: typeof dualEnrollPartners
         {/* Highlights */}
         <ul className="space-y-2">
           {partner.highlights.map((h) => (
-            <li key={h} className="flex items-start gap-2.5 text-xs" style={{ color: "var(--text-muted)", opacity: 0.7 }}>
+            <li key={h} className="flex items-start gap-2.5 text-sm" style={{ color: "var(--text-muted)", opacity: 0.85 }}>
               <Star className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: partner.color }} />
               {h}
             </li>
@@ -395,7 +395,7 @@ export default function ProgramTracks() {
               <BookOpen className="w-4 h-4 text-[#00D4FF]/60 mt-0.5 flex-shrink-0" />
               <div>
                 <p className="text-sm font-semibold mb-0.5" style={{ color: "var(--text-primary)" }}>How to Get Started with Dual Enrollment</p>
-                <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)", opacity: 0.7 }}>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)", opacity: 0.85 }}>
                   Work with your CSST counselor (Milithza McNeil) to identify courses that align with
                   your interests and count toward both HS graduation and your college plan.
                 </p>

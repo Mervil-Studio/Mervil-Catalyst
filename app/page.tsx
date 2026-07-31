@@ -6,10 +6,8 @@ import DiverseThinkersSection from "@/components/DiverseThinkersSection";
 import TheSpaceSection from "@/components/TheSpaceSection";
 import ProgramTracks from "@/components/ProgramTracks";
 import EcosystemSection from "@/components/EcosystemSection";
-import StudentLifeSection from "@/components/StudentLifeSection";
 import CelebrationsSection from "@/components/CelebrationsSection";
 import CalendarSection from "@/components/CalendarSection";
-import TestimonialsStrip from "@/components/TestimonialsStrip";
 import TeamSection from "@/components/TeamSection";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
@@ -26,9 +24,11 @@ export default function Home() {
       <ThemeSelectorSection />
       <HeroSection />
       <StatsBar />
-      <StudentLifeSection />
 
-      {/* Break 1 — students collaborating, before "Who This School Is For" */}
+      {/* Life at CSST — Instagram feed (replaces static StudentLifeSection) */}
+      <CelebrationsSection />
+
+      {/* Break 1 — students collaborating */}
       <ImageBreak
         src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1600&h=700&fit=crop&auto=format&q=80"
         alt="High school students working together at a whiteboard — placeholder for CSST students"
@@ -38,7 +38,7 @@ export default function Home() {
 
       <DiverseThinkersSection />
 
-      {/* Break 2 — students with tech, before The Space / Programs */}
+      {/* Break 2 — students with tech */}
       <ImageBreak
         src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=1600&h=700&fit=crop&auto=format&q=80"
         alt="Students using technology in a modern classroom — placeholder for CSST campus"
@@ -49,7 +49,7 @@ export default function Home() {
       <TheSpaceSection />
       <ProgramTracks />
 
-      {/* Break 3 — students in group / community, before Partners */}
+      {/* Break 3 — students in group / community */}
       <ImageBreak
         src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1600&h=700&fit=crop&auto=format&q=80"
         alt="Diverse group of high school students — placeholder for CSST student community"
@@ -59,7 +59,7 @@ export default function Home() {
 
       <EcosystemSection />
 
-      {/* Break 4 — students presenting / pitching, before Testimonials */}
+      {/* Break 4 — students presenting */}
       <ImageBreak
         src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1600&h=700&fit=crop&auto=format&q=80"
         alt="Students presenting a project — placeholder for CSST pitch day"
@@ -67,17 +67,6 @@ export default function Home() {
         caption="Placeholder · Replace with CSST event photos"
       />
 
-      <TestimonialsStrip />
-
-      {/* Break 5 — celebrations / community vibe */}
-      <ImageBreak
-        src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1600&h=700&fit=crop&auto=format&q=80"
-        alt="Students celebrating together — placeholder for CSST community moments"
-        height={320}
-        caption="Placeholder · Replace with CSST event photos"
-      />
-
-      <CelebrationsSection />
       <CalendarSection />
 
       <TeamSection

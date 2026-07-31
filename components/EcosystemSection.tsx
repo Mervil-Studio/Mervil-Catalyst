@@ -282,11 +282,11 @@ function PartnerCard({ p, index, inView }: { p: typeof partners[0]; index: numbe
         {/* Name + tagline */}
         <div>
           <h3 className="font-display text-sm font-bold leading-tight" style={{ color: "var(--text-primary)" }}>{p.name}</h3>
-          <p className="text-[11px] mt-1 leading-snug" style={{ color: "var(--text-muted)", opacity: 0.6 }}>{p.tagline}</p>
+          <p className="text-sm mt-1 leading-snug" style={{ color: "var(--text-muted)", opacity: 0.75 }}>{p.tagline}</p>
         </div>
 
         {/* Description */}
-        <p className="text-[11px] leading-relaxed flex-1" style={{ color: "var(--text-muted)", opacity: 0.75 }}>{p.description}</p>
+        <p className="text-sm leading-relaxed flex-1" style={{ color: "var(--text-muted)", opacity: 0.85 }}>{p.description}</p>
 
         {/* Stat footer */}
         <div
@@ -346,7 +346,7 @@ function FeaturedCard({ partner, index }: { partner: typeof featured[0]; index: 
 
         <ul className="space-y-2">
           {partner.highlights.map((h) => (
-            <li key={h} className="flex items-start gap-2 text-xs" style={{ color: "var(--text-muted)", opacity: 0.7 }}>
+            <li key={h} className="flex items-start gap-2 text-sm" style={{ color: "var(--text-muted)", opacity: 0.85 }}>
               <span className="w-1 h-1 rounded-full flex-shrink-0 mt-1.5" style={{ background: partner.color }} />
               {h}
             </li>
