@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "type": "Open House",
+    "title": "CSST Information Night",
+    "date": "2026-09-10",
+    "time": "6:00 PM",
+    "location": "3650 North Nevada Ave",
+    "locationNote": "Enter on the west side at the CSST entrance",
+    "description": "Meet our staff, tour the new facility, and learn everything about CSST for the 2026–2027 school year.",
+    "link": "/apply",
+    "linkLabel": "RSVP / Apply Now"
+  },
+  {
+    "id": "2",
+    "type": "Open House",
+    "title": "CSST Information Night",
+    "date": "2026-10-08",
+    "time": "6:00 PM",
+    "location": "3650 North Nevada Ave",
+    "locationNote": "Enter on the west side at the CSST entrance",
+    "description": "Meet our staff, tour the new facility, and learn everything about CSST for the 2026–2027 school year.",
+    "link": "/apply",
+    "linkLabel": "RSVP / Apply Now"
+  }
+]

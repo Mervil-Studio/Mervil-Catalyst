@@ -8,6 +8,7 @@ import ProgramTracks from "@/components/ProgramTracks";
 import EcosystemSection from "@/components/EcosystemSection";
 import CelebrationsSection from "@/components/CelebrationsSection";
 import CalendarSection from "@/components/CalendarSection";
+import EventsSection from "@/components/EventsSection";
 import TeamSection from "@/components/TeamSection";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
@@ -24,6 +25,7 @@ export default function Home() {
       <ThemeSelectorSection />
       <HeroSection />
       <StatsBar />
+      <EventsSection />
 
       {/* Life at CSST — Instagram feed (replaces static StudentLifeSection) */}
       <CelebrationsSection />
